@@ -19,22 +19,12 @@
                             </p>
                         </div>
                     </div>
-                    <div class="hero-static col-md-6 col-xl-4 d-flex align-items-center bg-white">
+                    <div class="hero-static col-md-6 col-xl-4 d-flex align-items-center bg-white invisible" data-toggle="appear">
                         <div class="content content-full">
                             <!-- Error Messages -->
-                            <div class="px-50 pt-20 alert alert-primary" role="alert">
-                                <ul class="errorlist">
-                                    {% for field in form %}
-                                        {% if field.errors %}
-                                            {% for error in field.errors %}
-                                                <li>{{error}}</li>
-                                            {% endfor %}
-                                        {% endif %}
-                                    {% endfor %}
-                                    <li>{{form.non_field_errors}}</li>
-                                </ul>
-                            </div>
-                            <!-- END Error Messages -->
+                                <!-- LOAD MESSAGES -->
+                                {% include 'includes/alerts.html' %}
+                             <!-- END Error Messages -->
 
                             <!-- Header -->
                             <div class="px-30">
@@ -106,7 +96,7 @@
                                         <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="#" data-toggle="modal" data-target="#modal-terms">
                                             <i class="fa fa-book text-muted mr-5"></i> Read Terms
                                         </a>
-                                        <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="#">
+                                        <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="{% url 'login' %}">
                                             <i class="fa fa-user text-muted mr-5"></i> Sign In
                                         </a>
                                     </div>
