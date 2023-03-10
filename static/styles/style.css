@@ -17163,7 +17163,7 @@ a.pswp__share--download:hover {
 
 .page-banner--layout-1 {
   padding: 120px 0 75px;
-  background-image: url("{% static 'images/uploads/buildngz-hdr.jpg'%}");
+  background-image: url("../img/uploads/buildngz-pro-vendor.jpg");
 }
 
 @media screen and (min-width: 992px) {
@@ -17196,7 +17196,7 @@ a.pswp__share--download:hover {
 
 .page-banner--layout-2 {
   padding: 120px 0;
-  background-image: url('../images/uploads/buildngz-hdr.jpg') no-repeat top center fixed/cover;
+  background-image: url("../img/uploads/buildngz-hdr.jpg");
 }
 
 @media screen and (min-width: 992px) {
@@ -17250,7 +17250,7 @@ a.pswp__share--download:hover {
 
 .page-banner--layout-3 {
   padding: 100px 0;
-  background-image: url("{% static 'images/uploads/buildngz-hdr.jpg'%}");
+  background-image: url("../images/uploads/buildngz-hdr.jpg");
 }
 
 @media screen and (min-width: 992px) {
@@ -17261,7 +17261,7 @@ a.pswp__share--download:hover {
 
 .page-banner--layout-4 {
   padding: 150px 0 140px;
-  background-image: url("{% static 'images/uploads/buildngz-hdr.jpg'%}");
+  background-image: url("../img/uploads/buildngz-hdr.jpg");
 }
 
 @media screen and (min-width: 992px) {

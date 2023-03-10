@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content%}
+<div id="page-container" class="main-content-boxed">
+
+    <!-- Main Container -->
+            <!-- Main Container -->
+            <main id="main-container">
+
+              <!-- Page Content -->
+              <div class="bg-image" style="background-image: url({% static 'images/uploads/photo26@2x.jpg' %});">
+                  <div class="row mx-0 bg-black-op">
+                      <div class="hero-static col-md-6 col-xl-8 d-none d-md-flex align-items-md-center">
+                          <div class="p-30 invisible" data-toggle="appear">
+                              <p class="font-size-h1 font-w600 text-white mb-5">
+                                  We're very happy you are joining our community!
+                              </p>
+                              <p class="font-size-h5 text-white">
+                                  <i class="fa fa-angles-right"></i> Create your account today and receive 50% off.
+                              </p>
+2                          </div>
+                      </div>
+                      <div class="hero-static col-md-6 col-xl-4 d-flex align-items-center bg-white">
+                          <div class="content content-full">
+                              <!-- Header -->
+                              <div class="px-30 py-10">
+                                  <h1 class="h3 font-w700 mt-30 mb-10">One simple solution for contractors and design pros</h1>
+                                  <h2 class="h5 font-w400 text-muted mb-0">Attract and win better clients, run profitable projects and deliver a standout customer experience - all in one place.</h5>
+                              </div>
+                              <!-- END Header -->
+
+                              <!-- Sign Up Form -->
+                              <!-- jQuery Validation functionality is initialized with .js-validation-signup class in js/pages/op_auth_signup.min.js which was auto compiled from _es6/pages/op_auth_signup.js -->
+                              <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                              <form class="js-validation-signup px-30" action="be_pages_auth_all.html" method="post">
+                                {% csrf_token %}
+
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <div class="form-material floating">
+                                          {% render_field form.first_name class="form-control" placeholder=form.first_name.label %}
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <div class="form-material floating">
+                                          {% render_field form.last_name class="form-control" placeholder=form.last_name.label %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                  <div class="col-12">
+                                      <div class="form-material floating">
+                                        {% render_field form.email class="form-control" placeholder=form.email.label %}
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                    <div class="col-12">
+                                        <div class="form-material floating">
+                                          {% render_field form.password class="form-control" placeholder="Password" %}
+                                          <small class="form-text text-muted">Use 8 or more characters, with a mix of letters, numbers and symbols</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <div class="form-material floating">
+                                          {% render_field form.confirm_password class="form-control" placeholder="Confirm Password" %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="signup-terms" name="signup-terms">
+                                            <label class="custom-control-label" for="signup-terms">I agree to Terms &amp; Conditions</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-sm btn-hero btn-primary">
+                                        <i class="fa fa-plus mr-10"></i> Create Free Pro Account
+                                    </button>
+                                    <div class="mt-30">
+                                        <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="#" data-toggle="modal" data-target="#modal-terms">
+                                            <i class="fa fa-book text-muted mr-5"></i> Read Terms
+                                        </a>
+                                        <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="{% url 'login' %}">
+                                            <i class="fa fa-user text-muted mr-5"></i> Sign In
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END Sign Up Form -->
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- END Page Content -->
+
+          </main>
+          <!-- END Main Container -->
+      </div>
+  <!-- END Main Container -->
+</div>
+<script src="{% static 'scripts/codebase/codebase.core.min.js' %}"></script>
+
+<script src="{% static 'scripts/codebase/codebase.app.min.js' %}"></script>
+
+<!-- Page JS Plugins -->
+<script src="{% static 'scripts/codebase/jquery-validation/jquery.validate.min.js' %}"></script>
+
+<!-- Page JS Code -->
+<script src="{% static 'scripts/codebase/op_auth_signin.min.js' %}"></script>
+{% endblock %}
