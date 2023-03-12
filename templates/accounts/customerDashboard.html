@@ -47,7 +47,7 @@
         'main-content-boxed'                        Full width Main Content with a specific maximum width (screen width > 1200px)
         'main-content-narrow'                       Full width Main Content with a percentage width (screen width > 1200px)
     -->
-    <div id="page-container" class="sidebar-mini enable-page-overlay side-scroll page-header-fixed page-header-modern">
+    <div id="page-container" class="sidebar-mini page-header-modern">
 
         <!-- Main Container -->
         <main id="main-container">
@@ -58,6 +58,7 @@
                  <!-- END Error Messages -->
 
                 <h6 class="h4 font-w500 mt-30 mb-10">Welcome {{user.first_name}} {{user.last_name}}</h6>
+                <p>{{user.get_role}} Desktop</p>
                 <!-- <h2 class="h5 font-w400 text-muted mb-0">Please sign in</h2> -->
             </div>
 

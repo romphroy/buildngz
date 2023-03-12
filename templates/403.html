@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+
+<!-- .page-content -->
+<div class="page-content">
+  <section class="error-404 t-center">
+    <div class="container">
+      <!-- <h2 class="error-404__title">403</h2> -->
+      <h1 class="error-404__title">You do not have permission to access that page!</h1>
+      <h3 class="error-404__subtitle">15 yard penalty and loss of down.</h3> 
+      <button class="error-404__button button button--square button--medium button--danger" onclick="history.back()">Go Back</button>
+    </div>
+  </section>
+</div>
+<!-- .page-content -->
+{% endblock %}
