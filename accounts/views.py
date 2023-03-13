@@ -5,7 +5,7 @@ from vendor.forms import VendorForm
 from .forms import UserForm
 from .models import User, UserProfile
 from django.contrib import messages, auth
-from .utils import detectUser
+from .utils import detectUser, send_verification_email
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.exceptions import PermissionDenied 
 
@@ -57,7 +57,11 @@ def registerUser(request):
             user = User.objects.create_user(first_name=first_name, last_name=last_name, email=email,username=username,password=password)
             user.role = User.CUSTOMER
             user.save()
-            messages.success(request, 'Your account has been registered successfully.')
+            
+            # Send verification email to user
+            send_verification_email(request, user)
+                
+            messages.success(request, 'Your Buildngz account has been registered successfully.')
             return redirect('registerUser')
         else:
             print('Invalid Form')
@@ -95,6 +99,10 @@ def registerVendor(request):
             user_profile = UserProfile.objects.get(user=user)
             vendor.user_profile = user_profile
             vendor.save()
+            
+            # Send verification email
+            send_verification_email(request, user)
+            
             messages.success(request, 'Your pro account has been successfully registered. Please wait for account approval.')
             
             return redirect('registerVendor')
@@ -110,6 +118,11 @@ def registerVendor(request):
         'v_form': v_form,
     }
     return render(request, 'accounts/registerVendor.html', context)
+
+
+def activate(request, uidb64, token):
+    # active the user by setting the is_active status to True
+    return
 
 
 def login(request):

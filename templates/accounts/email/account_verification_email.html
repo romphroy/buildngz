@@ -1,0 +1,8 @@
+{% autoescape off %}
+
+Hi {{user.first_name}},
+
+Welcome to Buildngz, the resource Marketplace for the CRE industry. Please click on the link, below, to confirm your Buildngz registration:
+http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+
+{% endautoescape %}
