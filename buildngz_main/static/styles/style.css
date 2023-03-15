@@ -17253,13 +17253,13 @@ a.pswp__share--download:hover {
 }
 
 .page-banner--layout-3 {
-  padding: 100px 0;
+  padding: 120px 0;
   background-image: url("../images/uploads/office-building-4.jpg");
 }
 
 @media screen and (min-width: 992px) {
   .page-banner--layout-3 {
-    padding: 185px 0;
+    padding: 210px 0;
   }
 }
 
