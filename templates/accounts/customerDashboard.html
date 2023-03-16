@@ -1,606 +1,167 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block content%}
+<div class="page-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          {% include 'includes/c_sidebar.html' %}
+        </div><!-- .col -->
+  
+        <div class="col-lg-9">
+            {% include 'includes/alerts.html' %}
 
-    <!-- Page Container -->
-    <!--
-        Available classes for #page-container:
-
-    GENERIC
-
-        'enable-cookies'                            Remembers active color theme between pages (when set through color theme helper Template._uiHandleTheme())
-
-    SIDEBAR & SIDE OVERLAY
-
-        'sidebar-r'                                 Right Sidebar and left Side Overlay (default is left Sidebar and right Side Overlay)
-        'sidebar-mini'                              Mini hoverable Sidebar (screen width > 991px)
-        'sidebar-o'                                 Visible Sidebar by default (screen width > 991px)
-        'sidebar-o-xs'                              Visible Sidebar by default (screen width < 992px)
-        'sidebar-inverse'                           Dark themed sidebar
-
-        'side-overlay-hover'                        Hoverable Side Overlay (screen width > 991px)
-        'side-overlay-o'                            Visible Side Overlay by default
-
-        'enable-page-overlay'                       Enables a visible clickable Page Overlay (closes Side Overlay on click) when Side Overlay opens
-
-        'side-scroll'                               Enables custom scrolling on Sidebar and Side Overlay instead of native scrolling (screen width > 991px)
-
-    HEADER
-
-        ''                                          Static Header if no class is added
-        'page-header-fixed'                         Fixed Header
-
-    HEADER STYLE
-
-        ''                                          Classic Header style if no class is added
-        'page-header-modern'                        Modern Header style
-        'page-header-inverse'                       Dark themed Header (works only with classic Header style)
-        'page-header-glass'                         Light themed Header with transparency by default
-                                                    (absolute position, perfect for light images underneath - solid light background on scroll if the Header is also set as fixed)
-        'page-header-glass page-header-inverse'     Dark themed Header with transparency by default
-                                                    (absolute position, perfect for dark images underneath - solid dark background on scroll if the Header is also set as fixed)
-
-    MAIN CONTENT LAYOUT
-
-        ''                                          Full width Main Content if no class is added
-        'main-content-boxed'                        Full width Main Content with a specific maximum width (screen width > 1200px)
-        'main-content-narrow'                       Full width Main Content with a percentage width (screen width > 1200px)
-    -->
-    <div id="page-container" class="sidebar-mini page-header-modern">
-
-        <!-- Main Container -->
-        <main id="main-container">
-            <div class="px-10 py-10">
-                <!-- Error Messages -->
-                <!-- LOAD MESSAGES -->
-                {% include 'includes/alerts.html' %}
-                 <!-- END Error Messages -->
-
-                <p class="pull-right">Welcome {{user.first_name}} {{user.last_name}}</p>
-                <h6 class="h4 font-w500 mt-30 mb-10">{{user.get_role}} Desktop</h6>
-                <!-- <h2 class="h5 font-w400 text-muted mb-0">Please sign in</h2> -->
-            </div>
-
-            <!-- Quick Navigation -->
-            <div class="bg-body-dark">
-                <div class="content">
-                    <div class="row">
-                        <div class="col-6 col-md-4 col-xl-2">
-                            <a class="block block-rounded text-center" href="sendword_inbox.html">
-                                <div class="block-content">
-                                    <p class="mt-5 mb-10">
-                                        <i class="fa fa-envelope-o text-primary fa-2x d-xl-none"></i>
-                                        <i class="fa fa-envelope-o text-primary fa-3x d-none d-xl-inline-block"></i>
-                                    </p>
-                                    <p class="font-w600 font-size-sm text-uppercase">Inbox</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-6 col-md-4 col-xl-2">
-                            <a class="block block-rounded text-center" href="be_pages_forum_categories.html">
-                                <div class="block-content">
-                                    <p class="mt-5 mb-10">
-                                        <i class="fa fa-book text-primary fa-2x d-xl-none"></i>
-                                        <i class="fa fa-book text-primary fa-3x d-none d-xl-inline-block"></i>
-                                    </p>
-                                    <p class="font-w600 font-size-sm text-uppercase">Knowledge Base</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-6 col-md-4 col-xl-2">
-                            <a class="block block-rounded text-center" href="be_pages_events.html">
-                                <div class="block-content">
-                                    <p class="mt-5 mb-10">
-                                        <i class="fa fa-calendar-check-o text-primary fa-2x d-xl-none"></i>
-                                        <i class="fa fa-calendar-check-o text-primary fa-3x d-none d-xl-inline-block"></i>
-                                    </p>
-                                    <p class="font-w600 font-size-sm text-uppercase">Events</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-6 col-md-4 col-xl-2">
-                            <a class="block block-rounded text-center" href="be_pages_generic_team.html">
-                                <div class="block-content">
-                                    <p class="mt-5 mb-10">
-                                        <i class="fa fa-address-book text-primary fa-2x d-xl-none"></i>
-                                        <i class="fa fa-address-book text-primary fa-3x d-none d-xl-inline-block"></i>
-                                    </p>
-                                    <p class="font-w600 font-size-sm text-uppercase">Tenants</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-6 col-md-4 col-xl-2">
-                            <a class="block block-rounded text-center" href="be_pages_generic_profile.html">
-                                <div class="block-content">
-                                    <p class="mt-5 mb-10">
-                                        <i class="fa fa-pencil text-primary fa-2x d-xl-none"></i>
-                                        <i class="fa fa-pencil text-primary fa-3x d-none d-xl-inline-block"></i>
-                                    </p>
-                                    <p class="font-w600 font-size-sm text-uppercase">Profile</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-6 col-md-4 col-xl-2">
-                            <a class="block block-rounded text-center" href="javascript:void(0)">
-                                <div class="block-content">
-                                    <p class="mt-5 mb-10">
-                                        <i class="fa fa-wrench text-primary fa-2x d-xl-none"></i>
-                                        <i class="fa fa-wrench text-primary fa-3x d-none d-xl-inline-block"></i>
-                                    </p>
-                                    <p class="font-w600 font-size-sm text-uppercase">Settings</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+            <table class="listing-table">
+            <tr class="listing-row c-white bg-primary">
+              <th>
+                <i class="fa fa-clipboard"></i>
+                Listings
+              </th>
+              <th>
+                <i class="fa fa-calendar-alt"></i>
+                Expiration Date
+              </th>
+              <th></th>
+            </tr><!-- .listing-row -->
+            <tr class="listing-row">
+              <td class="listing listing-cell">
+                <div class="listing__wrapper">
+                  <div class="listing__thumbnail">
+                    <a href="single-listing-1.html">
+                      <img src="assets/images/uploads/listing-1.jpg" alt="April Boutique Coffee">
+                    </a>
+                  </div><!-- .listing__thumbnail -->
+                  <div class="listing__detail">
+                    <h3 class="listing__title">
+                      <a href="single-listing-1.html">April Boutique Coffee</a>
+                    </h3>
+                    <p class="listing__review c-dusty-gray">
+                      <span class="stars-outer" data-rating="4.8">
+                        <span class="stars-inner"></span>
+                      </span>
+                      <span>(5 Reviews)</span>
+                    </p>
+                    <p class="listing__location c-dusty-gray">
+                      <i class="fa fa-map-marker"></i>
+                      18 Leinster Terr, Paddington
+                    </p>
+                  </div><!-- .listing__detail -->
                 </div>
-            </div>
-            <!-- END Quick Navigation -->
-
-            <!-- Page Content -->
-            <div class="content">
-                <!-- Overview -->
-                <div class="row " data-toggle="appear">
-                    <div class="col-md-4">
-                        <a class="block block-rounded block-bordered block-link-shadow" href="javascript:void(0)">
-                            <div class="block-content block-content-full">
-                                <div class="py-20 text-center">
-                                    <div class="mb-10">
-                                        <i class="fa fa-user-circle-o fa-3x text-corporate"></i>
-                                    </div>
-                                    <div class="font-size-h4 font-w600">5 Patients</div>
-                                    <div class="text-muted">2 were added today!</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a class="block block-rounded block-bordered block-link-shadow" href="javascript:void(0)">
-                            <div class="block-content block-content-full">
-                                <div class="py-20 text-center">
-                                    <div class="mb-10">
-                                        <i class="fa fa-calendar fa-3x text-elegance"></i>
-                                    </div>
-                                    <div class="font-size-h4 font-w600">6 Appointments</div>
-                                    <div class="text-muted">4 are scheduled for today!</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4">
-                        <a class="block block-rounded block-bordered block-link-shadow" href="javascript:void(0)">
-                            <div class="block-content block-content-full">
-                                <div class="py-20 text-center">
-                                    <div class="mb-10">
-                                        <i class="fa fa-paypal fa-3x text-primary"></i>
-                                    </div>
-                                    <div class="font-size-h4 font-w600">2 Payments</div>
-                                    <div class="text-muted">Pending for tomorrow.</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+              </td>
+              <td>December 18, 2018</td>
+              <td class="listing-action">
+                <ul class="min-list">
+                  <li>
+                    <button class="action edit" type="button">
+                      <i class="fa fa-pencil"></i>
+                      Edit
+                    </button>
+                  </li>
+  
+                  <li>
+                    <button class="action remove" type="button">
+                      <i class="fa fa-trash"></i>
+                      Remove
+                    </button>
+                  </li>
+                </ul>
+              </td>
+            </tr><!-- .listing-row -->
+  
+            <tr class="listing-row">
+              <td class="listing listing-cell">
+                <div class="listing__wrapper">
+                  <div class="listing__thumbnail">
+                    <a href="single-listing-1.html">
+                      <img src="assets/images/uploads/listing-2.jpg" alt="April Boutique Coffee">
+                    </a>
+                  </div><!-- .listing__thumbnail -->
+                  <div class="listing__detail">
+                    <h3 class="listing__title">
+                      <a href="single-listing-1.html">April Boutique Coffee</a>
+                    </h3>
+                    <p class="listing__review c-dusty-gray">
+                      <span class="stars-outer" data-rating="4.5">
+                        <span class="stars-inner"></span>
+                      </span>
+                      <span>(5 Reviews)</span>
+                    </p>
+                    <p class="listing__location c-dusty-gray">
+                      <i class="fa fa-map-marker"></i>
+                      18 Leinster Terr, Paddington
+                    </p>
+                  </div><!-- .listing__detail -->
                 </div>
-                <!-- END Overview -->
-
-                <!-- Patients -->
-                <div class="block block-rounded block-bordered " data-toggle="appear">
-                    <div class="block-header block-header-default">
-                        <h3 class="block-title">Current Patients</h3>
-                        <div class="block-options">
-                            <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
-                                <i class="si si-refresh"></i>
-                            </button>
-                            <button type="button" class="btn-block-option">
-                                <i class="si si-wrench"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="block-content block-content-full">
-                        <div class="table-responsive">
-                            <table class="table table-borderless table-hover table-striped table-vcenter mb-0">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 100px;">ID</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Condition</th>
-                                        <th>Actions</th>
-                                        <th>Added</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <a class="font-w600" href="javascript:void(0)">54874</a>
-                                        </td>
-                                        <td>
-                                            <strong>Roy</strong>
-                                        </td>
-                                        <td>
-                                            <strong>Obrien</strong>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-success">Normal</span>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-secondary" href="javascript:void(0)">
-                                                <i class="fa fa-heartbeat text-danger mr-5"></i> Medical History
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <span class="text-muted font-italic">today</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a class="font-w600" href="javascript:void(0)">54873</a>
-                                        </td>
-                                        <td>
-                                            <strong>Bobby</strong>
-                                        </td>
-                                        <td>
-                                            <strong>Lane</strong>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-info">Stable</span>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-secondary" href="javascript:void(0)">
-                                                <i class="fa fa-heartbeat text-danger mr-5"></i> Medical History
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <span class="text-muted font-italic">today</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a class="font-w600" href="javascript:void(0)">54872</a>
-                                        </td>
-                                        <td>
-                                            <strong>Amanda</strong>
-                                        </td>
-                                        <td>
-                                            <strong>Ray</strong>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-danger">Critical</span>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-secondary" href="javascript:void(0)">
-                                                <i class="fa fa-heartbeat text-danger mr-5"></i> Medical History
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <span class="text-muted font-italic">3 days ago</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a class="font-w600" href="javascript:void(0)">54871</a>
-                                        </td>
-                                        <td>
-                                            <strong>Rose</strong>
-                                        </td>
-                                        <td>
-                                            <strong>Alvarado</strong>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-warning">Pending..</span>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-secondary" href="javascript:void(0)">
-                                                <i class="fa fa-heartbeat text-danger mr-5"></i> Medical History
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <span class="text-muted font-italic">4 days ago</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a class="font-w600" href="javascript:void(0)">54870</a>
-                                        </td>
-                                        <td>
-                                            <strong>Jose</strong>
-                                        </td>
-                                        <td>
-                                            <strong>Fowler</strong>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-info">Stable</span>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-secondary" href="javascript:void(0)">
-                                                <i class="fa fa-heartbeat text-danger mr-5"></i> Medical History
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <span class="text-muted font-italic">5 days ago</span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+              </td>
+              <td>December 18, 2018</td>
+              <td class="listing-action">
+                <ul class="min-list">
+                  <li>
+                    <button class="action edit" type="button">
+                      <i class="fa fa-pencil"></i>
+                      Edit
+                    </button>
+                  </li>
+  
+                  <li>
+                    <button class="action remove" type="button">
+                      <i class="fa fa-trash"></i>
+                      Remove
+                    </button>
+                  </li>
+                </ul>
+              </td>
+            </tr><!-- .listing-row -->
+  
+            <tr class="listing-row">
+              <td class="listing listing-cell">
+                <div class="listing__wrapper">
+                  <div class="listing__thumbnail">
+                    <a href="single-listing-1.html">
+                      <img src="assets/images/uploads/listing-3.jpg" alt="April Boutique Coffee">
+                    </a>
+                  </div><!-- .listing__thumbnail -->
+                  <div class="listing__detail">
+                    <h3 class="listing__title">
+                      <a href="single-listing-1.html">April Boutique Coffee</a>
+                    </h3>
+                    <p class="listing__review c-dusty-gray">
+                      <span class="stars-outer" data-rating="4">
+                        <span class="stars-inner"></span>
+                      </span>
+                      <span>(5 Reviews)</span>
+                    </p>
+                    <p class="listing__location c-dusty-gray">
+                      <i class="fa fa-map-marker"></i>
+                      18 Leinster Terr, Paddington
+                    </p>
+                  </div><!-- .listing__detail -->
                 </div>
-                <!-- END Patients -->
-
-                <!-- Appointments -->
-                <div class="block block-rounded block-bordered " data-toggle="appear">
-                    <div class="block-header block-header-default">
-                        <h3 class="block-title">Appointments</h3>
-                        <div class="block-options">
-                            <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
-                                <i class="si si-refresh"></i>
-                            </button>
-                            <button type="button" class="btn-block-option">
-                                <i class="si si-wrench"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="block-content block-content-full">
-                        <div class="table-responsive">
-                            <table class="table table-borderless table-hover table-striped table-vcenter mb-0">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 100px;">ID</th>
-                                        <th>Patient</th>
-                                        <th>First time?</th>
-                                        <th>Date</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <a class="font-w600" href="javascript:void(0)">36986</a>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)">Alice Moore</a>
-                                        </td>
-                                        <td>
-                                            <i class="fa fa-check-circle text-success"></i>
-                                        </td>
-                                        <td>
-                                            Today at 10:00
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
-                                                <i class="fa fa-refresh text-primary mr-5"></i> Reschedule
-                                            </a>
-                                            <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
-                                                <i class="fa fa-times text-danger mr-5"></i> Cancel
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a class="font-w600" href="javascript:void(0)">36985</a>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)">Henry Harrison</a>
-                                        </td>
-                                        <td>
-                                            <i class="fa fa-check-circle text-success"></i>
-                                        </td>
-                                        <td>
-                                            Today at 12:00
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
-                                                <i class="fa fa-refresh text-primary mr-5"></i> Reschedule
-                                            </a>
-                                            <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
-                                                <i class="fa fa-times text-danger mr-5"></i> Cancel
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a class="font-w600" href="javascript:void(0)">36984</a>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)">Brian Stevens</a>
-                                        </td>
-                                        <td>
-                                            <i class="fa fa-check-circle text-success"></i>
-                                        </td>
-                                        <td>
-                                            Today at 14:00
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
-                                                <i class="fa fa-refresh text-primary mr-5"></i> Reschedule
-                                            </a>
-                                            <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
-                                                <i class="fa fa-times text-danger mr-5"></i> Cancel
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a class="font-w600" href="javascript:void(0)">36983</a>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)">Sara Fields</a>
-                                        </td>
-                                        <td>
-                                            <i class="fa fa-times-circle text-danger"></i>
-                                        </td>
-                                        <td>
-                                            Today at 16:00
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
-                                                <i class="fa fa-refresh text-primary mr-5"></i> Reschedule
-                                            </a>
-                                            <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
-                                                <i class="fa fa-times text-danger mr-5"></i> Cancel
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a class="font-w600" href="javascript:void(0)">36982</a>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)">Jeffrey Shaw</a>
-                                        </td>
-                                        <td>
-                                            <i class="fa fa-check-circle text-success"></i>
-                                        </td>
-                                        <td>
-                                            Tomorrow at 08:00
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
-                                                <i class="fa fa-refresh text-primary mr-5"></i> Reschedule
-                                            </a>
-                                            <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
-                                                <i class="fa fa-times text-danger mr-5"></i> Cancel
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a class="font-w600" href="javascript:void(0)">36981</a>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)">David Fuller</a>
-                                        </td>
-                                        <td>
-                                            <i class="fa fa-times-circle text-danger"></i>
-                                        </td>
-                                        <td>
-                                            Tomorrow at 10:00
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
-                                                <i class="fa fa-refresh text-primary mr-5"></i> Reschedule
-                                            </a>
-                                            <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
-                                                <i class="fa fa-times text-danger mr-5"></i> Cancel
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!-- END Appointments -->
-
-                <!-- Payments -->
-                <div class="block block-rounded block-bordered " data-toggle="appear">
-                    <div class="block-header block-header-default">
-                        <h3 class="block-title">Open Payments</h3>
-                        <div class="block-options">
-                            <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
-                                <i class="si si-refresh"></i>
-                            </button>
-                            <button type="button" class="btn-block-option">
-                                <i class="si si-wrench"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="block-content block-content-full">
-                        <div class="table-responsive">
-                            <table class="table table-borderless table-hover table-striped table-vcenter mb-0">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 100px;">ID</th>
-                                        <th>Patient</th>
-                                        <th>Invoice</th>
-                                        <th>Due</th>
-                                        <th>Actions</th>
-                                        <th class="text-right">Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <a class="font-w600" href="javascript:void(0)">158214</a>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)">Carl Wells</a>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)">
-                                                INV_158214.pdf
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-primary">tomorrow</span>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
-                                                <i class="fa fa-pencil text-primary mr-5"></i> Edit
-                                            </a>
-                                            <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
-                                                <i class="fa fa-times text-danger mr-5"></i> Cancel
-                                            </a>
-                                        </td>
-                                        <td class="text-right">
-                                            $3.500,00
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a class="font-w600" href="javascript:void(0)">158213</a>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)">Jack Estrada</a>
-                                        </td>
-                                        <td>
-                                            <a href="javascript:void(0)">
-                                                INV_158213.pdf
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-primary">tomorrow</span>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
-                                                <i class="fa fa-pencil text-primary mr-5"></i> Edit
-                                            </a>
-                                            <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
-                                                <i class="fa fa-times text-danger mr-5"></i> Cancel
-                                            </a>
-                                        </td>
-                                        <td class="text-right">
-                                            $1.280,00
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="5" class="text-right">
-                                            <strong class="text-uppercase">Total Due</strong>
-                                        </td>
-                                        <td class="text-right">
-                                            <strong>$4.780,00</strong>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!-- END Payments -->
-            </div>
-            <!-- END Page Content -->
-
-        </main>
-    </div>
-    <!-- END Page Container -->
-     <!--<script src="{% static '/js/codebase.core.min.js' %}"></script>
-
-   
-        Codebase JS
-
-        Custom functionality including Blocks/Layout API as well as other vital and optional helpers
-        webpack is putting everything together at assets/_es6/main/app.js
-    
-    <script src="{% static '/js/codebase.core.min.js' %}"></script>-->
-    {% endblock %}
+              </td>
+              <td>December 18, 2018</td>
+              <td class="listing-action">
+                <ul class="min-list">
+                  <li>
+                    <button class="action edit" type="button">
+                      <i class="fa fa-pencil"></i>
+                      Edit
+                    </button>
+                  </li>
+  
+                  <li>
+                    <button class="action remove" type="button">
+                      <i class="fa fa-trash"></i>
+                      Remove
+                    </button>
+                  </li>
+                </ul>
+              </td>
+            </tr><!-- .listing-row -->
+           </table><!-- .listing-table -->
+        </div><!-- .col -->
+      </div><!-- .row -->
+    </div><!-- .container -->
+  </div><!-- .page-content -->
+  
+{% endblock %}
  

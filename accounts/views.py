@@ -161,6 +161,7 @@ def login(request):
             return redirect('login')
     return render(request, 'accounts/login.html')
 
+
 def logout(request):
     auth.logout(request)
     messages.info(request, "You are logged out.") 
@@ -223,7 +224,6 @@ def reset_password_validate(request, uidb64, token):
         return redirect('myAccount')
 
 
-
 def reset_password(request):
     if request.method == 'POST':
         password = request.POST['password']
@@ -241,3 +241,11 @@ def reset_password(request):
             messages.error(request, 'Passwords do not match.')
             return redirect('reset_password')
     return render(request, 'accounts/reset_password.html')
+
+
+def customerProfile(request):
+    return render(request, 'accounts/customerProfile.html')
+
+
+def vendorProfile(request):
+    return render(request, 'vendorProfile.html')

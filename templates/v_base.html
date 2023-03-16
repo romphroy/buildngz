@@ -1,0 +1,85 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+    <head>
+        
+        <meta charset="utf-8" />
+        <title>Dashboard | Buildngz Pro</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Buildngz Pro Admin & Dashboard" name="description" />
+        <meta content="Buildngz" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'vendor/images/favicon.ico' %}">
+
+        <link href="{% static 'vendor/styles/MetroJs.Full/MetroJs.min.css' %}" rel="stylesheet" type="text/css" />
+
+        <!-- Bootstrap Css -->
+        <link href="{% static 'vendor/styles/bootstrap.min.css' %}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="{% static 'vendor/styles/icons.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="{% static 'vendor/styles/app.min.css' %}" id="app-style" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body data-topbar="light">
+
+
+        <!-- LOAD NAVBAR -->
+        {% include 'includes/v_header.html' %}
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="vertical-menu">
+
+            <div data-simplebar class="h-100">
+
+                <!--- Sidemenu -->
+                {% include 'includes/v_sidebar.html' %}
+                <!-- Sidebar -->
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+       
+        <!-- LOAD CONTENT -->
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+                        {% block content %}
+                            <!-- CONTENT GOES HERE -->
+                        {% endblock %}                        
+                    </div> <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+            </div>
+        </div>
+
+
+        <!-- LOAD FOOTER -->
+        {% include 'includes/v_footer.html' %}
+
+        <!-- JAVASCRIPT -->
+        <script src="{% static 'vendor/libs/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/metismenu/metisMenu.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/simplebar/simplebar.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/node-waves/waves.min.js' %}"></script>
+
+        <!--Morris Chart-->
+        
+        <script src="{% static 'vendor/libs/morris.js/morris.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/raphael/raphael.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/jquery-knob/jquery.knob.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/metrojs/release/MetroJs.Full/MetroJs.min.js' %}"></script>
+
+        <script src="{% static 'vendor/scripts/pages/dashboard.init.js' %}"></script>
+
+        <script src="{% static 'vendor/scripts/app.js' %}"></script>
+
+    </body>
+</html>

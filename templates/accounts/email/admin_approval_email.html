@@ -1,0 +1,16 @@
+{% autoescape off %}
+
+Hi {{user.first_name}},
+
+{% if is_approved %}
+    Contratulations! Your Pro account has been approved.
+
+    The Buildngz Admin Team
+{% else %}
+    Unfortunately we are unable to approve your Pro account. If you any questions, please contact our approval team at info@buildngz.com -- Buildngz Pro.
+
+    The Buildngz Admin Team
+{% endif %}
+
+
+{% endautoescape %}

@@ -1,0 +1,55 @@
+{% load static %}
+
+<div class="settings">
+    <h2 class="settings__header">Howdy, <strong>{{user.first_name}}</strong></h2>
+    <div class="setting-group">
+      <ul class="setting-container min-list">
+        <li class="setting setting--current">
+          <a href="{% url 'customerDashboard' %}">
+            <i class="fa-solid fa-house-chimney setting__icon"></i>
+            Dashboard</a>
+        </li>
+      </ul><!-- .setting-container -->
+    </div><!-- setting-group -->
+
+    <div class="setting-group">
+      <h1 class="setting-group__title c-gray">Manage {{user.get_role}} Account</h1>
+      <ul class="setting-container min-list">
+        <li class="setting">
+          <i class="fa fa-user setting__icon"></i>
+          <a href="{% url 'customerProfile' %}" class="setting__link">My Profile</a>
+        </li>
+        <li class="setting">
+          <i class="fa fa-bookmark setting__icon"></i>
+          <a href="bookmarked-listings.html" class="setting__link">Bookmarked Listings (3)</a>
+        </li>
+      </ul><!-- .setting-container -->
+    </div><!-- setting-group -->
+
+    <div class="setting-group">
+      <h3 class="setting-group__title c-gray">Manage Listings</h3>
+      <ul class="setting-container min-list">
+        <li class="setting setting--current">
+          <i class="fa fa-clipboard setting__icon"></i>
+          <a href="my-listings.html" class="setting__link">My Listings</a>
+        </li>
+        <li class="setting">
+          <i class="fa fa-upload setting__icon"></i>
+          <a href="create-listing.html" class="setting__link">Submit New Listing</a>
+        </li>
+      </ul><!-- .setting-container -->
+    </div><!-- setting-group -->
+
+    <div class="setting-group">
+      <ul class="setting-container min-list">
+        <li class="setting">
+          <i class="fa fa-lock setting__icon"></i>
+          <a href="change-password.html" class="setting__link">Change Password</a>
+        </li>
+        <li class="setting">
+          <i class="fa fa-power-off setting__icon"></i>
+          <a href="index.html" class="setting__link">Log Out</a>
+        </li>
+      </ul><!-- .setting-container -->
+    </div><!-- setting-group -->
+  </div><!-- .settings -->

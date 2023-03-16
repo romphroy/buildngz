@@ -1,5 +1,3 @@
-{% load static %}
-
 @charset "UTF-8";
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -2557,11 +2555,12 @@ body,
 button,
 input,
 select,
-textarea {
+textarea,
+a {
   color: #222222;
-  font-family: "Cabin", sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 14px;
-  font-size: 0.875rem;
+  /* font-size: 0.875rem; */
   font-weight: 400;
   line-height: 1.4;
 }
@@ -17168,7 +17167,7 @@ a.pswp__share--download:hover {
 
 .page-banner--layout-1 {
   padding: 120px 0 75px;
-  background-image: url("../img/uploads/buildngz-pro-vendor.jpg");
+  background-image: url("../images/uploads/buildngz-pro-vendor.jpg");
 }
 
 @media screen and (min-width: 992px) {
@@ -17201,7 +17200,7 @@ a.pswp__share--download:hover {
 
 .page-banner--layout-2 {
   padding: 120px 0;
-  background-image: url("../img/uploads/buildngz-hdr.jpg");
+  background-image: url("../images/uploads/building-security.jpg");
 }
 
 @media screen and (min-width: 992px) {
@@ -17254,19 +17253,19 @@ a.pswp__share--download:hover {
 }
 
 .page-banner--layout-3 {
-  padding: 100px 0;
-  background-image: url("../images/uploads/buildngz-hdr.jpg");
+  padding: 120px 0;
+  background-image: url("../images/uploads/office-building-4.jpg");
 }
 
 @media screen and (min-width: 992px) {
   .page-banner--layout-3 {
-    padding: 185px 0;
+    padding: 210px 0;
   }
 }
 
 .page-banner--layout-4 {
   padding: 150px 0 140px;
-  background-image: url("../img/uploads/buildngz-hdr.jpg");
+  background-image: url("../images/uploads/buildngz-hdr.jpg");
 }
 
 @media screen and (min-width: 992px) {
@@ -17482,7 +17481,7 @@ a.pswp__share--download:hover {
 }
 
 .ads {
-  background-image: url("../img/uploads/ads-bg.jpg");
+  background-image: url("../images/uploads/ads-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -18468,7 +18467,7 @@ a.pswp__share--download:hover {
 
 .listing-header-bg {
   height: 280px;
-  background-image: url("../img/uploads/listing-bg.jpg");
+  background-image: url("../images/uploads/listing-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -18876,19 +18875,19 @@ a.pswp__share--download:hover {
 }
 
 .listing-filter__bg--coffee {
-  background-image: url("../img/uploads/coffee.jpg");
+  background-image: url("../images/uploads/coffee.jpg");
 }
 
 .listing-filter__bg--food {
-  background-image: url("../img/uploads/food.jpg");
+  background-image: url("../images/uploads/food.jpg");
 }
 
 .listing-filter__bg--cake {
-  background-image: url("../img/uploads/cake.jpg");
+  background-image: url("../images/uploads/cake.jpg");
 }
 
 .listing-filter__bg--fruit {
-  background-image: url("../img/uploads/fruit.jpg");
+  background-image: url("../images/uploads/fruit.jpg");
 }
 
 .listing-filter__content {
@@ -19854,7 +19853,7 @@ a.pswp__share--download:hover {
 }
 
 .single-listing-header-1 {
-  background-image: url("../img/uploads/single-listing-bg-1.jpg");
+  background-image: url("../images/uploads/single-listing-bg-1.jpg");
 }
 
 @media screen and (min-width: 992px) {
@@ -19864,7 +19863,7 @@ a.pswp__share--download:hover {
 }
 
 .single-listing-header-2 {
-  background-image: url("../img/uploads/single-listing-bg-2.jpg");
+  background-image: url("../images/uploads/single-listing-bg-2.jpg");
 }
 
 @media screen and (min-width: 992px) {

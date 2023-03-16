@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div class="page-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          {% include 'includes/v_sidebar.html' %}
+        </div><!-- .col -->
+  
+        <div class="col-lg-9">
+            {% include 'includes/alerts.html' %}
+
+            <table class="listing-table">
+            <tr class="listing-row c-white bg-primary">
+              <th>
+                <i class="fa fa-clipboard"></i>
+                Listings
+              </th>
+              <th>
+                <i class="fa fa-calendar-alt"></i>
+                Expiration Date
+              </th>
+              <th></th>
+            </tr><!-- .listing-row -->
+            <tr class="listing-row">
+              <td class="listing listing-cell">
+                <div class="listing__wrapper">
+                  <div class="listing__thumbnail">
+                    <a href="single-listing-1.html">
+                      <img src="assets/images/uploads/listing-1.jpg" alt="April Boutique Coffee">
+                    </a>
+                  </div><!-- .listing__thumbnail -->
+                  <div class="listing__detail">
+                    <h3 class="listing__title">
+                      <a href="single-listing-1.html">April Boutique Coffee</a>
+                    </h3>
+                    <p class="listing__review c-dusty-gray">
+                      <span class="stars-outer" data-rating="4.8">
+                        <span class="stars-inner"></span>
+                      </span>
+                      <span>(5 Reviews)</span>
+                    </p>
+                    <p class="listing__location c-dusty-gray">
+                      <i class="fa fa-map-marker"></i>
+                      18 Leinster Terr, Paddington
+                    </p>
+                  </div><!-- .listing__detail -->
+                </div>
+              </td>
+              <td>December 18, 2018</td>
+              <td class="listing-action">
+                <ul class="min-list">
+                  <li>
+                    <button class="action edit" type="button">
+                      <i class="fa fa-pencil"></i>
+                      Edit
+                    </button>
+                  </li>
+  
+                  <li>
+                    <button class="action remove" type="button">
+                      <i class="fa fa-trash"></i>
+                      Remove
+                    </button>
+                  </li>
+                </ul>
+              </td>
+            </tr><!-- .listing-row -->
+  
+            <tr class="listing-row">
+              <td class="listing listing-cell">
+                <div class="listing__wrapper">
+                  <div class="listing__thumbnail">
+                    <a href="single-listing-1.html">
+                      <img src="assets/images/uploads/listing-2.jpg" alt="April Boutique Coffee">
+                    </a>
+                  </div><!-- .listing__thumbnail -->
+                  <div class="listing__detail">
+                    <h3 class="listing__title">
+                      <a href="single-listing-1.html">April Boutique Coffee</a>
+                    </h3>
+                    <p class="listing__review c-dusty-gray">
+                      <span class="stars-outer" data-rating="4.5">
+                        <span class="stars-inner"></span>
+                      </span>
+                      <span>(5 Reviews)</span>
+                    </p>
+                    <p class="listing__location c-dusty-gray">
+                      <i class="fa fa-map-marker"></i>
+                      18 Leinster Terr, Paddington
+                    </p>
+                  </div><!-- .listing__detail -->
+                </div>
+              </td>
+              <td>December 18, 2018</td>
+              <td class="listing-action">
+                <ul class="min-list">
+                  <li>
+                    <button class="action edit" type="button">
+                      <i class="fa fa-pencil"></i>
+                      Edit
+                    </button>
+                  </li>
+  
+                  <li>
+                    <button class="action remove" type="button">
+                      <i class="fa fa-trash"></i>
+                      Remove
+                    </button>
+                  </li>
+                </ul>
+              </td>
+            </tr><!-- .listing-row -->
+  
+            <tr class="listing-row">
+              <td class="listing listing-cell">
+                <div class="listing__wrapper">
+                  <div class="listing__thumbnail">
+                    <a href="single-listing-1.html">
+                      <img src="assets/images/uploads/listing-3.jpg" alt="April Boutique Coffee">
+                    </a>
+                  </div><!-- .listing__thumbnail -->
+                  <div class="listing__detail">
+                    <h3 class="listing__title">
+                      <a href="single-listing-1.html">April Boutique Coffee</a>
+                    </h3>
+                    <p class="listing__review c-dusty-gray">
+                      <span class="stars-outer" data-rating="4">
+                        <span class="stars-inner"></span>
+                      </span>
+                      <span>(5 Reviews)</span>
+                    </p>
+                    <p class="listing__location c-dusty-gray">
+                      <i class="fa fa-map-marker"></i>
+                      18 Leinster Terr, Paddington
+                    </p>
+                  </div><!-- .listing__detail -->
+                </div>
+              </td>
+              <td>December 18, 2018</td>
+              <td class="listing-action">
+                <ul class="min-list">
+                  <li>
+                    <button class="action edit" type="button">
+                      <i class="fa fa-pencil"></i>
+                      Edit
+                    </button>
+                  </li>
+  
+                  <li>
+                    <button class="action remove" type="button">
+                      <i class="fa fa-trash"></i>
+                      Remove
+                    </button>
+                  </li>
+                </ul>
+              </td>
+            </tr><!-- .listing-row -->
+           </table><!-- .listing-table -->
+        </div><!-- .col -->
+      </div><!-- .row -->
+    </div><!-- .container -->
+  </div><!-- .page-content -->
+  
+{% endblock %}
+ 
