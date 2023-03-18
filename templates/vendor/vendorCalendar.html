@@ -1,0 +1,50 @@
+{% extends 'v_base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <!-- Plugin css -->
+    <link href="{% static 'vendor/libs/fullcalendar/fullcalendar.min.css' %}" rel="stylesheet" type="text/css" />
+</head>
+
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-flex align-items-center justify-content-between">
+                <h4 class="mb-0 font-size-18">Calendar</h4>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div id='calendar'></div>
+
+                    <div style='clear:both'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- End row -->                       
+<!-- End Page-content -->
+
+<!-- JAVASCRIPT -->
+<script src="{% static 'vendor/libs/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/libs/metismenu/metisMenu.min.js' %}"></script>
+<script src="{% static 'vendor/libs/simplebar/simplebar.min.js' %}"></script>
+<script src="{% static 'vendor/libs/node-waves/waves.min.js' %}"></script>
+
+        <!-- plugin js -->
+<script src="{% static 'vendor/libs/moment/moment.js' %}"></script>
+<script src="{% static 'vendor/libs/fullcalendar/fullcalendar.min.js' %}"></script>
+
+<!-- Calendar init -->
+<script src="{% static 'vendor/scripts/pages/calendar.init.js' %}"></script>
+
+{% endblock %}

@@ -27,7 +27,7 @@ File: Main Css File
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 auto;
+  margin: 5px auto;
   height: 70px;
   padding: 0 calc(24px / 2) 0 0; }
   .navbar-header .dropdown.show .header-item {
@@ -142,7 +142,7 @@ File: Main Css File
 
 .noti-icon .badge {
   position: absolute;
-  top: 12px; }
+  top: 10px; }
 
 .notification-item .media {
   padding: 0.75rem 1rem; }
