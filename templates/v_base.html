@@ -25,6 +25,10 @@
         <link href="{% static 'vendor/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
         <link href="{% static 'vendor/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
 
+        <!-- Google Maps API -->
+        <script src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_API_KEY}}&libraries=places&callback=initAutoComplete" defer></script>
+        <script src="{% static 'scripts/custom.js' %}"></script>
+
     </head>
 
     <body data-topbar="light" >
