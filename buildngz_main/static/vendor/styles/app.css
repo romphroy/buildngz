@@ -131,12 +131,17 @@ File: Main Css File
   .header-item:hover {
     color: #6c757d; }
 
-.header-profile-user {
-  height: 36px;
-  width: 36px;
+.header-profile-user-med {
+  height: 72px;
+  width: 72px;
   background-color: #e7eff7; }
 
-.noti-icon i {
+  .header-profile-user {
+    height: 36px;
+    width: 36px;
+    background-color: #e7eff7; }
+  
+  .noti-icon i {
   font-size: 24px;
   color: #6c757d; }
 
@@ -1311,7 +1316,7 @@ body[data-layout="horizontal"][data-layout-size="boxed"] .container-fluid, body[
 .input-group-append .btn, .input-group-prepend .btn {
   line-height: 1.4; }
 
-/*== Project Lonch ==*/
+/*== Project Launch ==*/
 .icon-info i {
   font-size: 36px; }
 
@@ -3312,3 +3317,12 @@ input[switch="dark"]:checked + label {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   color: #44a2d2; }
+
+  /*====================
+  Custom
+  ====================*/
+.listing__thumbnail {
+  display: none;
+  width: 150px;
+  margin-right: 20px;
+}

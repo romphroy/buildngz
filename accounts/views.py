@@ -162,26 +162,30 @@ def login(request):
     return render(request, 'accounts/login.html')
 
 
+def lockScreen(request):
+    return render(request, 'accounts/lockScreen.html')
+
+
 def logout(request):
     auth.logout(request)
     messages.info(request, "You are logged out.") 
     return redirect('login')
 
 
-@login_required(login_url=login)
+@login_required(login_url='login')
 def myAccount(request):
     user = request.user
     redirectUrl = detectUser(user)
     return redirect(redirectUrl)
 
 
-@login_required(login_url=login)
+@login_required(login_url='login')
 @user_passes_test(check_role_customer)
 def customerDashboard(request):
     return render(request, 'accounts/customerDashboard.html' )
 
 
-@login_required(login_url=login)
+@login_required(login_url='login')
 @user_passes_test(check_role_vendor)
 def vendorDashboard(request):
     return render(request, 'accounts/vendorDashboard.html')

@@ -1,0 +1,88 @@
+{% extends 'v_base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-flex align-items-center justify-content-between">
+                <h4 class="mb-0 font-size-18">{{vendor.vendor_name}} Profile</h4>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card ">
+                <div class="card-body">    
+                    <h5 class="card-title">Profile Information</h5>
+                    <p class="card-title-desc">Here are examples of</p>
+                    <form action="{% url 'vendorProfile' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group ">
+                                    <label for="example-email-input1" class="col-form-label pt-0">Update your Logo</label>
+                                    <input name="profile_picture" class="form-control" type="file" value="{{user_form.profile_picture}}">
+                                    
+                                </div>
+                                <div class="form-group ">
+                                    <label for="example-email-input1" class="col-form-label pt-0">Update your Cover Photo</label>
+                                    <div class="">
+                                        <input class="form-control" type="file" value=""  placeholder="@Example.com">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="example-email-input1" class="col-form-label pt-0">Update your Logo</label>
+                                    <div class="">
+                                        <input class="form-control" type="file" value=""  placeholder="@Example.com">
+                                    </div>
+                                </div>
+                                
+                                <div class="custom-control custom-checkbox my-3">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">I accept the terms and conditions</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-lg">Create Account</button>
+    
+                            </div>  
+                            <div class="col-lg-6">
+                                <div class="form-group row">
+                                    <div class="col-lg-6  mo-b-15">
+                                        <label for="example-email-input1" class="col-form-label pt-0">Email</label>
+                                        <input class="form-control" type="text" id="name" placeholder="Name">                                                       
+                                    </div> 
+                                    <div class="col-lg-6">
+                                        <label for="example-email-input1" class="col-form-label pt-0">Email</label>
+                                        <input class="form-control" type="email" id="example-email-input3" placeholder="Email">
+                                    </div>                                                   
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label for="example-email-input1" class="col-form-label pt-0">Email</label>
+                                        <input class="form-control" type="text" id="subject2" placeholder="Subject">                                                       
+                                    </div>                                                    
+                                </div>
+                                <div class="form-group">
+                                    <label for="example-email-input1" class="col-form-label pt-0">Email</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Your message"></textarea>
+                                </div>                                                
+                                <div class="custom-control custom-radio my-2">
+                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="customRadio1">Male</label>
+                                </div>
+                                <div class="custom-control custom-radio my-2">
+                                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio2">Female</label>
+                                </div>
+                            </div>   
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row --> 
+    {% endblock %}

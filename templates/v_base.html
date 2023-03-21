@@ -13,6 +13,7 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="{% static 'vendor/images/favicon.ico' %}">
 
+        <!-- <link href="{% static 'styles/style.css' %}" rel="stylesheet" type="text/css" /> -->
         <link href="{% static 'vendor/styles/MetroJs.Full/MetroJs.min.css' %}" rel="stylesheet" type="text/css" />
 
         <!-- Bootstrap Css -->
@@ -102,7 +103,8 @@
         <!-- Datatable init js -->
         <script src="{% static 'vendor/scripts/pages/datatables.init.js' %}"></script>
         <!-- Peity chart-->
-        <script src="assets/libs/peity/jquery.peity.min.js"></script>
+        <script src="{% static 'vendor/libs/peity/jquery.peity.min.js"></script>
 
+        <script src="{% static 'vendor/libs/dropify/js/dropify.min.js' %}"></script>
     </body>
 </html>
