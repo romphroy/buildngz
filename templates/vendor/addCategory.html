@@ -1,0 +1,64 @@
+{% extends 'v_base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-flex align-items-center justify-content-between">
+                <h3 class="mb-0 font-size-23">{{vendor.vendor_name}} Menu Builder</h4>
+                <button class="btn btn-outline-secondary btn-sm m-1 float-right" onclick="history.back()"><i class="fa fa-angle-left"></i> Back</button>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
+
+    <div class="row">
+        <div class="col-12">
+            <!-- Error Messages -->
+            <!-- LOAD MESSAGES -->
+            {% include 'includes/alerts.html' %}
+            <!-- END Error Messages -->
+
+            <div class="card ">
+                <div class="card-body">    
+                    <h3 class="card-title">Add Category</h3>
+
+                    <!-- RENDER FORM -->
+                    <form action="{% url 'addCategory' %}" method="POST">
+                        {% csrf_token %}
+
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Category Name</label>
+                                    <div class="col-sm-6">
+                                        {% render_field form.category_name type="text" class="form-control" %}
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Description</label>
+                                    <div class="col-sm-6">
+                                        {% render_field form.description type="textarea" class="form-control" rows="4" %}
+                                   </div>
+                                </div>
+                            </div>  
+                        </div>
+
+                        {% for field in form %}
+                            {% if field.errors %}
+                                {% for error in field.errors %}
+                                   <li style="color: red;">{{ error }}</li>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+
+                        <button type="submit" class="btn btn-info w-lg"><i class="fa fa-check" aria-hidden="true"></i>Create Category</button>
+                    </form>
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row --> 
+{% endblock %}

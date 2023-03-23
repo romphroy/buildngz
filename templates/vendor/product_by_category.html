@@ -1,0 +1,69 @@
+{% extends 'v_base.html' %}
+{% load static %}
+<!-- {% load widget_tweaks %} -->
+
+{% block content %}
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-flex align-items-center justify-content-between">
+                <h3 class="mb-0 font-size-23">{{vendor.vendor_name}} Menu Builder</h4>
+                <button class="btn btn-outline-secondary btn-sm m-1 float-right" onclick="history.back()"><i class="fa fa-angle-left"></i> Back</button>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
+
+    <div class="row">
+        <div class="col-12">
+            <!-- Error Messages -->
+            <!-- LOAD MESSAGES -->
+            {% include 'includes/alerts.html' %}
+            <!-- END Error Messages -->
+
+            <div class="card ">
+                <div class="card-body">    
+                    <h3 class="card-title">Products/Services Menu </h3>
+                    <p class="card-title-desc text-bold">By Category: {{ category }}</p>
+                    <!-- <a href="#" class="btn btn-success float-right m-1"><i class="mdi mdi-plus"></i>Add Product</a> -->
+                    <!-- <a href="#" class="btn btn-info float-right m-1"><i class="mdi mdi-plus"></i>Add Category</a> -->
+                    {% if product %}
+                        <div class="table-responsive">
+                            <table class="table table-striped w-100">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Picture</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Available</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                    {% for prod in product %}
+                                        <tr>
+                                            <td>{{ forloop.counter }}</td>
+                                            <td class="text-left"><img src="{{prod.image.url}}" alt="Product Image" width="120"></td>
+                                            <td>
+                                                <a href=""><p class="mb-0 font-weight-bold">{{ prod.product_name }}</p>
+                                                <small class="text-muted">{{ prod.description }}</small></a>
+                                            </td>
+                                            <td>{{ prod.price }}</td>
+                                            <td>{{ prod.is_available }}</td>
+                                            <td><i class="fa fa-edit mr-3 text-success"></i> <i class="fa fa-trash text-danger"></i></td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <h3 class="text-center">No products were found.</h3>
+                        <div class="text-center"><a href="#" class="btn btn-success m-1"><i class="mdi mdi-plus"></i>Add Product</a></div>
+                    {% endif %}
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row --> 
+{% endblock %}
