@@ -23,10 +23,10 @@
 
             <div class="card ">
                 <div class="card-body">    
-                    <h3 class="card-title">Add Product</h3>
+                    <h3 class="card-title">Modify Product</h3>
 
                     <!-- RENDER FORM -->
-                    <form action="{% url 'addProduct' %}" method="POST" enctype="multipart/form-data">
+                    <form action="{% url 'editProduct' product.id %}" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
 
                         <div class="row">
@@ -55,9 +55,9 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Picture *</label>
                                     <div class="col-sm-6">
-                                        <!-- <img class="rounded img-thumbnail avatar-xl m-1" src="{{ form.image.url }}">  -->
+                                        <img class="rounded m-1" src="{{ product.prod_photo.url }}" alt="Product Image" width="120">
                                         {% render_field form.prod_photo type="file" class="form-control btn btn-secondary" %}
-                                   </div>
+                                  </div>
                                 </div>
                                 
                                 <div class="form-group row">
@@ -84,7 +84,7 @@
                             {% endif %}
                         {% endfor %}
                         <hr>
-                        <button type="submit" class="btn btn-info w-lg"><i class="fa fa-check" aria-hidden="true"></i>Create Product</button>
+                        <button type="submit" class="btn btn-info w-lg"><i class="fa fa-check" aria-hidden="true"></i>Update Product</button>
                     </form>
                 </div>
             </div>

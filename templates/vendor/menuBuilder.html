@@ -32,6 +32,7 @@
                             <tr>
                                 <th class="font-size-16 font-weight-bold">#</th>
                                 <th class="font-size-16 font-weight-bold">Name</th>
+                                <th ></th>
                                 <th class="font-size-16 font-weight-bold">Action</th>
                             </tr>
                             </thead>
@@ -40,16 +41,16 @@
                             <tbody>
                                 {% for cat in categories %}
                                     <tr>
-                                        <td class="font-size-14">{{ forloop.counter }}</td>
-                                        <td class="font-size-14">
-                                            <a href="{% url 'product_by_category' cat.id %}"><p class="mb-0 font-weight-bold">{{ cat.category_name }}</p>
-                                            <p class="text-muted">{{ cat.description }}</p></a>
-                                            
+                                        <td width="5%" class="font-size-14">{{ forloop.counter }}</td>
+                                        <td width="15%" class="font-size-14">
+                                            <a href="{% url 'product_by_category' cat.id %}">
+                                            <p class="mb-0 font-weight-bold">{{ cat.category_name }}</a>                                       
                                         </td>
+                                        <td width="45%"><span class="badge badge-danger">{{ cat.num_products }}</span></td>
                                         <td class="font-size-14">
                                             <a href="{% url 'editCategory' cat.id %}"><i class="fa fa-edit fa-lg mr-3 text-success" title="Edit Category"></i></a>
                                             &nbsp
-                                            <a href="{% url 'deleteCategory' cat.id %}" onclick="return confirm('Are you want to delete this category?')"><i class="fa fa-trash fa-lg text-danger" title="Delete Category"></i></a>
+                                            <a href="{% url 'deleteCategory' cat.id %}" onclick="return confirm('Are you want to delete this category?')"><i class="fa fa-trash-alt fa-lg text-danger" title="Delete Category"></i></a>
                                         </td>
                                     </tr>
                                 {% endfor %}

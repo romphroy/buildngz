@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.template.defaultfilters import slugify
+from django.db.models import Count
 
 from .models import Vendor
 from .forms import VendorForm
@@ -28,7 +29,7 @@ def vendorProfile(request):
     vendor = get_object_or_404(Vendor, user=request.user)
     
     if request.method == 'POST':
-        print('I made into the post check if') 
+        print(request.POST) 
         profile_form = UserProfileForm(request.POST, request.FILES, instance=profile)
         vendor_form = VendorForm(request.POST, request.FILES, instance=vendor)
         if profile_form.is_valid() and vendor_form.is_valid():
@@ -71,20 +72,20 @@ def vendorListings(request):
 @login_required(login_url='login')
 @user_passes_test(check_role_vendor)
 def menuBuilder(request):
-    vendor      = get_vendor(request)
-    categories  = Category.objects.filter(vendor=vendor).order_by('category_name')
+    vendor          = get_vendor(request)
+    categories      = Category.objects.filter(vendor=vendor).order_by('category_name').annotate(num_products=Count('product'))
     context     = {
         'categories': categories,
-    }
+     }
     return render(request, 'vendor/menuBuilder.html', context)
 
 
 @login_required(login_url='login')
 @user_passes_test(check_role_vendor)
 def product_by_category(request, pk=None):
-    vendor      = get_vendor(request)
-    category    = get_object_or_404(Category, pk=pk)
-    product     = Product.objects.filter(vendor=vendor, category=category)
+    vendor          = get_vendor(request)
+    category        = get_object_or_404(Category, pk=pk)
+    product         = Product.objects.filter(vendor=vendor, category=category).order_by('product_name')
     context     = {
         'product': product,
         'category': category,
@@ -154,13 +155,13 @@ def deleteCategory(request, pk=None):
     messages.success(request, 'Category has be deleted successfully.')
     return redirect('menuBuilder')
 
-    
+
 @login_required(login_url='login')
 @user_passes_test(check_role_vendor)
 def addProduct(request):
     if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
         print(request.POST)
-        form = ProductForm(request.POST)
         if form.is_valid():
             product_name   = form.cleaned_data['product_name']
             product        = form.save(commit=False)
@@ -168,11 +169,10 @@ def addProduct(request):
             product.slug   = slugify(product_name)
             form.save()
             messages.success(request, 'Product added successfully.')
-            return redirect('menuBuilder')
+            return redirect('product_by_category', product.category.id)
         else:
-            error_message = form.errors
-            messages.error(request, error_message)
-
+            print(form.errors)
+            # messages.error(request, error_message)
     else:
         form = ProductForm()
     context = {
@@ -187,7 +187,7 @@ def editProduct(request, pk=None):
     product = get_object_or_404(Product, pk=pk)
     if request.method == 'POST':
         print(request.POST)
-        form = ProductForm(request.POST, instance=product)
+        form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             product_name   = form.cleaned_data['product_name']
             product        = form.save(commit=False)
@@ -195,7 +195,7 @@ def editProduct(request, pk=None):
             product.slug   = slugify(product_name)
             form.save()
             messages.success(request, 'Product updated successfully.')
-            return redirect('menuBuilder')
+            return redirect('product_by_category', product.category.id)
         else:
             error_message = form.errors
             messages.error(request, error_message)
@@ -215,4 +215,4 @@ def deleteProduct(request, pk=None):
     product = get_object_or_404(Product, pk=pk)
     product.delete()
     messages.success(request, 'Product has be deleted successfully.')
-    return redirect('menuBuilder')    
+    return redirect('product_by_category', product.category.id)    

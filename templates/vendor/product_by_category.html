@@ -32,12 +32,12 @@
                             <table class="table table-striped w-100">
                                 <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Picture</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Available</th>
-                                    <th>Action</th>
+                                    <th class="font-size-16 font-weight-bold">#</th>
+                                    <th class="font-size-16 font-weight-bold">Picture</th>
+                                    <th class="font-size-16 font-weight-bold">Name</th>
+                                    <th class="font-size-16 font-weight-bold">Price</th>
+                                    <th class="font-size-16 font-weight-bold">Available</th>
+                                    <th class="font-size-16 font-weight-bold">Action</th>
                                 </tr>
                                 </thead>
 
@@ -45,14 +45,18 @@
                                     {% for prod in product %}
                                         <tr>
                                             <td>{{ forloop.counter }}</td>
-                                            <td class="text-left"><img src="{{prod.image.url}}" alt="Product Image" width="120"></td>
+                                            <td class="text-left"><img src="{{prod.prod_photo.url}}" alt="Product Image" width="120"></td>
                                             <td>
                                                 <a href=""><p class="mb-0 font-weight-bold">{{ prod.product_name }}</p>
                                                 <small class="text-muted">{{ prod.description }}</small></a>
                                             </td>
                                             <td>{{ prod.price }}</td>
                                             <td>{{ prod.is_available }}</td>
-                                            <td><i class="fa fa-edit mr-3 text-success"></i> <i class="fa fa-trash text-danger"></i></td>
+                                            <td>
+                                                <a href="{% url 'editProduct' prod.id %}"><i class="fa fa-edit fa-lg mr-3 text-success" title="Edit Product"></i></a>
+                                                &nbsp
+                                            <a href="{% url 'deleteProduct' prod.id %}" onclick="return confirm('Are you want to delete this product?')"><i class="fa fa-trash-alt fa-lg text-danger" title="Delete Product"></i></a>
+                                            </td>
                                         </tr>
                                     {% endfor %}
                                 </tbody>
@@ -60,7 +64,7 @@
                         </div>
                     {% else %}
                         <h3 class="text-center">No products were found.</h3>
-                        <div class="text-center"><a href="#" class="btn btn-success m-1"><i class="mdi mdi-plus"></i>Add Product</a></div>
+                        <div class="text-center"><a href="{% url 'addProduct' %}" class="btn btn-success m-1"><i class="mdi mdi-plus"></i>Add Product</a></div>
                     {% endif %}
                 </div>
             </div>
