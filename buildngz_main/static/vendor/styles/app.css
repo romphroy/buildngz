@@ -6,7 +6,7 @@ Website: https://themesbrand.com/
 Contact: themesbrand@gmail.com
 File: Main Css File
 */
-@import url("https://fonts.googleapis.com/css?family=Arial:300,400,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,700&display=swap");
 #page-topbar {
   position: fixed;
   top: 0;
@@ -693,12 +693,12 @@ body[data-sidebar="colored"].vertical-collpsed .vertical-menu #sidebar-menu ul l
   .topnav .navbar-nav .dropdown-item {
     color: #6c757d; }
     .topnav .navbar-nav .dropdown-item.active, .topnav .navbar-nav .dropdown-item:hover {
-      color: #44a2d2;
+      color: #00aeef;
       background-color: transparent; }
   .topnav .navbar-nav .nav-item .nav-link.active {
-    color: #44a2d2; }
+    color: #00aeef; }
   .topnav .navbar-nav .dropdown.active > a {
-    color: #44a2d2;
+    color: #400aeef;
     background-color: transparent; }
 
 @media (min-width: 1200px) {
@@ -789,7 +789,7 @@ body[data-sidebar="colored"].vertical-collpsed .vertical-menu #sidebar-menu ul l
       position: relative;
       background-color: transparent; }
       .topnav .dropdown .dropdown-item.active, .topnav .dropdown .dropdown-item:active {
-        color: #44a2d2; }
+        color: #00aeef; }
     .topnav .arrow-down::after {
       right: 15px;
       position: absolute; } }
@@ -800,7 +800,7 @@ body[data-sidebar="colored"].vertical-collpsed .vertical-menu #sidebar-menu ul l
   body[data-layout="horizontal"][data-topbar="light"] .navbar-brand-box .logo-light {
     display: none; }
   body[data-layout="horizontal"][data-topbar="light"] .topnav {
-    background-color: #44a2d2; }
+    background-color: #00aeef; }
     body[data-layout="horizontal"][data-topbar="light"] .topnav .navbar-nav .nav-link {
       color: rgba(255, 255, 255, 0.7); }
       body[data-layout="horizontal"][data-topbar="light"] .topnav .navbar-nav .nav-link:focus, body[data-layout="horizontal"][data-topbar="light"] .topnav .navbar-nav .nav-link:hover {
@@ -843,7 +843,7 @@ body[data-layout="horizontal"][data-topbar="colored"] .noti-icon i {
 
 @media (min-width: 992px) {
   body[data-layout="horizontal"][data-topbar="colored"] .topnav {
-    background-color: #44a2d2; }
+    background-color: #00aeef; }
     body[data-layout="horizontal"][data-topbar="colored"] .topnav .navbar-nav .nav-link {
       color: rgba(255, 255, 255, 0.5); }
       body[data-layout="horizontal"][data-topbar="colored"] .topnav .navbar-nav .nav-link:focus, body[data-layout="horizontal"][data-topbar="colored"] .topnav .navbar-nav .nav-link:hover {
@@ -3326,3 +3326,144 @@ input[switch="dark"]:checked + label {
   width: 150px;
   margin-right: 20px;
 }
+
+
+/* Base style for both shapes */
+.avatar-upload {
+  display: inline-block;
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  overflow: hidden;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.avatar-round {
+  border-radius: 50%;
+  z-index: 1; /* Add this line to set the z-index value */
+}
+
+.avatar-round i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: #333;
+  opacity: 0.7;
+  z-index: 2; /* Add this line to set the z-index value */
+  }
+
+.avatar-square i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  /* margin-top: .5rem; */
+  color: #333;
+  opacity: 0.7;
+  }  
+
+.avatar-upload input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+
+
+
+/*Profile*/
+.profile-box .fileupload.btn, .profile-box .fixed-sidebar-left .side-nav > li > a.fileupload.documentation-btn, .fixed-sidebar-left .profile-box .side-nav > li > a.fileupload.documentation-btn, .profile-box .wizard > .actions a.fileupload, .wizard > .actions .profile-box a.fileupload, .profile-box .dt-buttons .fileupload.dt-button, .dt-buttons .profile-box .fileupload.dt-button, .profile-box .tablesaw-sortable th.tablesaw-sortable-head button.fileupload, .tablesaw-sortable th.tablesaw-sortable-head .profile-box button.fileupload, .profile-box .sweet-alert button.fileupload, .sweet-alert .profile-box button.fileupload, .profile-box .owl-theme .owl-nav .fileupload[class*="owl-"], .owl-theme .owl-nav .profile-box .fileupload[class*="owl-"], .profile-box button.fileupload.fc-agendaDay-button.fc-state-default.fc-corner-right,
+.profile-box button.fileupload.fc-month-button.fc-state-default.fc-corner-left,
+.profile-box button.fileupload.fc-agendaWeek-button, .profile-box .fileupload.fc-prev-button, .profile-box .fileupload.fc-next-button, .profile-box .fileupload.fc-today-button {
+  background: rgba(33, 33, 33, 0.5);
+  border-radius: 0;
+  padding: 3px 10px;
+  border: none; }
+  .profile-box .fileupload.btn:hover, .profile-box .fixed-sidebar-left .side-nav > li > a.fileupload.documentation-btn:hover, .fixed-sidebar-left .profile-box .side-nav > li > a.fileupload.documentation-btn:hover, .profile-box .wizard > .actions a.fileupload:hover, .wizard > .actions .profile-box a.fileupload:hover, .profile-box .dt-buttons .fileupload.dt-button:hover, .dt-buttons .profile-box .fileupload.dt-button:hover, .profile-box .tablesaw-sortable th.tablesaw-sortable-head button.fileupload:hover, .tablesaw-sortable th.tablesaw-sortable-head .profile-box button.fileupload:hover, .profile-box .sweet-alert button.fileupload:hover, .sweet-alert .profile-box button.fileupload:hover, .profile-box .owl-theme .owl-nav .fileupload[class*="owl-"]:hover, .owl-theme .owl-nav .profile-box .fileupload[class*="owl-"]:hover, .profile-box button.fileupload.fc-agendaDay-button.fc-state-default.fc-corner-right:hover,
+  .profile-box button.fileupload.fc-month-button.fc-state-default.fc-corner-left:hover,
+  .profile-box button.fileupload.fc-agendaWeek-button:hover, .profile-box .fileupload.fc-prev-button:hover, .profile-box .fileupload.fc-next-button:hover, .profile-box .fileupload.fc-today-button:hover, .profile-box .fileupload.btn:active, .profile-box .fixed-sidebar-left .side-nav > li > a.fileupload.documentation-btn:active, .fixed-sidebar-left .profile-box .side-nav > li > a.fileupload.documentation-btn:active, .profile-box .wizard > .actions a.fileupload:active, .wizard > .actions .profile-box a.fileupload:active, .profile-box .dt-buttons .fileupload.dt-button:active, .dt-buttons .profile-box .fileupload.dt-button:active, .profile-box .tablesaw-sortable th.tablesaw-sortable-head button.fileupload:active, .tablesaw-sortable th.tablesaw-sortable-head .profile-box button.fileupload:active, .profile-box .sweet-alert button.fileupload:active, .sweet-alert .profile-box button.fileupload:active, .profile-box .owl-theme .owl-nav .fileupload[class*="owl-"]:active, .owl-theme .owl-nav .profile-box .fileupload[class*="owl-"]:active, .profile-box button.fileupload.fc-agendaDay-button.fc-state-default.fc-corner-right:active,
+  .profile-box button.fileupload.fc-month-button.fc-state-default.fc-corner-left:active,
+  .profile-box button.fileupload.fc-agendaWeek-button:active, .profile-box .fileupload.fc-prev-button:active, .profile-box .fileupload.fc-next-button:active, .profile-box .fileupload.fc-today-button:active, .profile-box .fileupload.btn:focus, .profile-box .fixed-sidebar-left .side-nav > li > a.fileupload.documentation-btn:focus, .fixed-sidebar-left .profile-box .side-nav > li > a.fileupload.documentation-btn:focus, .profile-box .wizard > .actions a.fileupload:focus, .wizard > .actions .profile-box a.fileupload:focus, .profile-box .dt-buttons .fileupload.dt-button:focus, .dt-buttons .profile-box .fileupload.dt-button:focus, .profile-box .tablesaw-sortable th.tablesaw-sortable-head button.fileupload:focus, .tablesaw-sortable th.tablesaw-sortable-head .profile-box button.fileupload:focus, .profile-box .sweet-alert button.fileupload:focus, .sweet-alert .profile-box button.fileupload:focus, .profile-box .owl-theme .owl-nav .fileupload[class*="owl-"]:focus, .owl-theme .owl-nav .profile-box .fileupload[class*="owl-"]:focus, .profile-box button.fileupload.fc-agendaDay-button.fc-state-default.fc-corner-right:focus,
+  .profile-box button.fileupload.fc-month-button.fc-state-default.fc-corner-left:focus,
+  .profile-box button.fileupload.fc-agendaWeek-button:focus, .profile-box .fileupload.fc-prev-button:focus, .profile-box .fileupload.fc-next-button:focus, .profile-box .fileupload.fc-today-button:focus {
+    background: rgba(33, 33, 33, 0.5); }
+  .profile-box .fileupload.btn .btn-text, .profile-box .fixed-sidebar-left .side-nav > li > a.fileupload.documentation-btn .btn-text, .fixed-sidebar-left .profile-box .side-nav > li > a.fileupload.documentation-btn .btn-text, .profile-box .wizard > .actions a.fileupload .btn-text, .wizard > .actions .profile-box a.fileupload .btn-text, .profile-box .dt-buttons .fileupload.dt-button .btn-text, .dt-buttons .profile-box .fileupload.dt-button .btn-text, .profile-box .tablesaw-sortable th.tablesaw-sortable-head button.fileupload .btn-text, .tablesaw-sortable th.tablesaw-sortable-head .profile-box button.fileupload .btn-text, .profile-box .sweet-alert button.fileupload .btn-text, .sweet-alert .profile-box button.fileupload .btn-text, .profile-box .owl-theme .owl-nav .fileupload[class*="owl-"] .btn-text, .owl-theme .owl-nav .profile-box .fileupload[class*="owl-"] .btn-text, .profile-box button.fileupload.fc-agendaDay-button.fc-state-default.fc-corner-right .btn-text,
+  .profile-box button.fileupload.fc-month-button.fc-state-default.fc-corner-left .btn-text,
+  .profile-box button.fileupload.fc-agendaWeek-button .btn-text, .profile-box .fileupload.fc-prev-button .btn-text, .profile-box .fileupload.fc-next-button .btn-text, .profile-box .fileupload.fc-today-button .btn-text {
+    color: #fff;
+    font-size: 13px; }
+.profile-box .profile-cover-pic {
+  position: relative;
+  min-height: 197px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  overflow: hidden;
+  background-size: cover;
+  background-image: url("../../../img/gallery/mock6.jpg"); }
+  .profile-box .profile-cover-pic .profile-image-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: #272B34;
+    opacity: .1; }
+  .profile-box .profile-cover-pic .fileupload.btn, .profile-box .profile-cover-pic .fixed-sidebar-left .side-nav > li > a.fileupload.documentation-btn, .fixed-sidebar-left .profile-box .profile-cover-pic .side-nav > li > a.fileupload.documentation-btn, .profile-box .profile-cover-pic .wizard > .actions a.fileupload, .wizard > .actions .profile-box .profile-cover-pic a.fileupload, .profile-box .profile-cover-pic .dt-buttons .fileupload.dt-button, .dt-buttons .profile-box .profile-cover-pic .fileupload.dt-button, .profile-box .profile-cover-pic .tablesaw-sortable th.tablesaw-sortable-head button.fileupload, .tablesaw-sortable th.tablesaw-sortable-head .profile-box .profile-cover-pic button.fileupload, .profile-box .profile-cover-pic .sweet-alert button.fileupload, .sweet-alert .profile-box .profile-cover-pic button.fileupload, .profile-box .profile-cover-pic .owl-theme .owl-nav .fileupload[class*="owl-"], .owl-theme .owl-nav .profile-box .profile-cover-pic .fileupload[class*="owl-"], .profile-box .profile-cover-pic button.fileupload.fc-agendaDay-button.fc-state-default.fc-corner-right,
+  .profile-box .profile-cover-pic button.fileupload.fc-month-button.fc-state-default.fc-corner-left,
+  .profile-box .profile-cover-pic button.fileupload.fc-agendaWeek-button, .profile-box .profile-cover-pic .fileupload.fc-prev-button, .profile-box .profile-cover-pic .fileupload.fc-next-button, .profile-box .profile-cover-pic .fileupload.fc-today-button {
+    position: relative;
+    float: right;
+    z-index: 1; }
+.profile-box .profile-info {
+  position: relative;
+  z-index: 1; }
+  .profile-box .profile-info .profile-img-wrap {
+    border-radius: 2px;
+    height: 143px;
+    margin: -80px auto 0;
+    padding: 4px;
+    position: relative;
+    width: 143px;
+    background: #fff; }
+    .profile-box .profile-info .profile-img-wrap img {
+      width: 135px;
+      height: 135px; }
+    .profile-box .profile-info .profile-img-wrap .fileupload.btn, .profile-box .profile-info .profile-img-wrap .fixed-sidebar-left .side-nav > li > a.fileupload.documentation-btn, .fixed-sidebar-left .profile-box .profile-info .profile-img-wrap .side-nav > li > a.fileupload.documentation-btn, .profile-box .profile-info .profile-img-wrap .wizard > .actions a.fileupload, .wizard > .actions .profile-box .profile-info .profile-img-wrap a.fileupload, .profile-box .profile-info .profile-img-wrap .dt-buttons .fileupload.dt-button, .dt-buttons .profile-box .profile-info .profile-img-wrap .fileupload.dt-button, .profile-box .profile-info .profile-img-wrap .tablesaw-sortable th.tablesaw-sortable-head button.fileupload, .tablesaw-sortable th.tablesaw-sortable-head .profile-box .profile-info .profile-img-wrap button.fileupload, .profile-box .profile-info .profile-img-wrap .sweet-alert button.fileupload, .sweet-alert .profile-box .profile-info .profile-img-wrap button.fileupload, .profile-box .profile-info .profile-img-wrap .owl-theme .owl-nav .fileupload[class*="owl-"], .owl-theme .owl-nav .profile-box .profile-info .profile-img-wrap .fileupload[class*="owl-"], .profile-box .profile-info .profile-img-wrap button.fileupload.fc-agendaDay-button.fc-state-default.fc-corner-right,
+    .profile-box .profile-info .profile-img-wrap button.fileupload.fc-month-button.fc-state-default.fc-corner-left,
+    .profile-box .profile-info .profile-img-wrap button.fileupload.fc-agendaWeek-button, .profile-box .profile-info .profile-img-wrap .fileupload.fc-prev-button, .profile-box .profile-info .profile-img-wrap .fileupload.fc-next-button, .profile-box .profile-info .profile-img-wrap .fileupload.fc-today-button {
+      position: absolute;
+      right: 4px;
+      bottom: 4px; }
+.profile-box .social-info {
+  border-top: 1px solid rgba(33, 33, 33, 0.05);
+  padding: 15px;
+  color: #272B34; }
+  .profile-box .social-info .counts {
+    font-size: 21px; }
+  .profile-box .social-info .counts-text {
+    color: #727272; }
+
+/*File Upload*/
+.fileupload {
+  overflow: hidden;
+  position: relative; }
+
+.fileupload input.upload {
+  cursor: pointer;
+  filter: alpha(opacity=0);
+  font-size: 20px;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  padding: 5px; }    

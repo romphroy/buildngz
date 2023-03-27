@@ -16899,6 +16899,7 @@ a.pswp__share--download:hover {
 
 .site-header__logo {
   display: inline-block;
+  width: 200px; 
 }
 
 @media screen and (min-width: 992px) {

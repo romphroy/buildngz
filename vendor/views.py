@@ -69,6 +69,22 @@ def vendorListings(request):
     return render(request, 'vendor/vendorListings.html')
 
 
+def customers(request):
+    return render(request, 'vendor/customers.html')
+
+
+def vendors(request):
+    return render(request, 'vendor/vendors.html')
+
+
+def incomeTracker(request):
+    return render(request, 'vendor/incomeTracker.html')
+
+
+def billTracker(request):
+    return render(request, 'vendor/billTracker.html')
+
+
 @login_required(login_url='login')
 @user_passes_test(check_role_vendor)
 def menuBuilder(request):
@@ -175,6 +191,7 @@ def addProduct(request):
             # messages.error(request, error_message)
     else:
         form = ProductForm()
+        form.fields['category'].queryset = Category.objects.filter(vendor=get_vendor(request))
     context = {
         'form': form
     }
@@ -202,6 +219,7 @@ def editProduct(request, pk=None):
 
     else:
         form = ProductForm(instance=product)
+        form.fields['category'].queryset = Category.objects.filter(vendor=get_vendor(request))
     context = {
         'form': form,
         'product': product,

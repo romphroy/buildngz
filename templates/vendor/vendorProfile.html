@@ -40,6 +40,8 @@
                                     <label for="file-upload-square" class="avatar-upload avatar-square">
                                         {% if profile.cover_photo %}
                                             <img class="rounded avatar-xl" src="{{ profile.cover_photo.url }}">
+                                        {% else %}
+                                            {% static 'vendor/images/users/default-avatar.png' %}
                                         {% endif %}
                                         <i class="fas fa-camera"></i>                                        
                                         {% render_field profile_form.cover_photo type="file" class="form-control btn btn-secondary" %}
@@ -64,7 +66,7 @@
                     </div>
                     <button type="submit" class="btn btn-block btn-info">Update Profile</button>
                 </div>
-            
+       
                 <div class="col-xl-7">
                     <div class="card">
                         <div class="card-body profile">
@@ -103,7 +105,6 @@
                         </div>
                     </div>
                 </div>
-                
                 
             </div>
         </form>

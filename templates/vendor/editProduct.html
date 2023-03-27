@@ -84,7 +84,9 @@
                             {% endif %}
                         {% endfor %}
                         <hr>
-                        <button type="submit" class="btn btn-info w-lg"><i class="fa fa-check" aria-hidden="true"></i>Update Product</button>
+                        <button type="submit" class="btn btn-info w-lg"><i class="fa fa-check" aria-hidden="true"></i> Update</button>
+                        &nbsp
+                        <a href="{% url 'deleteProduct' product.id %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this product?')"><i class="fa fa-trash-alt" aria-hidden="true"></i> Delete</a>
                     </form>
                 </div>
             </div>

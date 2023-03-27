@@ -20,4 +20,11 @@ urlpatterns = [
         path('menuBuilder/product/add/', views.addProduct, name='addProduct'),
         path('menuBuilder/product/edit/<int:pk>/', views.editProduct, name='editProduct'),
         path('menuBuilder/product/delete/<int:pk>/', views.deleteProduct, name='deleteProduct'),
+        
+        # Quickbook Look alike screens
+        path('incomeTracker/', views.incomeTracker, name='incomeTracker'),
+        path('billTracker/', views.billTracker, name='billTracker'),
+        path('customers/', views.customers, name='customers'),
+        path('vendors/', views.vendors, name='vendors'),
+        
     ]

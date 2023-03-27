@@ -28,16 +28,18 @@
 
   .avatar-round {
     border-radius: 50%;
+    z-index: 1; /* Add this line to set the z-index value */
   }
   
   .avatar-round i {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    bottom: -30%;
+    right: -30%;
     transform: translate(-50%, -50%);
     font-size: 3rem;
     color: #333;
     opacity: 0.7;
+    z-index: 2; /* Add this line to set the z-index value */
     }
   
   .avatar-square i {

@@ -51,7 +51,17 @@
                                                 <small class="text-muted">{{ prod.description }}</small></a>
                                             </td>
                                             <td>{{ prod.price }}</td>
-                                            <td>{{ prod.is_available }}</td>
+                                            <td>
+                                                {% if prod.is_available %}
+                                                <button type="button" class="btn btn-success btn-sm">
+                                                    Available
+                                                </button>
+                                            {% else %}
+                                                <button type="button" class="btn btn-danger btn-sm">
+                                                    Unavalable
+                                                </button>
+                                            {% endif %}
+                                            </td>
                                             <td>
                                                 <a href="{% url 'editProduct' prod.id %}"><i class="fa fa-edit fa-lg mr-3 text-success" title="Edit Product"></i></a>
                                                 &nbsp

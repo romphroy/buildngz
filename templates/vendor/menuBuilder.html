@@ -22,41 +22,64 @@
 
             <div class="card ">
                 <div class="card-body">    
-                    <h3 class="card-title font-size-20">Build your Products and Services Menu</h3>
-                    <!-- <p class="card-title-desc">Here are examples of</p> -->
-                    <a href="{% url 'addProduct' %}" class="btn btn-success float-right m-1"><i class="mdi mdi-plus mdi-lg"></i>Add Product</a>
-                    <a href="{% url 'addCategory' %}" class="btn btn-info float-right m-1"><i class="mdi mdi-plus"></i>Add Category</a>
-                    <div class="table-responsive">
-                        <table class="table table-striped w-100">
-                            <thead>
-                            <tr>
-                                <th class="font-size-16 font-weight-bold">#</th>
-                                <th class="font-size-16 font-weight-bold">Name</th>
-                                <th ></th>
-                                <th class="font-size-16 font-weight-bold">Action</th>
-                            </tr>
-                            </thead>
+                    {% if categories %}
+                        
+                        <h3 class="card-title font-size-20 m-5">Build your Products and Services Menu</h3>
+                        
+                        <!-- <p class="card-title-desc">Here are examples of</p> -->
+                        <a href="{% url 'addProduct' %}" class="btn btn-success float-right m-1"><i class="mdi mdi-plus mdi-lg"></i>Add Product</a>
+                        <a href="{% url 'addCategory' %}" class="btn btn-info float-right m-1"><i class="mdi mdi-plus"></i>Add Category</a>
+                        <div class="table-responsive">
+                            <table class="table table-striped w-100">
+                                <thead>
+                                <tr>
+                                    <th class="font-size-16 font-weight-bold">#</th>
+                                    <th class="font-size-16 font-weight-bold">Name</th>
+                                    <th ></th>
+                                    <th class="font-size-16 font-weight-bold">Action</th>
+                                </tr>
+                                </thead>
 
 
-                            <tbody>
-                                {% for cat in categories %}
-                                    <tr>
-                                        <td width="5%" class="font-size-14">{{ forloop.counter }}</td>
-                                        <td width="15%" class="font-size-14">
-                                            <a href="{% url 'product_by_category' cat.id %}">
-                                            <p class="mb-0 font-weight-bold">{{ cat.category_name }}</a>                                       
-                                        </td>
-                                        <td width="45%"><span class="badge badge-danger">{{ cat.num_products }}</span></td>
-                                        <td class="font-size-14">
-                                            <a href="{% url 'editCategory' cat.id %}"><i class="fa fa-edit fa-lg mr-3 text-success" title="Edit Category"></i></a>
-                                            &nbsp
-                                            <a href="{% url 'deleteCategory' cat.id %}" onclick="return confirm('Are you want to delete this category?')"><i class="fa fa-trash-alt fa-lg text-danger" title="Delete Category"></i></a>
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
+                                <tbody>
+                                    {% for cat in categories %}
+                                        <tr>
+                                            <td width="5%" class="font-size-14">{{ forloop.counter }}</td>
+                                            <td width="15%" class="font-size-14">
+                                                <a href="{% url 'product_by_category' cat.id %}">
+                                                <p class="mb-0 font-weight-bold">{{ cat.category_name }}</a>                                       
+                                            </td>
+                                            <td width="45%">
+                                                {% if cat.num_products %}
+                                                    <button type="button" class="btn btn-success btn-sm position-relative">
+                                                        Products <span class="position-absolute top-0 start-100 translate-middle p-2 badge badge-dark rounded-pill" style="top: -10px; right: -15px;">{{ cat.num_products }}</span>
+                                                    </button>
+                                                {% else %}
+                                                    <button type="button" class="btn btn-danger btn-sm">
+                                                        None
+                                                    </button>
+                                                {% endif %}
+                                            </td>
+                                            <td class="font-size-14">
+                                                <a href="{% url 'editCategory' cat.id %}"><i class="fa fa-edit fa-lg mr-3 text-success" title="Edit Category"></i></a>
+                                                &nbsp
+                                                <a href="{% url 'deleteCategory' cat.id %}" onclick="return confirm('Are you want to delete this category?')"><i class="fa fa-trash-alt fa-lg text-danger" title="Delete Category"></i></a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                    {% else %}
+                        <div class="mt-5">
+                            <h3 class="text-center">No Categories found. Please add one.</h3>
+                        </div>
+                        <div class="text-center m-5">
+                        <!-- <a href="{% url 'addProduct' %}" class="btn btn-success m-1"><i class="mdi mdi-plus mdi-lg"></i>Add Product</a> -->
+                        <a href="{% url 'addCategory' %}" class="btn btn-info m-1"><i class="mdi mdi-plus"></i>Add Category</a>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div> <!-- end col -->
