@@ -3,12 +3,15 @@ from django.db import models
 
 from accounts.models import User, UserProfile
 from accounts.utils import send_notification
+from django.conf import settings
+from django.urls import reverse
 
 # Create your models here.
 class Vendor(models.Model):
     user = models.OneToOneField(User, related_name='user', on_delete=models.CASCADE)
     user_profile = models.OneToOneField(UserProfile, related_name='userprofile', on_delete=models.CASCADE)
     vendor_name = models.CharField(max_length=50)
+    vendor_slug = models.SlugField(max_length=100, unique=True)
     insurance_cert = models.ImageField(upload_to='vendor/insurance_cert')
     is_approved = models.BooleanField(default=False)
     created_date = models.DateTimeField(auto_now_add=True)
@@ -37,3 +40,49 @@ class Vendor(models.Model):
                     mail_subject = "Buildngz Pro account approval rejected"
                     send_notification(mail_subject, mail_template, context)
         return super(Vendor, self).save(*args,  **kwargs)
+    
+    
+# Create your models here.
+# class Conversation(models.Model):
+#     participants = models.ManyToManyField(User, related_name='conversations')
+
+    
+class Message(models.Model):
+    vendor      = models.ForeignKey(Vendor, on_delete=models.CASCADE)
+    sender_name = models.CharField(max_length=100)
+    sender_email= models.EmailField()
+    recipients  = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='received_messages')
+    subject     = models.CharField(max_length=255)
+    body        = models.TextField()
+    sent_at     = models.DateTimeField(auto_now_add=True)
+    parent      = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='replies')
+    read        = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.subject
+
+    def get_absolute_url(self):
+        return reverse('message_detail', args=[str(self.id)])
+
+
+# class Inbox(models.Model):
+#     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='inbox')
+#     messages = models.ManyToManyField(Message, related_name='inboxes')
+
+#     def __str__(self):
+#         return f"Inbox for {self.user.username}"
+    
+    
+# class Attachment(models.Model):
+#     message = models.ForeignKey(Message, on_delete=models.CASCADE, related_name='attachments')
+#     file = models.FileField(upload_to='attachments/')
+
+# class Notification(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notifications')
+#     message = models.ForeignKey(Message, on_delete=models.CASCADE)
+#     timestamp = models.DateTimeField(auto_now_add=True)
+#     read = models.BooleanField(default=False)
+    
+    
+
+    

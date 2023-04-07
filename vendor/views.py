@@ -5,8 +5,9 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.template.defaultfilters import slugify
 from django.db.models import Count
 
-from .models import Vendor
-from .forms import VendorForm
+from .models import Vendor, Message
+        
+from .forms import VendorForm, NewVendorMessageForm
 from accounts.forms import UserProfileForm
 from accounts.models import UserProfile
 from accounts.views import check_role_vendor
@@ -57,9 +58,64 @@ def vendorProfile(request):
     return render(request, 'vendor/vendorProfile.html', context)
 
 
+@login_required(login_url='login')
+@user_passes_test(check_role_vendor)
 def vendorInbox(request):
-    return render(request, 'vendor/vendorInbox.html')
+    vendor  = get_vendor(request)
+    messages= Message.objects.filter(vendor=vendor).order_by('sent_at')
+    message_count= messages.count()
+    context = {
+        'messages': messages,
+        'message_count': message_count,
+     }
+    return render(request, 'vendor/vendorInbox.html', context)
 
+
+@login_required(login_url='login')
+@user_passes_test(check_role_vendor)
+def readMessage(request, pk=None):
+    vendor  = get_vendor(request)
+    messages= Message.objects.filter(vendor=vendor).order_by('sent_at')
+    message = get_object_or_404(Message, pk=pk)
+    message_count= messages.count()
+    context = {
+        'message': message,
+        'message_count': message_count,
+     }
+    return render(request, 'vendor/readMessage.html', context)
+
+
+
+def composeMessage(request):
+    vendor = get_vendor(request)
+    
+    print(vendor)
+    if request.method == 'POST':
+        print(request.POST)
+        form = NewVendorMessageForm(request.POST)
+        if form.is_valid():
+            print(request.POST)       
+            recipients          = form.cleaned_data['recipients']
+            subject             = form.cleaned_data['subject']
+            body                = form.cleaned_data['body']
+            message             = form.save(commit=False)
+            message.sender_name = vendor.user.first_name + ' ' + vendor.user.last_name
+            message.sender_email= vendor.user.email
+            
+            form.save()
+            message.recipients.set(recipients)
+            return redirect('vendorInbox', request)
+        else:
+            form = NewVendorMessageForm()
+            messages= Message.objects.filter(vendor=vendor).order_by('sent_at')
+            message_count= messages.count()
+                    
+            context = {
+                'vendor': vendor,
+                'form': form,
+                'message_count': message_count,
+            }
+            return render(request, 'vendor/composeMessage.html', context)
 
 def vendorCalendar(request):
     return render(request, 'vendor/vendorCalendar.html')
@@ -89,7 +145,7 @@ def billTracker(request):
 @user_passes_test(check_role_vendor)
 def menuBuilder(request):
     vendor          = get_vendor(request)
-    categories      = Category.objects.filter(vendor=vendor).order_by('category_name').annotate(num_products=Count('product'))
+    categories      = Category.objects.filter(vendor=vendor).order_by('category_name').annotate(num_products=Count('products'))
     context     = {
         'categories': categories,
      }

@@ -6,6 +6,9 @@ urlpatterns = [
         path('', AccountViews.vendorDashboard, name='vendor'),
         path('vendorProfile/', views.vendorProfile, name='vendorProfile'),
         path('vendorInbox/', views.vendorInbox, name='vendorInbox'),
+        path('vendorInbox/message/<int:pk>/', views.readMessage, name='readMessage'),
+        path('vendorInbox/message/compose/', views.composeMessage, name='composeMessage'),
+
         path('vendorCalendar/', views.vendorCalendar, name='vendorCalendar'),
         path('vendorListings/', views.vendorListings, name='vendorListings'),
         path('menuBuilder/', views.menuBuilder, name='menuBuilder'),

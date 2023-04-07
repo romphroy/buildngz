@@ -18094,8 +18094,8 @@ a.pswp__share--download:hover {
   font-size: 0.75rem;
   width: 26px;
   height: 26px;
-  border-color: #fcc400;
-  background-color: #fcc400;
+  border-color: #53dd40;
+  background-color: #53dd40;
   color: #222222;
   line-height: 26px;
 }
@@ -19930,7 +19930,7 @@ a.pswp__share--download:hover {
 
 .stars-inner:before {
   content: '\f005 \f005 \f005 \f005 \f005';
-  color: #fcc400;
+  color: #53dd40;
 }
 
 .stars {
@@ -19941,11 +19941,11 @@ a.pswp__share--download:hover {
 }
 
 .star.hover {
-  color: #fcc400;
+  color: #53dd40;
 }
 
 .star.is-selected {
-  color: #fcc400;
+  color: #53dd40;
 }
 
 .map-controls {

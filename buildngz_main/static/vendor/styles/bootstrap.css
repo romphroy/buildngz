@@ -4032,7 +4032,7 @@ input[type="button"].btn-block {
   background-color: #fff;
   background-clip: border-box;
   border: 0 solid #e7eff7;
-  border-radius: 0.75rem; }  /* was border-radius .25rem */
+  border-radius: 0rem; }  /* was border-radius .25rem */
   .card > hr {
     margin-right: 0;
     margin-left: 0; }

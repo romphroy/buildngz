@@ -5,6 +5,7 @@ from django.utils.http import urlsafe_base64_decode
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.exceptions import PermissionDenied 
+from django.template.defaultfilters import slugify
 
 from vendor.forms import VendorForm
 from .forms import UserForm
@@ -50,13 +51,13 @@ def registerUser(request):
             # user.save()
             
             # create the user using the create_user method
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            email = form.cleaned_data['email']
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user = User.objects.create_user(first_name=first_name, last_name=last_name, email=email,username=username,password=password)
-            user.role = User.CUSTOMER
+            first_name  = form.cleaned_data['first_name']
+            last_name   = form.cleaned_data['last_name']
+            email       = form.cleaned_data['email']
+            username    = form.cleaned_data['username']
+            password    = form.cleaned_data['password']
+            user        = User.objects.create_user(first_name=first_name, last_name=last_name, email=email,username=username,password=password)
+            user.role   = User.CUSTOMER
             user.save()
             
             # Send verification email to user
@@ -99,6 +100,8 @@ def registerVendor(request):
             
             vendor = v_form.save(commit=False)
             vendor.user = user
+            vendor_name = v_form.cleaned_data['vendor_name']
+            vendor.vendor_slug  = slugify(vendor_name)+'-'+str(user.id)
             user_profile = UserProfile.objects.get(user=user)
             vendor.user_profile = user_profile
             vendor.save()

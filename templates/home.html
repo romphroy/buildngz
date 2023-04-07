@@ -129,250 +129,52 @@
     <h2 class="page-section__title t-center">Popular Professionals</h2>
     <p class="page-section__subtitle t-center c-boulder">Exploring licensed, verified professionals in your area</p>
     <div class="row">
-      <div class="col-md-4">
-        <div class="listing hover-effect">
-          <div class="listing__wrapper">
-            <div class="listing__thumbnail">
-              <a href="single-listing-1.html">
-                <img src="{% static 'images/uploads/listing-1.jpg' %}" alt="April Boutique Coffee">
-                <span class="label label--tertiary">Closed</span>
-                <span class="favorite c-white">
-                  <i class="fa fa-heart-o"></i>
-                </span>
-              </a>
-            </div><!-- .listing__thumbnail -->
-            <div class="listing__detail">
-              <div class="listing__detail-left">
-                <p class="listing__category t-small">
-                  <span class="c-dove-gray">Architects, Construction</span>
-                  <span class="listing__price">
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-dusty-gray"></i>
+      <!-- list Vendors -->
+      {% for vendor in vendors %}
+        <div class="col-md-4">
+          <div class="listing hover-effect">
+            <div class="listing__wrapper">
+              <div class="listing__thumbnail">
+                <a href="single-listing-1.html">
+                  <img src="{{ vendor.user_profile.cover_photo.url }}" alt="{{ vendor.vendor_name }}">
+                  <span class="label label--tertiary">Closed</span>
+                  <span class="favorite c-white">
+                    <i class="fa fa-heart-o"></i>
                   </span>
-                </p>
-                <h3 class="listing__title">
-                  <a href="single-listing-1.html">Kaplin Architects</a>
-                </h3>
-                <p class="listing__location c-dusty-gray">
-                  <i class="fa fa-map-marker"></i>
-                  185 Market Street, San Francisco
-                </p>
-              </div>
+                </a>
+              </div><!-- .listing__thumbnail -->
+              <div class="listing__detail">
+                <div class="listing__detail-left">
+                  <p class="listing__category t-small">
+                    <span class="c-dove-gray">Architects, Construction</span>
+                    <span class="listing__price">
+                      <i class="fa fa-star c-orange"></i>
+                      <i class="fa fa-star c-orange"></i>
+                      <i class="fa fa-star c-orange"></i>
+                      <i class="fa fa-star c-orange"></i>
+                      <i class="fa fa-star c-dusty-gray"></i>
+                    </span>
+                  </p>
+                  <h3 class="listing__title">
+                    <a href="single-listing-1.html">{{ vendor.vendor_name }}</a>
+                  </h3>
+                  <p class="listing__location c-dusty-gray">
+                    <i class="fa fa-map-marker"></i>
+                    {{ vendor.user_profile.address }}
+                    <br>
+                    {{ vendor.user_profile.city }}, {{ vendor.user_profile.state }} {{ vendor.user_profile.zip_code }}
+                  </p>
+                </div>
 
-              <div class="listing__detail-right">
-                <span class="listing__score t-center">7.0</span>
-              </div>
-            </div><!-- .listing__detail -->
-          </div><!-- .listing__wrapper -->
-        </div><!-- .listing -->
-      </div><!-- .col -->
+                <div class="listing__detail-right">
+                  <span class="listing__score t-center">7.0</span>
+                </div>
+              </div><!-- .listing__detail -->
+            </div><!-- .listing__wrapper -->
+          </div><!-- .listing -->
+        </div><!-- .col -->
+      {% endfor %}
 
-      <div class="col-md-4">
-        <div class="listing hover-effect">
-          <div class="listing__wrapper">
-            <div class="listing__thumbnail">
-              <a href="single-listing-1.html">
-                <img src="{% static 'images/uploads/listing-2.jpg' %}" alt="April Boutique Coffee">
-                <span class="label label--secondary">Open</span>
-                <span class="favorite c-white">
-                  <i class="fa fa-heart-o"></i>
-                </span>
-              </a>
-            </div><!-- .listing__thumbnail -->
-            <div class="listing__detail">
-              <div class="listing__detail-left">
-                <p class="listing__category t-small">
-                  <span class="c-dove-gray">Carpet Cleaning</span>
-                  <span class="listing__price">
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-dusty-gray"></i>
-                  </span>
-                </p>
-                <h3 class="listing__title">
-                  <a href="single-listing-1.html">McNevin Cleaners</a>
-                </h3>
-                <p class="listing__location c-dusty-gray">
-                  <i class="fa fa-map-marker"></i>
-                  1533 Collier Ave, Burlingame
-                </p>
-              </div>
-
-              <div class="listing__detail-right">
-                <span class="listing__score t-center">7.0</span>
-              </div>
-            </div><!-- .listing__detail -->
-          </div><!-- .listing__wrapper -->
-        </div><!-- .listing -->
-      </div><!-- .col -->
-
-      <div class="col-md-4">
-        <div class="listing hover-effect">
-          <div class="listing__wrapper">
-            <div class="listing__thumbnail">
-              <a href="single-listing-1.html">
-                <img src="{% static 'images/uploads/listing-3.jpg' %}" alt="April Boutique Coffee">
-                <span class="label label--tertiary">Closed</span>
-                <span class="favorite c-white">
-                  <i class="fa fa-heart-o"></i>
-                </span>
-              </a>
-            </div><!-- .listing__thumbnail -->
-            <div class="listing__detail">
-              <div class="listing__detail-left">
-                <p class="listing__category t-small">
-                  <span class="c-dove-gray">Janitorial</span>
-                  <span class="listing__price">
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-dusty-gray"></i>
-                  </span>
-                </p>
-                <h3 class="listing__title">
-                  <a href="single-listing-1.html">Acme Janitorial Services</a>
-                </h3>
-                <p class="listing__location c-dusty-gray">
-                  <i class="fa fa-map-marker"></i>
-                  2311 Broadway, Oakland
-                </p>
-              </div>
-
-              <div class="listing__detail-right">
-                <span class="listing__score t-center">7.0</span>
-              </div>
-            </div><!-- .listing__detail -->
-          </div><!-- .listing__wrapper -->
-        </div><!-- .listing -->
-      </div><!-- .col -->
-
-      <div class="col-md-4">
-        <div class="listing hover-effect">
-          <div class="listing__wrapper">
-            <div class="listing__thumbnail">
-              <a href="single-listing-1.html">
-                <img src="{% static 'images/uploads/listing-4.jpg' %}" alt="April Boutique Coffee">
-                <span class="label label--tertiary">Closed</span>
-                <span class="favorite c-white">
-                  <i class="fa fa-heart-o"></i>
-                </span>
-              </a>
-            </div><!-- .listing__thumbnail -->
-            <div class="listing__detail">
-              <div class="listing__detail-left">
-                <p class="listing__category t-small">
-                  <span class="c-dove-gray">Graffiti Abatement
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-dusty-gray"></i>
-                  </span>
-                </p>
-                <h3 class="listing__title">
-                  <a href="single-listing-1.html">Cowboy Graffiti Removal</a>
-                </h3>
-                <p class="listing__location c-dusty-gray">
-                  <i class="fa fa-map-marker"></i>
-                  543 West Chabot, South San Francisco
-                </p>
-              </div>
-
-              <div class="listing__detail-right">
-                <span class="listing__score t-center">7.0</span>
-              </div>
-            </div><!-- .listing__detail -->
-          </div><!-- .listing__wrapper -->
-        </div><!-- .listing -->
-      </div><!-- .col -->
-
-      <div class="col-md-4">
-        <div class="listing hover-effect">
-          <div class="listing__wrapper">
-            <div class="listing__thumbnail">
-              <a href="single-listing-1.html">
-                <img src="{% static 'images/uploads/listing-5.jpg' %}" alt="April Boutique Coffee">
-                <span class="label label--tertiary">Closed</span>
-                <span class="favorite c-white">
-                  <i class="fa fa-heart-o"></i>
-                </span>
-              </a>
-            </div><!-- .listing__thumbnail -->
-            <div class="listing__detail">
-              <div class="listing__detail-left">
-                <p class="listing__category t-small">
-                  <span class="c-dove-gray">Coffee, Catering</span>
-                  <span class="listing__price">
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-dusty-gray"></i>
-                  </span>
-                </p>
-                <h3 class="listing__title">
-                  <a href="single-listing-1.html">Alimo Coffee Services</a>
-                </h3>
-                <p class="listing__location c-dusty-gray">
-                  <i class="fa fa-map-marker"></i>
-                  4345 South Van Ness, San Francisco
-                </p>
-              </div>
-
-              <div class="listing__detail-right">
-                <span class="listing__score t-center">7.0</span>
-              </div>
-            </div><!-- .listing__detail -->
-          </div><!-- .listing__wrapper -->
-        </div><!-- .listing -->
-      </div><!-- .col -->
-
-      <div class="col-md-4">
-        <div class="listing hover-effect">
-          <div class="listing__wrapper">
-            <div class="listing__thumbnail">
-              <a href="single-listing-1.html">
-                <img src="{% static 'images/uploads/listing-6.jpg' %}" alt="April Boutique Coffee">
-                <span class="label label--tertiary">Closed</span>
-                <span class="favorite c-white">
-                  <i class="fa fa-heart-o"></i>
-                </span>
-              </a>
-            </div><!-- .listing__thumbnail -->
-            <div class="listing__detail">
-              <div class="listing__detail-left">
-                <p class="listing__category t-small">
-                  <span class="c-dove-gray">Asphalt, Paving</span>
-                  <span class="listing__price">
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-orange"></i>
-                    <i class="fa fa-star c-dusty-gray"></i>
-                  </span>
-                </p>
-                <h3 class="listing__title">
-                  <a href="single-listing-1.html">Overland Paving Pros</a>
-                </h3>
-                <p class="listing__location c-dusty-gray">
-                  <i class="fa fa-map-marker"></i>
-                  1876 Kerr Rd., Santa Clara
-                </p>
-              </div>
-
-              <div class="listing__detail-right">
-                <span class="listing__score t-center">7.0</span>
-              </div>
-            </div><!-- .listing__detail -->
-          </div><!-- .listing__wrapper -->
-        </div><!-- .listing -->
-      </div><!-- .col -->
     </div><!-- .row -->
     <div class="t-center load-more">
       <button class="button button--primary button--medium button--pill">View All Listing</button>

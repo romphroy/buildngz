@@ -1,0 +1,90 @@
+{% extends 'v_base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-between">
+                    <h4 class="mb-0 font-size-18">Inbox</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+        <div class="row">
+            <div class="col-12">
+                {% block email_nav %}
+                <!-- Left sidebar -->
+                <div class="email-leftbar pt-0">
+                    <a href="{% url 'composeMessage' %}" class="btn btn-danger rounded btn-custom btn-block waves-effect waves-light">Compose</a>
+
+                    <div class="mail-list mt-3">
+                        <a href="{% url 'vendorInbox' %}" class="active">Inbox <span class="ml-1">({{ message_count }})</span></a>
+                        <a href="#">Starred</a>
+                        <a href="#">Important</a>
+                        <a href="#">Draft</a>
+                        <a href="#">Sent Mail</a>
+                        <a href="#">Trash</a>
+                    </div>
+                    
+                </div>
+                <!-- End Left sidebar -->
+
+                <!-- Right Sidebar -->
+                <div class="email-rightbar">
+                    <div class="btn-toolbar" role="toolbar">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-light waves-light waves-effect"><i class="fas fa-inbox"></i></button>
+                            <button type="button" class="btn btn-light waves-light waves-effect"><i class="fas fa-exclamation-circle"></i></button>
+                            <button type="button" class="btn btn-light waves-light waves-effect"><i class="far fa-trash-alt"></i></button>
+                        </div>
+                        <div class="btn-group ml-1">
+                            <button type="button" class="btn btn-light waves-light waves-effect dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-folder"></i>
+                                <i class="mdi mdi-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Updates</a>
+                                <a class="dropdown-item" href="#">Social</a>
+                                <a class="dropdown-item" href="#">Team Manage</a>
+                            </div>
+                        </div>
+                        <div class="btn-group ml-1">
+                            <button type="button" class="btn btn-light waves-light waves-effect dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-tag"></i>
+                                <i class="mdi mdi-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Updates</a>
+                                <a class="dropdown-item" href="#">Social</a>
+                                <a class="dropdown-item" href="#">Team Manage</a>
+                            </div>
+                        </div>
+
+                        <div class="btn-group ml-1">
+                            <button type="button" class="btn btn-light waves-light waves-effect dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                More <i class="mdi mdi-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Mark as Unread</a>
+                                <a class="dropdown-item" href="#">Mark as Important</a>
+                                <a class="dropdown-item" href="#">Add to Tasks</a>
+                                <a class="dropdown-item" href="#">Add Star</a>
+                                <a class="dropdown-item" href="#">Mute</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endblock %}
+
+                    {% block email_content %}
+                    {% endblock %}
+
+
+                </div> <!-- end Col -->
+            </div>
+        </div><!-- End row -->                       
+    <!-- End Page-content -->
+{% endblock %}
