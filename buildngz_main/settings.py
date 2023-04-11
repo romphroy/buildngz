@@ -39,14 +39,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
+    'ckeditor',
+    'debug_toolbar',
     
     'accounts',
     'vendor',
     'menu',
     'marketplace',
+    'blog',
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -166,3 +170,7 @@ DEFAULT_FROM_EMAIL =  config('DEFAULT_FROM_EMAIL')
 
 # Google Maps API Configuration
 GOOGLE_API_KEY = config('GOOGLE_API_KEY')
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]

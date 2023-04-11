@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- .page-banner -->
+<section class="page-banner page-banner--layout-3" >
+  <div class="container">
+
+    <div class="page-banner__container animated zoomIn">
+      <div class="page-banner__textcontent t-center">
+        <h2 class="page-banner__title c-white">Get inspired. Shop products. Find pros. </h2>
+        <p class="page-banner__subtitle c-white">Find the best resources in commercial real estate.</p>
+      </div><!-- .page-banner__textcontent -->
+
+      <div class="main-search-container">
+        <form class="main-search main-search--layout-1 bg-white">
+          <div class="main-search__group main-search__group--primary">
+            <label for="main-search-name" class="c-primary">What?</label>
+            <input type="text" name="name" id="main-search-name" class="form-input form-input--pill form-input--border-c-gallery" placeholder="architect, construction, roofing...">
+          </div><!-- .main-search__group -->
+
+          <div class="main-search__group main-search__group--secondary">
+            <label for="main-search-location" class="c-primary">Where?</label>
+            <input type="text" name="location" id="main-search-location" class="form-input form-input--pill form-input--border-c-gallery" placeholder="San Francisco">
+          </div><!-- .main-search__group -->
+          <div class="main-search__group main-search__group--tertiary">
+            <button type="submit" class="button button--medium button--pill button--primary">
+              <i class="fa fa-search"></i> Search
+            </button>
+          </div>
+        </form>
+      </div><!-- .main-search-container -->
+
+      <!-- <div class="locations-container t-center">
+        <ul class="min-list inline-list locations locations--layout-2">
+          <li class="location">
+            <a href="#" class="c-white"><i class="fa fa-cutlery"></i>Restaurant</a>
+          </li>
+          <li class="location">
+            <a href="#" class="c-white"><i class="fa fa-glass"></i>Nightlife</a>
+          </li>
+          <li class="location">
+            <a href="#" class="c-white"><i class="fa fa-film"></i>Cinema</a>
+          </li>
+          <li class="location">
+            <a href="#" class="c-white"><i class="fa fa-wrench"></i>Local Services</a>
+          </li>
+        </ul>
+      </div>.locations-container -->
+    </div><!-- .page-banner__container -->
+  </div><!-- .container -->
+</section><!-- .page-banner -->
+
+<!-- .ads -->
+<section class="ads  parallax">
+  <div class="t-center ads__container">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6" style="text-align: left">
+          <h1 class="ads__title c-white">Industry Professionals, meet Buildngz Pro!</h1>
+        </div><!-- .col -->
+
+        <div class="col-lg-6" style="text-align: center">
+          <button type="submit" class="button button--large button--pill button--primary">
+            <i class="fa fa-sign-in"></i> Sign-up
+          </button> 
+          <button type="submit" class="button button--large button--pill button--primary">
+            <i class="fa fa-lightbulb-o"></i> Learn More
+          </button>
+        </div><!-- .col -->     
+      </div>
+    </div>
+  </div>
+</section><!-- .ads -->
+
+<!-- .Most Viewed Categories -->
+<section class="dream-places page-section dream-places--layout-1">
+  <div class="container">
+    <h2 class="page-section__title t-center">Most Viewed Categories</h2>
+    <p class="page-section__subtitle t-center c-boulder">Locate the services and professionals for your project</p>
+
+    <div class="dream-places__wrapper">
+      <div class="dream-place" style="background-image: url({% static 'images/uploads/architecture.jpg' %})">
+        <a href="#">
+          <div class="dream-place__inner">
+            <h3 class="dream-place__title c-white">Architecture</h3>
+          </div>
+        </a>
+      </div><!-- .dream-place -->
+
+      <div class="dream-place" style="background-image: url({% static 'images/uploads/space-plan.jpg' %})">
+        <a href="#">
+          <div class="dream-place__inner">
+            <h3 class="dream-place__title c-white">Space Planning</h3>
+          </div>
+        </a>
+      </div><!-- .dream-place -->
+
+      <div class="dream-place" style="background-image: url({% static 'images/uploads/constr-mgmt.jpg' %})">
+        <a href="#">
+          <div class="dream-place__inner">
+            <h3 class="dream-place__title c-white">Construction Management</h3>
+          </div>
+        </a>
+      </div><!-- .dream-place -->
+
+      <div class="dream-place" style="background-image: url({% static 'images/uploads/hvac.jpg' %})">
+        <a href="#">
+          <div class="dream-place__inner">
+            <h3 class="dream-place__title c-white">HVAC</h3>
+          </div>
+        </a>
+      </div><!-- .dream-place -->
+
+      <div class="dream-place" style="background-image: url({% static 'images/uploads/plumbing.jpg' %})">
+        <a href="#">
+          <div class="dream-place__inner">
+            <h3 class="dream-place__title c-white">Plumbing</h3>
+          </div>
+        </a>
+      </div><!-- .dream-place -->
+    </div><!-- .dream-places__wrapper -->
+  </div><!-- .container -->
+</section><!-- .dream-places -->
+
+<!-- .listing-list -->
+<section class="listing-list page-section bg-wild-sand listing-list--layout-3">
+  <div class="container">
+    <h2 class="page-section__title t-center">Popular Professionals</h2>
+    <p class="page-section__subtitle t-center c-boulder">Exploring licensed, verified professionals in your area</p>
+    <div class="row">
+      <!-- list Vendors -->
+      {% for vendor in vendors %}
+        <div class="col-md-4">
+          <div class="listing hover-effect">
+            <div class="listing__wrapper">
+              <div class="listing__thumbnail">
+                <a href="single-listing-1.html">
+                  <img src="{{ vendor.user_profile.cover_photo.url }}" alt="{{ vendor.vendor_name }}">
+                  <span class="label label--tertiary">Closed</span>
+                  <span class="favorite c-white">
+                    <i class="fa fa-heart-o"></i>
+                  </span>
+                </a>
+              </div><!-- .listing__thumbnail -->
+              <div class="listing__detail">
+                <div class="listing__detail-left">
+                  <p class="listing__category t-small">
+                    <span class="c-dove-gray">Architects, Construction</span>
+                    <span class="listing__price">
+                      <i class="fa fa-star c-orange"></i>
+                      <i class="fa fa-star c-orange"></i>
+                      <i class="fa fa-star c-orange"></i>
+                      <i class="fa fa-star c-orange"></i>
+                      <i class="fa fa-star c-dusty-gray"></i>
+                    </span>
+                  </p>
+                  <h3 class="listing__title">
+                    <a href="single-listing-1.html">{{ vendor.vendor_name }}</a>
+                  </h3>
+                  <p class="listing__location c-dusty-gray">
+                    <i class="fa fa-map-marker"></i>
+                    {{ vendor.user_profile.address }}
+                    <br>
+                    {{ vendor.user_profile.city }}, {{ vendor.user_profile.state }} {{ vendor.user_profile.zip_code }}
+                  </p>
+                </div>
+
+                <div class="listing__detail-right">
+                  <span class="listing__score t-center">7.0</span>
+                </div>
+              </div><!-- .listing__detail -->
+            </div><!-- .listing__wrapper -->
+          </div><!-- .listing -->
+        </div><!-- .col -->
+      {% endfor %}
+
+    </div><!-- .row -->
+    <div class="t-center load-more">
+      <button class="button button--primary button--medium button--pill">View All Listing</button>
+    </div>
+  </div><!-- .container -->
+</section><!-- .listing-list -->
+
+<!-- .news -->
+<section class="news page-section news--layout-3">
+  <div class="container">
+    <h2 class="page-section__title t-center">Tips &amp; Articles</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="post sticky">
+          <div class="post-thumbnail">
+            <a href="single.html">
+              <img src="{% static 'images/uploads/news-7.jpg' %}" alt="Sa Pa festival for next month">
+            </a>
+          </div><!-- .post-thumbnail -->
+
+          <div class="post-content t-center">
+            <h3 class="post-title">
+              <a href="single.html">Parking Lot Striping 101</a>
+            </h3>
+            <p class="post-meta t-small">
+              <span><a href="#" class="c-dusty-gray">Dec 05, 2017</a></span>
+              <span><a href="#" class="c-dusty-gray">Property Management</a></span>
+            </p>
+          </div><!-- .post-content -->
+        </div><!-- .post -->
+      </div><!-- .col -->
+
+      <div class="col-md-4">
+        <div class="post">
+          <div class="post-thumbnail">
+            <a href="single.html">
+              <img src="{% static 'images/uploads/news-8.jpg' %}" alt="Italy culinary festival kicks off">
+            </a>
+          </div><!-- .post-thumbnail -->
+
+          <div class="post-content t-center">
+            <h3 class="post-title">
+              <a href="single.html">Design Trends that Set Startup Offices Apart</a>
+            </h3>
+            <p class="post-meta t-small">
+              <span><a href="#" class="c-dusty-gray">Dec 05, 2017</a></span>
+              <span><a href="#" class="c-dusty-gray">Space Planning, Startup</a></span>
+            </p>
+          </div><!-- .post-content -->
+        </div><!-- .post -->
+      </div><!-- .col -->
+
+      <div class="col-md-4">
+        <div class="post">
+          <div class="post-thumbnail">
+            <a href="single.html">
+              <img src="{% static 'images/uploads/news-9.jpg' %}" alt="Best destination for travelers">
+            </a>
+          </div><!-- .post-thumbnail -->
+
+          <div class="post-content t-center">
+            <h3 class="post-title">
+              <a href="single.html">Spotlight: Easyworkorder. RE Tech for the Future</a>
+            </h3>
+            <p class="post-meta t-small">
+              <span><a href="#" class="c-dusty-gray">Dec 05, 2017</a></span>
+              <span><a href="#" class="c-dusty-gray">Software, Property Management</a></span>
+            </p>
+          </div><!-- .post-content -->
+        </div><!-- .post -->
+      </div><!-- .col -->
+    </div><!-- .row -->
+  </div><!-- .container -->
+</section><!-- .news -->
+{% endblock %}

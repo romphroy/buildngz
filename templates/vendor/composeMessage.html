@@ -8,13 +8,14 @@
         <form action="{% url 'composeMessage' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
 
+            {{ form.media }}
             {{ form.as_p }}
 
             <div class="btn-toolbar form-group mb-0">
                 <div class="">
                     <button type="button" class="btn btn-light waves-effect waves-light mb-0 mr-1"><i class="far fa-save"></i></button>
                     <button type="button" class="btn btn-light waves-effect waves-light mb-0 mr-1"><i class="far fa-trash-alt"></i></button>
-                    <button class="btn btn-info waves-effect waves-light mb-0"> <span>Send</span> <i class="far fa-paper-plane ml-2"></i> </button>
+                    <button type="submit"  class="btn btn-info waves-effect waves-light mb-0"> <span>Send</span> <i class="far fa-paper-plane ml-2"></i> </button>
                 </div>
             </div>
 

@@ -39,5 +39,5 @@ class NewVendorMessageForm(forms.ModelForm):
         widgets = {
             'recipients': forms.TextInput(attrs={'class': 'form-control form-input form-input--large form-input--border-c-gallery'}),
             'subject': forms.TextInput(attrs={'class': 'form-control form-input form-input--large form-input--border-c-gallery'}),
-            'body': forms.Textarea(attrs={'class': 'form-control form-input form-input--large form-input--border-c-gallery', 'rows': 8}),
+            'body': forms.Textarea(attrs={'class': 'form-control form-input form-input--large form-input--border-c-gallery'}),
         }        

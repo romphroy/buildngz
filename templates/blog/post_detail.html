@@ -1,0 +1,238 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-content">
+
+  <div class="container">
+    <div class="post-image">
+      <img src="{% static 'images/uploads/post-image.jpg' %}" alt="Post Image">
+    </div>
+    <div class="col-lg-8 offset-lg-2">
+      <header class="entry-header">
+        <h1 class="entry-title">{{ post.title }}</h1>
+        <p class="entry-byline c-dusty-gray">
+          <a href="#">{{ post.created }}</a>
+          by <a href="#">{{ post.author }}</a>
+        </p>
+      </header><!-- .entry-header -->
+
+      <div class="entry-content">
+        {{ post.body|safe}}
+      </div><!-- .entry-content -->
+
+      <div class="entry-meta">
+        <div class="entry-tags">
+          <a href="#">haintheme</a>
+          <a href="#">listiry blog</a>
+          <a href="#">directory</a>
+          <a href="#">listing</a>
+        </div>
+
+        <ul class="min-list inline-list social-list">
+          <li>
+            <a href="#">
+              <i class="fa fa-facebook-f"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-pinterest"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div><!-- .entry-meta -->
+
+      <div class="nav-links">
+        <div class="nav-link nav-previous">
+          <a href="#">
+            <span class="screen-reader-text">Previous post:</span>
+            <span class="nav-link-text">Previous:</span>
+            <h3 class="nav-link-title">Why Cheap Flights Aren't Always Best to Buy</h3>
+          </a>
+        </div>
+
+        <div class="nav-link nav-next">
+          <a href="#">
+            <span class="screen-reader-text">Next post:</span>
+            <span class="nav-link-text">Next:</span>
+            <h3 class="nav-link-title">5 Steps to Book a Cheap Flight Online</h3>
+          </a>
+        </div>
+      </div><!-- .nav-links -->
+
+      <div id="comments" class="comments-area">
+        <div class="comments-wrap">
+          <h3 class="comments-title">3 Comments</h3>
+          <ol class="min-list comment-list">
+            <li class="comment">
+              <article>
+                <div class="comment-wrapper">
+                  <div class="comment-avatar">
+                    <img src="{% static 'images/uploads/james-turner.jpg' %}" alt="James Turner">
+                  </div><!-- .comment-avatar -->
+
+                  <div class="comment-content">
+                    <header class="comment-header">
+                      <h4 class="comment-author">James Turner</h4>
+                      <span class="comment-time c-gray">December 11, 2017</span>
+                    </header>
+
+                    <div class="comment-body c-dove-gray">
+                      <p>
+                        Great interview. I love a success story, and even more so when the guy still has humility like
+                        that. Hadn’t heard of him, but now off to check out his site…I’d like to visit Slovakia (or
+                        Greece, Slovenia, ad infinitum) this summer!
+                      </p>
+                      <p>Thanks Matt and Scott!</p>
+                    </div>
+
+                    <div class="comment-reply">
+                      <a href="#">Reply</a>
+                    </div>
+                  </div><!-- .comment-content -->
+                </div><!-- .comment-wrapper -->
+              </article>
+              <ul class="children">
+                <li class="comment">
+                  <article>
+                    <div class="comment-wrapper">
+                      <div class="comment-avatar">
+                        <img src="{% static 'images/uploads/nomadic-matt.jpg' %}" alt="Nomadic Matt">
+                      </div><!-- .comment-avatar -->
+
+                      <div class="comment-content">
+                        <header class="comment-header">
+                          <h4 class="comment-author">NomadicMatt</h4>
+                          <span class="comment-time c-gray">December 14, 2017</span>
+                        </header>
+
+                        <div class="comment-body c-dove-gray">
+                          <p>Those are great deals! Very cool!</p>
+                        </div>
+
+                        <div class="comment-reply">
+                          <a href="#">Reply</a>
+                        </div>
+                      </div><!-- .comment-content -->
+                    </div><!-- .comment-wrapper -->
+                  </article>
+                </li><!-- .comment -->
+              </ul>
+            </li><!-- .comment -->
+
+            <li class="comment">
+              <article>
+                <div class="comment-wrapper">
+                  <div class="comment-avatar">
+                    <img src="{% static 'images/uploads/ryan-biddulph.jpg' %}" alt="Ryan Biddulph">
+                  </div><!-- .comment-avatar -->
+
+                  <div class="comment-content">
+                    <header class="comment-header">
+                      <h4 class="comment-author">James Turner</h4>
+                      <span class="comment-time c-gray">December 11, 2017</span>
+                    </header>
+
+                    <div class="comment-body c-dove-gray">
+                      <p>
+                        Scott’s is the best! We scored RT tickets to South Africa from DC for $375 recently and $450
+                        tickets to Bangkok RT from DC a few months before.
+                      </p>
+                    </div>
+
+                    <div class="comment-reply">
+                      <a href="#">Reply</a>
+                    </div>
+                  </div><!-- .comment-content -->
+                </div><!-- .comment-wrapper -->
+              </article>
+            </li><!-- .comment -->
+          </ol><!-- .comment-list -->
+        </div><!-- .comments-wrap -->
+
+        <div class="comments-wrap">
+          <h3 class="comments-title">Leave a Reply</h3>
+          <form class="comment-form" action="/" method="post">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="author">Your name *</label>
+                  <input
+                    type="text"
+                    name="author"
+                    id="author"
+                    class="form-input form-input--square form-input--border-c-alto"
+                    placeholder="Enter your full name"
+                    required
+                  >
+                </div>
+              </div><!-- .col -->
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="email">Your email *</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form-input form-input--square form-input--border-c-alto"
+                    placeholder="Enter your email"
+                    required
+                  >
+                </div>
+              </div><!-- .col -->
+
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="comment">Your comment</label>
+                  <textarea
+                    class="form-input form-input--square form-input--border-c-alto"
+                    rows="8"
+                    id="comment"
+                    name="comment"
+                    placeholder="Comment here"
+                  ></textarea>
+                </div>
+              </div><!-- .col -->
+
+              <div class="col-md-12">
+                <div class="form-group--submit">
+                  <button
+                    class="button button--square button--primary button--large button--submit"
+                    type="submit"
+                  >
+                    Post Comment
+                  </button>
+                </div>
+              </div><!-- .col -->
+            </div><!-- .row -->
+          </form><!-- .comment-form -->
+        </div><!-- .comments-wrap -->
+      </div><!-- #comments -->
+    </div><!-- .col -->
+  </div><!-- .container -->
+
+</div><!-- .page-content -->
+
+{% endblock %}

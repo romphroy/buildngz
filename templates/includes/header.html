@@ -1,112 +1,77 @@
 {% load static %}
 
-<header class="site-header site-header--layout-2 site-header--fluid">
-  
-    <div class="d-lg-flex justify-content-lg-between align-items-lg-center site-header__container">
-      <!-- Error Messages -->
-      
-        <div class="site-header__logo">
-          <a href="{% url 'home' %}">
-            <img src="{% static 'images/buildngz-logo-1.png' %}" alt="Listiry">
-          </a>
-        </div><!-- .site-header__logo -->
-  
-        <div class="d-lg-flex align-items-lg-center">
-            <ul class="min-list main-navigation">
-                <li>
-                  <a href="#"><b>GET IDEAS</b></a>
-                  <ul class="min-list">
-                    <li>
-                      <a href="{% url 'marketplace' %}">Architecture</a>
-                    </li>
-                    <li>
-                      <a href="{% url 'marketplace' %}">Interior Design</a>
-                    </li>
-                    <li>
-                      <a href="{% url 'marketplace' %}">Landscaping</a>
-                    </li>
-                    <li>
-                      <a href="{% url 'marketplace' %}">Kitched Design</a>
-                    </li>
-                    <li>
-                      <a href="{% url 'marketplace' %}">Software</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#"><b>FIND PROS</b></a>
-                  <ul class="min-list">
-                    <li><a href="{% url 'marketplace' %}">Architects & Building Designers</a></li>
-                    <li><a href="{% url 'marketplace' %}">Design-Build Firms</a></li>
-                    <li><a href="{% url 'marketplace' %}">General Contractors</a></li>
-                    <li><a href="{% url 'marketplace' %}">Home Builders</a></li>
-                    <li><a href="{% url 'marketplace' %}">Interior Designers</a></li>
-                    <li><a href="{% url 'marketplace' %}">Kitchen & Bath Designers</a></li>
-                    <li><a href="{% url 'marketplace' %}">Kitchen & Bath Remodelers</a></li>
-                    <li><a href="{% url 'marketplace' %}">Landscape Architects & Designers</a></li>
-                    <li><a href="{% url 'marketplace' %}">Landscape Contractors</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#"><b>SHOP PRODUCTS</b></a>
-                  <ul class="min-list">
-                    <li>
-                      <a href="{% url 'marketplace' %}">Architecture</a>
-                    </li>
-                    <li>
-                      <a href="{% url 'marketplace' %}">Construction</a>
-                    </li>
-                    <li>
-                      <a href="{% url 'marketplace' %}">Fire Remediation</a>
-                    </li>
-                    <li>
-                      <a href="{% url 'marketplace' %}">Landscaping</a>
-                    </li>
-                    <li>
-                      <a href="{% url 'marketplace' %}">Building Services</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="{% url 'pricing' %}"><b>PRICING</b></a>
-                </li>
-                <li>
-                  <a href="blog.html"><b>BLOG</b></a>
-                </li>
-            </ul><!-- .main-navigation -->
 
-          <div class="user-action">
-            {% if user.is_authenticated %}
-              <a href="{% url 'logout' %}" class="logout">
-                <i class="fa fa-user"></i>
-                <b>Log out</b>
-              </a>
-
-            {% else %}
-              <a href="{% url 'login' %}" class="sign-in">
-                  <i class="fa fa-user"></i>
-                  <b>Sign in</b>
-              </a>
-              <a href="{% url 'registerUser' %}" class="sign-in">
-                  <button class="button button--small button--pill button--primary d-none d-lg-inline-block"><i class="fa fa-user-plus"></i> Register</button>
-              </a>
-              <a href="{% url 'registerVendor' %}" class="sign-in">
-                  <button class="button button--small button--pill button--primary d-none d-lg-inline-block"><i class="fa-solid fa-helmet-safety"></i> Register Pro</button>
-              </a>
-            {% endif %}
-          </div><!-- .user-action -->
-        </div>
-    
-        <div class="d-lg-none nav-mobile">
-            <a href="#" class="nav-toggle js-nav-toggle nav-toggle--white">
-            <span></span>
-            </a><!-- .nav-toggle -->
-        </div><!-- .nav-mobile -->
-    </div>
-
-    </div><!-- .site-header__container -->
-  
-  </header><!-- #masthead -->
+  <header class="header_in clearfix">
+		<div class="container">
+		<div id="logo">
+			<a href="{% url 'home' %}">
+				<img src="{% static 'images/buildngz-logo-1.png' %}" height="40" alt="">
+			</a>
+		</div>
+		<ul id="top_menu">
+			<li><a href="{% url 'login' %}" class="btn_access">Log In</a></li>
+			<li><a href="{% url 'registerVendor' %}" class="btn_access green" target="_blank">Register as Pro</a></li>
+		</ul>
+		<!-- /top_menu -->
+		<a href="#0" class="open_close">
+			<i class="icon_menu"></i><span>Menu</span>
+		</a>
+		<nav class="main-menu">
+			<div id="header_menu">
+				<a href="#0" class="open_close">
+					<i class="icon_close"></i><span>Menu</span>
+				</a>
+				<a href="{% url 'home' %}"><img src="img/logo.svg" width="155" height="45" alt=""></a>
+			</div>
+			<ul>
+				<li class="submenu">
+					<a href="#0" class="show-submenu">GET IDEAS</a>
+					<ul>
+						<li><a href="{% url 'home' %}">Default</a></li>
+						<li><a href="index-2.html">Video Background</a></li>
+						<li><a href="index-3.html">Slider</a></li>
+						<li><a href="index-4.html">GDPR Cookie Bar EU Law</a></li>
+						<li><a href="index-5.html">Full Screen</a></li>
+						<li><a href="user-logged-1.html">User Logged</a></li>
+					</ul>
+				</li>
+				<li class="submenu">
+					<a href="#0" class="show-submenu">FIND PROS</a>
+					<ul>
+						<li><a href="grid-listing-1.html">Grid Listing Default</a></li>
+						<li><a href="grid-listing-2.html">Grid Listing Isotope Sort</a></li>
+						<li><a href="grid-listing-3.html">Grid Listing Filters Left</a></li>
+						<li><a href="listing-map.html">Listing Side Map</a></li>
+						<li><a href="detail-page.html">Detail page 1</a></li>
+						<li><a href="detail-page-2.html">Detail page 2</a></li>
+						<li><a href="detail-page-3.html">Detail page 3</a></li>
+					</ul>
+				</li>
+				<li class="submenu">
+					<a href="#0" class="show-submenu">SHOP PRODUCTS</a>
+					<ul>
+						<li><a href="admin_section/index.html">Admin Dashboard</a></li>
+						<li><a href="404.html">404 Error</a></li>
+						<li><a href="help.html">Help and Faq</a></li>
+						<li><a href="modal-login.html">Modal Login</a></li>
+						<li><a href="modal-popup.html">Modal Advertise</a></li>
+						<li><a href="modal-newsletter.html">Modal Newsletter</a></li>
+						<li><a href="pricing-tables-1.html">Pricing Tables 1</a></li>
+						<li><a href="pricing-tables-2.html">Pricing Tables 2</a></li>
+						<li><a href="blog.html">Blog</a></li>
+						<li><a href="contacts.html">Contacts</a></li>
+						<li><a href="coming_soon/index.html" target="_blank">Coming Soon</a></li>
+						<li><a href="login.html">Login</a></li>
+						<li><a href="register.html">Register</a></li>
+						<li><a href="icon-pack-1.html">Icon Pack 1</a></li>
+					</ul>
+				</li>
+				<li><a href="{% url 'post_list' %}">BLOG</a></li>
+			</ul>
+		</nav>
+	</div>
+	</header>
+	<!-- /header -->
   
   
   

@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 # from django.db.models.fields.related import ForeignKey, OneToOneField
 
 from accounts.models import User, UserProfile
@@ -53,7 +54,7 @@ class Message(models.Model):
     sender_email= models.EmailField()
     recipients  = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='received_messages')
     subject     = models.CharField(max_length=255)
-    body        = models.TextField()
+    body        = RichTextField(blank=True, null=True)
     sent_at     = models.DateTimeField(auto_now_add=True)
     parent      = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='replies')
     read        = models.BooleanField(default=False)

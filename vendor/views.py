@@ -88,34 +88,40 @@ def readMessage(request, pk=None):
 
 def composeMessage(request):
     vendor = get_vendor(request)
+    messages= Message.objects.filter(vendor=vendor).order_by('sent_at')
+    message_count= messages.count()
     
-    print(vendor)
     if request.method == 'POST':
-        print(request.POST)
-        form = NewVendorMessageForm(request.POST)
+        print('I am in the request is POST block.')
+        form = NewVendorMessageForm(request.POST, request.FILES)
         if form.is_valid():
-            print(request.POST)       
+            print('I am in the is_valid block')
+            
             recipients          = form.cleaned_data['recipients']
             subject             = form.cleaned_data['subject']
             body                = form.cleaned_data['body']
+            message             = Message(subject=subject, body=body)
             message             = form.save(commit=False)
             message.sender_name = vendor.user.first_name + ' ' + vendor.user.last_name
             message.sender_email= vendor.user.email
             
             form.save()
             message.recipients.set(recipients)
-            return redirect('vendorInbox', request)
+            return redirect('vendorInbox')
         else:
-            form = NewVendorMessageForm()
-            messages= Message.objects.filter(vendor=vendor).order_by('sent_at')
-            message_count= messages.count()
-                    
-            context = {
-                'vendor': vendor,
-                'form': form,
-                'message_count': message_count,
-            }
-            return render(request, 'vendor/composeMessage.html', context)
+            print('I did not make into the is_valid block.')
+    else:
+        form = NewVendorMessageForm()
+        print('I am not sure where i am exactly.')
+        
+    context = {
+        'vendor': vendor,
+        'form': form,
+        'message_count': message_count,
+    }
+    print(form.is_valid)
+    print(request.POST)
+    return render(request, 'vendor/composeMessage.html', context)
 
 def vendorCalendar(request):
     return render(request, 'vendor/vendorCalendar.html')

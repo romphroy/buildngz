@@ -14,7 +14,7 @@
 
             <h3 class="mt-2">{{ message.subject }}</h3>
 
-            <p>{{ message.body }}</p>
+            <p>{{ message.body|safe }}</p>
             <hr/>
 
             <!-- <div class="row">
