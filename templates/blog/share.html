@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Share a Post{% endblock %}
+
+{% block content %} 
+    {% if sent %}
+        <h3 justify-content-center>Email successfully sent</h3>
+        <p justify-content-center>
+            "{{ post.title }}" was successfully sent to {{ form.cleaned_data.to }}.
+        </p>
+    {% else %}
+        <div class="bg_gray pattern_mail" id="submit">
+            <div class="container margin_60_40">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                        <div class="box_general padding">
+
+                            <h3>Share "{{ post.title }}" by e-mail</h3>
+                            <form method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <input type="Submit" value="Send e-mail">
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

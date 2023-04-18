@@ -1,0 +1,22 @@
+
+
+
+<h5>Leave a comment</h5>
+
+{% block content %}
+
+<div class="col-md-8 col-sm-8">
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-sm-12">
+            <form action="{% url 'post_comment' post.id %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="form-group">
+                    <button type="submit" id="submit2" class="btn_1 add_bottom_15">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

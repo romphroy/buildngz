@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'menu',
     'marketplace',
     'blog',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -174,3 +175,7 @@ GOOGLE_API_KEY = config('GOOGLE_API_KEY')
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+# LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'

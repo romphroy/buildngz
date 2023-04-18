@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="d-xl-flex">
+    <div class="order-xl-0 listing-column listing-column--xl-30 listing-column--content">
+      <div class="listing-filter-container">
+        <span class="c-gray listing-filter-label">Filter</span>
+        <div class="d-xxl-flex">
+          <ul class="min-list d-flex listing-filter listing-filter--group align-self-lg-start">
+            <li>
+              <a href="#">$</a>
+            </li>
+  
+            <li>
+              <a href="#">$$</a>
+            </li>
+  
+            <li>
+              <a href="#">$$$</a>
+            </li>
+  
+            <li>
+              <a href="#">$$$$</a>
+            </li>
+          </ul><!-- .listing-filter -->
+  
+          <ul class="min-list inline-list listing-filter listing-filter--list">
+            <li>
+              <a href="#">
+                <i class="fa fa-clock-o"></i>
+                Open Now
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-star-o"></i>
+                Highest Rate
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-comment-o"></i>
+                Most Review
+              </a>
+            </li>
+          </ul><!-- .listing-filter -->
+        </div><!-- d-flex -->
+  
+        <span class="c-gray listing-filter-label">Radius (Mi)</span>
+        <input type="range" min="0" max="100" step="20" data-labels="0, 10, 20, 50, 100" class="js-range">
+  
+        <span class="c-gray listing-filter-label">Just show me</span>
+        <ul class="min-list d-flex flex-wrap listing-filter listing-filter--category">
+          <li>
+            <a href="#">
+              <div class="listing-filter__bg listing-filter__bg--coffee"></div>
+              <div class="d-flex justify-content-center align-items-center c-white listing-filter__content">
+                <span>Coffee</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="listing-filter__bg listing-filter__bg--food"></div>
+              <div class="d-flex justify-content-center align-items-center c-white listing-filter__content">
+                <span>Food</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="listing-filter__bg listing-filter__bg--cake"></div>
+              <div class="d-flex justify-content-center align-items-center c-white listing-filter__content">
+                <span>Cake</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="listing-filter__bg listing-filter__bg--fruit"></div>
+              <div class="d-flex justify-content-center align-items-center c-white listing-filter__content">
+                <span>Fruit</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div><!-- .listing-filter-container -->    
+    </div><!-- .listing-column -->
+ 
+    
+  <div class="order-xl-1 listing-column listing-column--xl-70 listing-column--content">
+    <div class="page-section__title">
+      Suggestions for Restaurants near London
+    </div>
+
+
+    <div class="d-md-flex flex-md-wrap justify-content-between list-view">
+        {% for vendor in vendors %}
+            <div class="list-view__item col-lg-10">
+                <div class="listing hover-effect">
+                    <div class="d-sm-flex align-items-sm-center listing__wrapper">
+                        <div class="listing__thumbnail">
+                        <a href="{% url 'vendor_detail' vendor.vendor_slug %}">
+                            <img src="{{ vendor.user_profile.cover_photo.url }}" alt="April Boutique Coffee">
+                            <span class="label label--tertiary">Closed</span>
+                            <span class="favorite c-white">
+                            <i class="fa fa-heart-o"></i>
+                            </span>
+                        </a>
+                        </div><!-- .listing__thumbnail -->
+                        <div class="d-flex justify-content-between align-items-center listing__detail">
+                        <div class="listing__detail-left">
+                            <p class="listing__category t-small">
+                            <span class="c-dove-gray">Cocktail, Coffee</span>
+                            <span class="listing__price">
+                                <i class="fa fa-usd c-dove-gray"></i>
+                                <i class="fa fa-usd c-dusty-gray"></i>
+                                <i class="fa fa-usd c-dusty-gray"></i>
+                                <i class="fa fa-usd c-dusty-gray"></i>
+                            </span>
+                            </p>
+                            <h3 class="listing__title">
+                            <a href="{% url 'vendor_detail' vendor.vendor_slug %}">{{ vendor.vendor_name}}</a>
+                            </h3>
+                            <p class="listing__review c-dusty-gray">
+                            <span class="stars-outer" data-rating="5">
+                                <span class="stars-inner"></span>
+                            </span>
+                            <span>(5 Reviews)</span>
+                            </p>
+                            <p class="listing__location c-dusty-gray no-b-margin">
+                                <i class="fa fa-map-marker"></i>
+                                {{ vendor.user_profile.address }} <br>
+                                {{ vendor.user_profile.city }}, {{ vendor.user_profile.state }} {{ vendor.user_profile.zip_code }}
+                            </p>
+                        </div>
+
+                        <div class="listing__detail-right">
+                            <span class="listing__score t-center">7.0</span>
+                        </div>
+                        </div><!-- .listing__detail -->
+                    </div><!-- .listing__wrapper -->
+                </div><!-- .listing -->
+            </div><!-- .list-view__item -->
+        {% endfor %}
+    </div><!-- .d-md-flex -->
+
+    <div class="t-left load-more">
+      <button class="button button--primary button--medium button--pill">Load More</button>
+    </div>
+  </div><!-- .listing-column -->
+
+    
+
+  
+</div><!-- d-flex -->
+{% endblock %}

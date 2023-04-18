@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content%}
+    <div id="page-container" class="main-content-boxed">
+        <!-- Main Container -->
+        <main id="main-container">
+            <!-- Page Content -->
+            <div class="bg-image" style="background-image: url({% static 'images/uploads/office-building-3.jpg' %});">
+                <div class="row mx-0">
+                    <div class="hero-static col-md-6 col-xl-8 d-none d-md-flex align-items-md-center">
+                        <div class="p-30 invisible" data-toggle="appear">
+                            <p class="font-size-h1 font-w600 text-white mb-5">
+                                We're very happy you are joining our community!
+                            </p>
+                            <p class="font-size-h5 text-white">
+                                <i class="fa fa-angles-right"></i> Create your account today and receive 50% off.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="hero-static col-md-6 col-xl-4 d-flex align-items-center bg-white invisible" data-toggle="appear">
+                        <div class="content content-full">
+                            <!-- Error Messages -->
+                                <!-- LOAD MESSAGES -->
+                                {% include 'includes/alerts.html' %}
+                             <!-- END Error Messages -->
+
+                            <!-- Header -->
+                            <div class="px-30">
+                                <h1 class="h2 font-w400 mt-30 mb-10">Welcome to Buildngz</h1>
+                                <h2 class="h5 font-w400 text-muted mb-0">The new way to design your commercial project</h2>
+                            </div>
+                            <!-- END Header -->
+
+                            <!-- Sign Up Form -->
+                            <!-- jQuery Validation functionality is initialized with .js-validation-signup class in js/pages/op_auth_signup.min.js which was auto compiled from _es6/pages/op_auth_signup.js -->
+                            <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                            <form action="{% url 'registerUser' %}" class="js-validation-signup px-30" method="post">
+                            {% csrf_token %}
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <div class="form-material floating">
+                                        {% render_field form.first_name class="form-control" placeholder=form.first_name.label %}
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <div class="form-material floating">
+                                        {% render_field form.last_name class="form-control" placeholder=form.last_name.label %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <div class="form-material floating">
+                                            {% render_field form.email class="form-control" placeholder=form.email.label %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <div class="form-material floating">
+                                            {% render_field form.username class="form-control" placeholder=form.username.label %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <div class="form-material floating">
+                                            {% render_field form.password class="form-control" placeholder="Password" %}
+                                            <small class="form-text text-muted">Use 8 or more characters, with a mix of letters, numbers and symbols</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <div class="form-material floating">
+                                            {% render_field form.confirm_password class="form-control" placeholder="Confirm Password" %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="signup-terms" name="signup-terms">
+                                            <label class="custom-control-label" for="signup-terms">I agree to Terms &amp; Conditions</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Sign-up Free" class="btn btn-sm btn-hero btn-alt-primary">
+                                    <div class="mt-30">
+                                        <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="#" data-toggle="modal" data-target="#modal-terms">
+                                            <i class="fa fa-book text-muted mr-5"></i> Read Terms
+                                        </a>
+                                        <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="{% url 'login' %}">
+                                            <i class="fa fa-user text-muted mr-5"></i> Sign In
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END Sign Up Form -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Page Content -->
+        </main>
+        <!-- END Main Container -->
+    </div>
+    <script src="{% static 'scripts/codebase/codebase.core.min.js' %}"></script>
+
+    <script src="{% static 'scripts/codebase/codebase.app.min.js' %}"></script>
+
+    <!-- Page JS Plugins -->
+    <script src="{% static 'scripts/codebase/jquery-validation/jquery.validate.min.js' %}"></script>
+
+    <!-- Page JS Code -->
+    <script src="{% static 'scripts/codebase/op_auth_signin.min.js' %}"></script>
+{% endblock %}

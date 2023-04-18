@@ -1,0 +1,49 @@
+#page-container.main-content-boxed > #page-header .content-header,
+#page-container.main-content-boxed > #page-header .content,
+#page-container.main-content-boxed > #main-container .content,
+#page-container.main-content-boxed > #page-footer .content {
+  max-width: 1200px;
+}
+
+.bg-image {
+    background-color: #f8f9fa;
+    background-position: 0% 50%;
+    background-size: cover;
+  }
+  
+  .bg-image-top {
+    background-position-y: 0%;
+  }
+  
+  .bg-image-bottom {
+    background-position-y: 100%;
+  }
+  
+  @media (min-width: 1200px) {
+    .bg-image-fixed {
+      background-attachment: fixed;
+    }
+  }
+
+  .hero-static {
+    min-height: 100vh;
+  }
+
+  
+.font-w300 {
+    font-weight: 300 !important;
+  }
+  
+  .font-w400 {
+    font-weight: 400 !important;
+  }
+  
+  .font-w600 {
+    font-weight: 600 !important;
+  }
+  
+  .font-w700 {
+    font-weight: 700 !important;
+  }
+  
+  

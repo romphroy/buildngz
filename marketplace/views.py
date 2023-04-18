@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from vendor.models import Vendor, Message
 from menu.models import Category, Product
@@ -54,3 +55,16 @@ def send_message_to_vendor(request, vendor_slug):
             'form': form,
         }
         return render(request, 'marketplace/vendor_detail.html', context)
+    
+def search(request):
+    vendor_name = request.GET['vendor_name']
+    print(vendor_name)
+    return render(request, 'marketplace/listings.html')
+
+
+def listings(request):
+    vendors = Vendor.objects.filter(is_approved=True,user__is_active=True).order_by('vendor_name')
+    context = {
+        'vendors': vendors,
+    }
+    return render(request, 'marketplace/listings.html', context)

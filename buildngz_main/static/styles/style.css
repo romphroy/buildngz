@@ -2341,7 +2341,7 @@ ul#top_menu > li a.btn_access.green:hover {
   -ms-border-radius: 5px;
   border-radius: 5px;
   margin-top: 10px;
-  width: 550px;
+  width: 950px;
   -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
@@ -3268,10 +3268,13 @@ a.btn_1.gray:hover,
   opacity: 0.8;
 }
 
-.bg_color {
+.bg_color_white {
   background: #fafafc;
 }
 
+.bg_color {
+  background: #fafafc;
+}
 .ribbon {
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;

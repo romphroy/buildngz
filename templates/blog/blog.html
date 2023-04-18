@@ -6,20 +6,20 @@
 
     <div class="container margin_45_40">			
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-9">
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         {% for post in posts %}
 
                             <article class="blog">
-                                <figure>
-                                    <a href="{% url 'post_detail' post.id %}"><img src="{% static 'images/uploads/news-4.jpg' %}" alt="">
+                                <figure  class="img-fluid">
+                                    <a href="{% url 'post_detail' year=post.publish.year month=post.publish.month day=post.publish.day post=post.slug %}"><img src="{% static 'images/uploads/news-4.jpg' %}" class="img-fluid" alt="">
                                         <div class="preview"><span>Read more</span></div>
                                     </a>
                                 </figure>
                                 <div class="post_info">
-                                    <small>Category - {{ post.created }}</small>
-                                    <h2><a href="blog-post.html">{{ post.title }}</a></h2>
+                                    <small>{{ post.tags.all|join:", "}} - {{ post.created }}</small>
+                                    <h2><a href="{% url 'post_detail' year=post.publish.year month=post.publish.month day=post.publish.day post=post.slug %}">{{ post.title }}</a></h2>
                                     <p>{{ post.body|safe|truncatewords:30|linebreaks }}</p>
                                     <ul>
                                         <li>
@@ -40,13 +40,13 @@
 
                 <div class="pagination_fg">
                     
-                    {% include 'includes/pagination.html' with page=page_obj %}
+                    {% include 'includes/pagination.html' with page=posts %}
                 </div>
 
             </div>
             <!-- /col -->
 
-            <aside class="col-lg-4">
+            <aside class="col-lg-3">
                 <div class="widget search_blog">
                     <div class="form-group">
                         <input type="text" name="search" id="search" class="form-control" placeholder="Terms...">

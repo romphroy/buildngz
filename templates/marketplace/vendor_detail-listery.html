@@ -1,0 +1,871 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<div class="page-content page-content--no-b-bottom">
+    <section class="single-listing single-listing--layout-1">
+        <header class="listing-header">
+            <div class="container">
+                <div class="listing-header__container">
+                    <div class="d-lg-flex justify-content-lg-between">
+                        <div class="listing-header__main">
+                            <div class="d-flex">
+                                <div class="listing-header__image">
+                                <!-- <img src="{{ vendor.user_profile.cover_photo.url }}" alt="Petersham Nurseries Cafe"> -->
+                                </div><!-- .listing-header__image -->
+                
+                                <div class="listing-header__content">
+                                <div class="d-sm-flex align-items-sm-center">
+                                    <h2 class="listing-header__title">{{ vendor.vendor_name }}</h2>
+                                    <div>
+                                    <i class="fa-solid fa-shield fa-xl" style="color: #53dd40;"></i>
+                                    <span class="c-dusty-gray">Verified</span>
+                                    </div>
+                                </div>
+                
+                                <ul class="min-list listing-header__detail">
+                                    <li>
+                                    <span class="listing__score t-center">8.5</span>
+                                    <span class="listing__review c-dusty-gray">
+                                        <span class="stars-outer" data-rating="4.5">
+                                        <span class="stars-inner"></span>
+                                        </span>
+                                    </span>
+                                    </li>
+                                    <li>
+                                    Landscaping
+                                    </li>
+                                    <li>
+                                    <span>
+                                    <i class="fa fa-usd"  style="color: #53dd40;"></i>
+                                    <i class="fa fa-usd"  style="color: #53dd40;"></i>
+                                    <i class="fa fa-usd"  style="color: #53dd40;"></i>
+                                    <i class="fa fa-usd"  style="color: #53dd40;"></i>
+                                    <span class="c-dusty-gray">(Inexpensive)</span>
+                                    </span>
+                                    </li>
+                                </ul><!-- .listing__header-detail -->
+                                </div><!-- .listing-header__content -->
+                            </div><!-- .listing__wrapper -->
+                        </div><!-- .listing-header__main -->
+            
+                        <ul class="min-list inline-list listing-actions">
+                            <li class="t-center listing-action listing-action--favorite">
+                                <a href="#">
+                                <i class="fa fa-heart"></i>
+                                Favorite
+                                </a>
+                            </li>
+                            <li class="t-center listing-action listing-action--report">
+                                <a href="#">
+                                <i class="fa fa-exclamation"></i>
+                                Report
+                                </a>
+                            </li>
+                            <li class="t-center listing-action listing-action--share">
+                                <a href="#">
+                                <i class="fa fa-share-alt"></i>
+                                Share
+                                </a>
+                            </li>
+                        </ul><!-- .listing-actions -->
+                    </div>
+                </div><!-- .listing-header__container -->
+            </div><!-- .container -->
+        </header><!-- .listing-header -->
+        <nav class="listing-nav bg-white">
+            <div class="container">
+                <ul class="min-list inline-list listing-tabs">
+                <li class="listing-tab is-active">
+                    <a href="#about" id="about-link" class="listing-nav-link">
+                    About
+                    </a>
+                </li><!-- .listing-tab -->
+        
+                <li class="listing-tab">
+                    <a href="#products" id="menu-link" class="listing-nav-link">
+                    Products
+                    </a>
+                </li><!-- .listing-tab -->
+        
+                <li class="listing-tab">
+                    <a href="#projects" id="menu-link" class="listing-nav-link">
+                    Projects
+                    </a>
+                </li><!-- .listing-tab -->
+        
+                <li class="listing-tab">
+                    <a href="#ideabook" id="gallery-link" class="listing-nav-link">
+                    Idea Book
+                    </a>
+                </li><!-- .listing-tab -->
+        
+                <li class="listing-tab">
+                    <a href="#reviews" id="reviews-link" class="listing-nav-link">
+                    Reviews
+                    </a>
+                </li><!-- .listing-tab -->
+        
+                <li class="listing-tab">
+                    <a href="#add-review" id="add-review-link" class="listing-nav-link">
+                    Add Review
+                    </a>
+                </li><!-- .listing-tab -->
+                </ul><!-- .listing-tabs -->
+            </div>
+        </nav>
+        <div class="listing-main bg-wild-sand">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div>
+                            <p>
+                                <img src="{{ vendor.user_profile.cover_photo.url }}" alt="Single Listing">
+                            </p>
+                        </div>
+                        <div id="about" class="listing-section bg-white hover-effect" data-matching-link="#about-link">
+                            <div class="listing-section__header">
+                                <h3 class="listing-section__title">From the business</h3>
+                            </div><!-- .listing-section__header -->
+            
+                            <div class="c-dove-gray">
+                                <p>
+                                Petershan Coffee is the East London cafe bringing people together
+                                by tackling homelessness one espresso at a time.
+                                At Second Shot you can get incredible coffee, great food, and a unique atmosphere,
+                                and we just so happen to be changing lives.
+                                </p>
+                                <p>
+                                We employ people who have been affected by homelessness, train them as top quality baristas,
+                                before transitioning them on to past or preferred employment.
+                                We're committed to taking our staff from where they are to where they deserve to be.
+                                </p>
+                            </div>
+                            <ul class="min-list listing-features c-orange">
+                                <li>Rooftop</li>
+                                <li>Dress Code</li>
+                                <li>VIP Section</li>
+                                <li>Private Parties</li>
+                                <li>Rooftop</li>
+                                <li>Dress Code</li>
+                                <li>VIP Section</li>
+                                <li>Private Parties</li>
+                                <li>Rooftop</li>
+                                <li>Dress Code</li>
+                                <li>VIP Section</li>
+                                <li>Private Parties</li>
+                            </ul>
+                            <div class="c-dove-gray">
+                                <p>
+                                We operate a pay it forward system.
+                                This is where customers can pre pay for food and drink,
+                                and later someone in need can receive the goods free of charge.
+                                When you buy a pay it forward at second shot, you can either draw on our pay it forward wall,
+                                or get 3 stamps on our loyalty card, drawing on our pay it forward wall,
+                                and then later someone in need can receive the goods free of charge.
+                                </p>
+                            </div>
+                
+                            <p>
+                                <img src="{{ vendor.user_profile.cover_photo.url }}" alt="Single Listing">
+                            </p>
+                
+                            <p>
+                                <strong>Tags: </strong>
+                                <a href="#" class="c-dove-gray">coffee</a>,
+                                <a href="#" class="c-dove-gray">coffee shop</a>,
+                                <a href="#" class="c-dove-gray">restaurant</a>,
+                                <a href="#" class="c-dove-gray">drink</a>,
+                                <a href="#" class="c-dove-gray">fat food</a>
+                            </p>
+                        </div><!-- .listing-section -->
+            
+                        <div id="products" class="listing-section bg-white hover-effect" data-matching-link="#menu-link">
+                            <div class="listing-section__header">
+                                <h3 class="listing-section__title">Products</h3>
+                            </div><!-- .listing-section__header -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- <ul class="min-list listing-menu"> -->
+                                        {% for category in categories %}
+                                            <h4 class="listing-section__subtitle">{{ category }}</h4>
+                                            <span class="c-gray listing-menu__item-gradients">{{ category.description}}</span>
+                                            
+                                            <table class="listing-timetable">
+                                                {% for product in category.products.all %}
+                                                    <tr class="listing-row">
+                                                        <td class="listing listing-cell">
+                                                            <div class="listing__wrapper">                                                    
+                                                                <div class="listing__thumbnail"><img src="{{ product.prod_photo.url }}" alt="Single Listing"  width="120"></div>
+                                                                <div class="listing__detail">
+                                                                    <h4 class="listing__title">{{ product }}</h4>
+                                                                    <span class="c-gray listing-menu__item-gradients">{{ product.description}}</span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>${{ product.price }}</td>
+                                                    
+                                                    </tr>
+                                                {% endfor %}
+                                            </table>
+                                        {% endfor %}
+                                    <!-- </ul>.listing-menu -->
+                                </div>
+                            </div>
+                        </div><!-- .listing-section -->
+            
+                        <div id="projects" class="listing-section bg-white hover-effect" data-matching-link="#menu-link">
+                            <div class="listing-section__header">
+                                <h3 class="listing-section__title">Projects</h3>
+                            </div><!-- .listing-section__header -->
+                            <ul class="min-list listing-menu">
+                                <li class="listing-menu__item">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="listing-menu__item-left">
+                                    <h4 class="listing-menu__item-name">Roasted Red Potatoes</h4>
+                                    <span class="c-gray listing-menu__item-gradients">Potatoes/Rosemary/Butter</span>
+                                    </div>
+                
+                                    <div class="listing-menu__item-right">
+                                    <span class="c-secondary listing-menu__item-price">$12</span>
+                                    </div>
+                                </div>
+                                </li><!-- .listing-menu__item -->
+                
+                                <li class="listing-menu__item">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="listing-menu__item-left">
+                                    <h4 class="listing-menu__item-name">Roasted Red Potatoes Rosemary</h4>
+                                    <span class="c-gray listing-menu__item-gradients">Potatoes/Rosemary/Butter</span>
+                                    </div>
+                
+                                    <div class="listing-menu__item-right">
+                                    <span class="c-secondary listing-menu__item-price">$12</span>
+                                    </div>
+                                </div>
+                                </li><!-- .listing-menu__item -->
+                
+                                <li class="listing-menu__item">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="listing-menu__item-left">
+                                    <h4 class="listing-menu__item-name">Potatoes Rosemary</h4>
+                                    <span class="c-gray listing-menu__item-gradients">Potatoes/Rosemary/Butter</span>
+                                    </div>
+                
+                                    <div class="listing-menu__item-right">
+                                    <span class="c-secondary listing-menu__item-price">$12</span>
+                                    </div>
+                                </div>
+                                </li><!-- .listing-menu__item -->
+                
+                                <li class="listing-menu__item">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="listing-menu__item-left">
+                                    <h4 class="listing-menu__item-name">Roasted Red Potatoes Rosemary</h4>
+                                    <span class="c-gray listing-menu__item-gradients">Potatoes/Rosemary/Butter</span>
+                                    </div>
+                
+                                    <div class="listing-menu__item-right">
+                                    <span class="c-secondary listing-menu__item-price">$12</span>
+                                    </div>
+                                </div>
+                                </li><!-- .listing-menu__item -->
+                
+                                <li class="listing-menu__item">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="listing-menu__item-left">
+                                    <h4 class="listing-menu__item-name">Roasted Red Potatoes</h4>
+                                    <span class="c-gray listing-menu__item-gradients">Potatoes/Rosemary/Butter</span>
+                                    </div>
+                
+                                    <div class="listing-menu__item-right">
+                                    <span class="c-secondary listing-menu__item-price">$12</span>
+                                    </div>
+                                </div>
+                                </li><!-- .listing-menu__item -->
+                
+                                <li class="listing-menu__item">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="listing-menu__item-left">
+                                    <h4 class="listing-menu__item-name">Roasted Red Potatoes Rosemary</h4>
+                                    <span class="c-gray listing-menu__item-gradients">Potatoes/Rosemary/Butter</span>
+                                    </div>
+                
+                                    <div class="listing-menu__item-right">
+                                    <span class="c-secondary listing-menu__item-price">$12</span>
+                                    </div>
+                                </div>
+                                </li><!-- .listing-menu__item -->
+                
+                                <li class="listing-menu__item">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="listing-menu__item-left">
+                                    <h4 class="listing-menu__item-name">Potatoes Rosemary</h4>
+                                    <span class="c-gray listing-menu__item-gradients">Potatoes/Rosemary/Butter</span>
+                                    </div>
+                
+                                    <div class="listing-menu__item-right">
+                                    <span class="c-secondary listing-menu__item-price">$12</span>
+                                    </div>
+                                </div>
+                                </li><!-- .listing-menu__item -->
+                
+                                <li class="listing-menu__item">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="listing-menu__item-left">
+                                    <h4 class="listing-menu__item-name">Roasted Red Potatoes Rosemary</h4>
+                                    <span class="c-gray listing-menu__item-gradients">Potatoes/Rosemary/Butter</span>
+                                    </div>
+                
+                                    <div class="listing-menu__item-right">
+                                    <span class="c-secondary listing-menu__item-price">$12</span>
+                                    </div>
+                                </div>
+                                </li><!-- .listing-menu__item -->
+                            </ul><!-- .listing-menu -->
+                        </div><!-- .listing-section -->
+            
+                        <div id="ideabook" class="listing-section bg-white hover-effect" data-matching-link="#gallery-link">
+                            <div class="listing-section__header">
+                                <h3 class="listing-section__title">Gallery</h3>
+                            </div><!-- .listing-section__header -->
+                
+                            <div class="swiper-container listing-gallery-top">
+                                <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="assets/images/uploads/listing-1.jpg" alt="Listing Image">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/images/uploads/listing-2.jpg" alt="Listing Image">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/images/uploads/listing-3.jpg" alt="Listing Image">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/images/uploads/listing-4.jpg" alt="Listing Image">
+                                </div>
+                                </div><!-- .swiper-wrapper -->
+                                <span class="ion-chevron-left c-white listing-button listing-button-prev"></span>
+                                <span class="ion-chevron-right c-white listing-button listing-button-next"></span>
+                            </div><!-- .listing-gallery-top -->
+                
+                            <div class="swiper-container listing-gallery-thumb">
+                                <div class="swiper-wrapper">
+                                <div class="swiper-slide is-selected">
+                                    <img src="assets/images/uploads/listing-1.jpg" alt="Listing Image">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/images/uploads/listing-2.jpg" alt="Listing Image">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/images/uploads/listing-3.jpg" alt="Listing Image">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/images/uploads/listing-4.jpg" alt="Listing Image">
+                                </div>
+                                </div><!-- .swiper-wrapper -->
+                            </div><!-- .listing-gallery-thumb -->
+                        </div><!-- .listing-section -->
+            
+                        <div id="reviews" class="listing-section bg-white hover-effect" data-matching-link="#reviews-link">
+                            <div class="listing-section__header">
+                                <h3 class="listing-section__title">Reviews</h3>
+                            </div><!-- .listing-section__header -->
+                
+                            <table class="listing-ratings">
+                                <tr class="listing-rating">
+                                <th>Excellent</th>
+                                <td>
+                                    <span class="stars-outer" data-rating="5">
+                                    <span class="stars-inner"></span>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="progressbar-container">
+                                    <span class="progressbar" style="width: 89%"></span>
+                                    </span>
+                                </td>
+                                <td class="c-orange">89%</td>
+                                </tr><!-- .listing-rating -->
+                
+                                <tr class="listing-rating">
+                                <th>Good</th>
+                                <td>
+                                    <span class="stars-outer" data-rating="4">
+                                    <span class="stars-inner"></span>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="progressbar-container">
+                                    <span class="progressbar" style="width: 11%"></span>
+                                    </span>
+                                </td>
+                                <td class="c-orange">11%</td>
+                                </tr><!-- .listing-rating -->
+                
+                                <tr class="listing-rating">
+                                <th>Average</th>
+                                <td>
+                                    <span class="stars-outer" data-rating="3">
+                                    <span class="stars-inner"></span>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="progressbar-container">
+                                    <span class="progressbar" style="width: 3%"></span>
+                                    </span>
+                                </td>
+                                <td class="c-orange">3%</td>
+                                </tr><!-- .listing-rating -->
+                
+                                <tr class="listing-rating">
+                                <th>Rather Poor</th>
+                                <td>
+                                    <span class="stars-outer" data-rating="2">
+                                    <span class="stars-inner"></span>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="progressbar-container">
+                                    <span class="progressbar" style="width: 0"></span>
+                                    </span>
+                                </td>
+                                <td class="c-orange">0%</td>
+                                </tr><!-- .listing-rating -->
+                
+                                <tr class="listing-rating">
+                                <th>Bad</th>
+                                <td>
+                                    <span class="stars-outer" data-rating="1">
+                                    <span class="stars-inner"></span>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="progressbar-container">
+                                    <span class="progressbar" style="width: 0"></span>
+                                    </span>
+                                </td>
+                                <td class="c-orange">0%</td>
+                                </tr><!-- .listing-rating -->
+                            </table><!-- .listing-ratings -->
+                
+                            <ul class="min-list listing-review-list">
+                                <li class="listing-review">
+                                <div class="d-flex">
+                                    <div class="listing-review__avatar">
+                                    <img src="assets/images/uploads/listing-review-1.png" alt="Avatar">
+                                    </div><!-- .listing-review__avatar -->
+                
+                                    <div class="listing-review__content">
+                                    <header class="listing-review__header">
+                                        <div class="d-sm-flex justify-content-sm-between c-silver-charlice">
+                                        <div>
+                                            <span class="stars-outer" data-rating="4">
+                                            <span class="stars-inner"></span>
+                                            </span>
+                                            <span>8.0 - Good</span>
+                                        </div>
+                
+                                        <span>Written on October 9, 2017</span>
+                                        </div>
+                                    </header><!-- .listing-review__header -->
+                
+                                    <div class="listing-review__review">
+                                        <p>
+                                        Love the trip! CEO and crew were attentive to our needs and sensed a real desire to make it as
+                                        wonderful as possible. Did all they could make sure had top snorkeling experiences, including
+                                        see illusive manta rays!
+                                        </p>
+                                    </div>
+                
+                                    <footer class="listing-review__footer">
+                                        <button class="button button--like c-white">
+                                        <i class="fa fa-thumbs-up"></i>
+                                        </button>
+                                    </footer>
+                                    </div><!-- .listing-review__content -->
+                                </div>
+                                </li><!-- .listing-review -->
+                
+                                <li class="listing-review">
+                                <div class="d-flex">
+                                    <div class="listing-review__avatar">
+                                    <img src="assets/images/uploads/listing-review-2.png" alt="Avatar">
+                                    </div><!-- .listing-review__avatar -->
+                
+                                    <div class="listing-review__content">
+                                    <header class="listing-review__header">
+                                        <div class="d-sm-flex justify-content-sm-between c-silver-charlice">
+                                        <div>
+                                            <span class="stars-outer" data-rating="5">
+                                            <span class="stars-inner"></span>
+                                            </span>
+                                            <span>9.0 - Excellent</span>
+                                        </div>
+                
+                                        <span>Written on October 9, 2017</span>
+                                        </div>
+                                    </header><!-- .listing-review__header -->
+                
+                                    <div class="listing-review__review">
+                                        <p>
+                                        Love the trip! CEO and crew were attentive to our needs and sensed a real desire to make it as
+                                        wonderful as possible. Did all they could make sure had top snorkeling experiences, including
+                                        see illusive manta rays!
+                                        </p>
+                                    </div>
+                
+                                    <div class="listing-review__image">
+                
+                                    </div><!-- .listing-review__image -->
+                
+                                    <footer class="listing-review__footer">
+                                        <button class="button button--like c-white">
+                                        <i class="fa fa-thumbs-up"></i>
+                                        </button>
+                                    </footer>
+                                    </div><!-- .listing-review__content -->
+                                </div>
+                                </li><!-- .listing-review -->
+                
+                                <li class="listing-review">
+                                <div class="d-flex">
+                                    <div class="listing-review__avatar">
+                                    <img src="assets/images/uploads/listing-review-3.png" alt="Avatar">
+                                    </div><!-- .listing-review__avatar -->
+                
+                                    <div class="listing-review__content">
+                                    <header class="listing-review__header">
+                                        <div class="d-sm-flex justify-content-sm-between c-silver-charlice">
+                                        <div>
+                                            <span class="stars-outer" data-rating="4">
+                                            <span class="stars-inner"></span>
+                                            </span>
+                                            <span>8.0 - Good</span>
+                                        </div>
+                
+                                        <span>Written on October 9, 2017</span>
+                                        </div>
+                                    </header><!-- .listing-review__header -->
+                
+                                    <div class="listing-review__review">
+                                        <p>
+                                        Love the trip! CEO and crew were attentive to our needs and sensed a real desire to make it as
+                                        wonderful as possible. Did all they could make sure had top snorkeling experiences, including
+                                        see illusive manta rays!
+                                        </p>
+                                    </div>
+                
+                                    <footer class="listing-review__footer">
+                                        <button class="button button--like c-white">
+                                        <i class="fa fa-thumbs-up"></i>
+                                        </button>
+                                    </footer>
+                                    </div><!-- .listing-review__content -->
+                                </div>
+                                </li><!-- .listing-review -->
+                            </ul><!-- .listing-review-list -->
+                
+                            <div class="d-sm-flex justify-content-sm-between align-items-sm-center listing-pagination">
+                                <div class="page-navigation">
+                                <span aria-current="page" class="page-numbers current">1</span>
+                                <a href="#" class="page-numbers">2</a>
+                                <a href="#" class="page-numbers">3</a>
+                                <a href="#" class="page-numbers next">Next &raquo;</a>
+                                </div><!-- .page-navigation -->
+                
+                                <span>Page 1 of 8</span>
+                            </div>
+                        </div><!-- .listing-section -->
+            
+                        <div id="add-review" class="listing-section bg-white hover-effect" data-matching-link="#add-review-link">
+                            <div class="listing-section__header">
+                                <h3 class="listing-section__title">Add Review</h3>
+                            </div><!-- .listing-section__header -->
+                
+                            <form action="/" method="post">
+                                <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                    <span class="form-label">Your rating</span>
+                                    <ul class="min-list inline-list stars">
+                                        <li class="star" data-rating="1">
+                                        <i class="fa fa-star"></i>
+                                        </li>
+                                        <li class="star" data-rating="2">
+                                        <i class="fa fa-star"></i>
+                                        </li>
+                                        <li class="star" data-rating="3">
+                                        <i class="fa fa-star"></i>
+                                        </li>
+                                        <li class="star" data-rating="4">
+                                        <i class="fa fa-star"></i>
+                                        </li>
+                                        <li class="star" data-rating="5">
+                                        <i class="fa fa-star"></i>
+                                        </li>
+                                    </ul>
+                                    </div><!-- .form-group -->
+                                </div><!-- .col -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <label for="review-name">Your full name *</label>
+                                    <input
+                                        type="text"
+                                        id="review-name"
+                                        name="name"
+                                        class="form-input form-input--large form-input--border-c-alto"
+                                        placeholder="John Doe"
+                                        required
+                                    >
+                                    </div><!-- .form-group -->
+                                </div><!-- .col -->
+                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <label for="review-email">Your email *</label>
+                                    <input
+                                        type="email"
+                                        id="review-email"
+                                        name="email"
+                                        class="form-input form-input--large form-input--border-c-alto"
+                                        placeholder="johndoe@gmail.com"
+                                        required
+                                    >
+                                    </div><!-- .form-group -->
+                                </div><!-- .col -->
+                
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                    <label for="review-message">Your review</label>
+                                    <textarea
+                                        name="message"
+                                        id="review-message"
+                                        rows="10"
+                                        class="form-input form-input--large form-input--border-c-alto"
+                                        placeholder="Your review"></textarea>
+                                    </div><!-- .form-group -->
+                                </div><!-- .col -->
+                
+                                <div class="col-md-12">
+                                    <div class="form-group--submit">
+                                    <button class="button button--large button--square button--primary" type="submit">Send Review
+                                    </button>
+                                    </div>
+                                </div><!-- .col -->
+                                </div><!-- .row -->
+                            </form>
+                        </div><!-- .listing-section -->
+                    </div><!-- .col -->
+        
+                    <div class="col-lg-4">
+                        <div class="listing-widget bg-white hover-effect">
+                            <div class="listing-map-container">
+                                <div id="contact-map" class="map"></div>
+                            </div><!-- .listing-map-container -->
+                
+                            <ul class="min-list listing-contact-list">
+                                <li class="d-flex align-items-center c-silver-charlice listing-contact">
+                                <i class="fa fa-compass fa-lg listing-contact__icon"></i>
+                                <span class="c-primary">{{ vendor.user_profile.address }}, {{ vendor.user_profile.city }}, {{ vendor.user_profile.state }} {{ vendor.user_profile.zip_code }}</span>
+                                </li>
+                
+                                <li class="d-flex align-items-center c-silver-charlice listing-contact">
+                                <i class="fa fa-phone fa-lg listing-contact__icon"></i>
+                                <a href="#">{{ vendor.user }} </a>
+                                </li>
+                
+                                <li class="d-flex align-items-center c-silver-charlice listing-contact">
+                                <i class="fa fa-globe fa-lg listing-contact__icon"></i>
+                                <a href="#">petersham-nursuries.com</a>
+                                </li>
+                            </ul><!-- .listing-contact-list -->
+                
+                            <div class="listing-social">
+                                <span class="c-orange">Our Social</span>
+                                <ul class="min-list inline-list social-list">
+                                <li>
+                                    <a href="#">
+                                    <i class="fa fa-facebook-f c-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                    <i class="fa fa-twitter c-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                    <i class="fa fa-pinterest c-pinterest"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                    <i class="fa fa-google-plus c-google-plus"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                    <i class="fa fa-linkedin c-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                    <i class="fa fa-instagram c-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                    <i class="fa fa-youtube c-youtube"></i>
+                                    </a>
+                                </li>
+                                </ul><!-- .social-list -->
+                            </div><!-- .listing-social -->
+            
+                            <button
+                                class="button button--primary button--block button--pill button--large"
+                                ><strong>Contact Us</strong>
+                            </button>
+                        </div><!-- .listing-widget -->
+            
+                        <div class="listing-widget bg-white hover-effect">
+                            <h3 class="listing-widget__title">Opening Time</h3>
+                            <table class="listing-timetable">
+                                <tr>
+                                <th><strong>Mon</strong></th>
+                                <td>8:00 AM - 5:00 PM</td>
+                                <td class="c-secondary"></td>
+                                </tr>
+                                <tr>
+                                <th><strong>Tue</strong></th>
+                                <td>8:00 AM - 5:00 PM</td>
+                                <td class="c-secondary">
+                                    Open Now
+                                </td>
+                                </tr>
+                                <tr>
+                                <th><strong>Wed</strong></th>
+                                <td>8:00 AM - 5:00 PM</td>
+                                <td class="c-secondary">
+                                </td>
+                                </tr>
+                                <tr>
+                                <th><strong>Thur</strong></th>
+                                <td>8:00 AM - 5:00 PM</td>
+                                <td class="c-secondary">
+                                </td>
+                                </tr>
+                                <tr>
+                                <th><strong>Fri</strong></th>
+                                <td>8:00 AM - 5:00 PM</td>
+                                <td class="c-secondary">
+                                </td>
+                                </tr>
+                                <tr>
+                                <th><strong>Sat</strong></th>
+                                <td>8:00 AM - 5:00 PM</td>
+                                <td class="c-secondary">
+                                </td>
+                                </tr>
+                                <tr>
+                                <th><strong>Sun</strong></th>
+                                <td>8:00 AM - 5:00 PM</td>
+                                <td class="c-secondary">
+                                </td>
+                                </tr>
+                            </table>
+                        </div><!-- .listing-widget -->
+            
+                        <div class="listing-widget bg-white hover-effect">
+                            <h3 class="listing-widget__title">Contact</h3>
+                            <form action="{% url 'send_message_to_vendor' vendor.vendor_slug %}" method="post">
+                                {% csrf_token %}
+
+                                {{ form.as_p }}
+                
+                                <div class="form-group--submit">
+                                    <button class="button button--primary button--large button--pill" type="submit">Send Message</button>
+                                </div>
+                            </form>
+                        </div><!-- .listing-widget -->
+            
+                        <div class="listing-widget bg-white hover-effect">
+                            <h3 class="listing-widget__title">Latest Listings</h3>
+                            <ul class="min-list latest-listings">
+                                <li class="latest-listing">
+                                <div class="d-flex">
+                                    <div class="latest-listing__thumbnail">
+                                    <a href="#">
+                                        <img src="assets/images/uploads/latest-listing-1.jpg" alt="Latest Listing">
+                                    </a>
+                                    </div><!-- .latest-listing__thumbnail -->
+                
+                                    <div class="latest-listing__content">
+                                    <h5 class="latest-listing__name"><a href="#">Monmouth Restaurant</a></h5>
+                                    <div class="latest-listing__review c-gray">
+                                        <span class="stars-outer" data-rating="4.5">
+                                        <span class="stars-inner"></span>
+                                        </span>
+                                        <span class="t-small">(03 reviews)</span>
+                                    </div>
+                                    <p class="c-gray latest-listing__desc">It is totally true that Monmouth...</p>
+                                    </div><!-- .latest-listing__content -->
+                                </div>
+                                </li><!-- .latest-listing -->
+                
+                                <li class="latest-listing">
+                                <div class="d-flex">
+                                    <div class="latest-listing__thumbnail">
+                                    <a href="#">
+                                        <img src="assets/images/uploads/latest-listing-2.jpg" alt="Latest Listing">
+                                    </a>
+                                    </div><!-- .latest-listing__thumbnail -->
+                
+                                    <div class="latest-listing__content">
+                                    <h5 class="latest-listing__name"><a href="#">Broadway Coffee Shop</a></h5>
+                                    <div class="latest-listing__review c-gray">
+                                        <span class="stars-outer" data-rating="4.5">
+                                        <span class="stars-inner"></span>
+                                        </span>
+                                        <span class="t-small">(03 reviews)</span>
+                                    </div>
+                                    <p class="c-gray latest-listing__desc">The Vietnamese iced coffee...</p>
+                                    </div><!-- .latest-listing__content -->
+                                </div>
+                                </li><!-- .latest-listing -->
+                
+                                <li class="latest-listing">
+                                <div class="d-flex">
+                                    <div class="latest-listing__thumbnail">
+                                    <a href="#">
+                                        <img src="assets/images/uploads/latest-listing-3.jpg" alt="Latest Listing">
+                                    </a>
+                                    </div><!-- .latest-listing__thumbnail -->
+                
+                                    <div class="latest-listing__content">
+                                    <h5 class="latest-listing__name"><a href="#">Books for Cooks</a></h5>
+                                    <div class="latest-listing__review c-gray">
+                                        <span class="stars-outer" data-rating="3.5">
+                                        <span class="stars-inner"></span>
+                                        </span>
+                                        <span class="t-small">(03 reviews)</span>
+                                    </div>
+                                    <p class="c-gray latest-listing__desc">When I walked in the door...</p>
+                                    </div><!-- .latest-listing__content -->
+                                </div>
+                                </li><!-- .latest-listing -->
+                            </ul><!-- .latest-listings -->
+                        </div><!-- .listing-widget -->
+                        <p class="c-dusty-gray listing-cta">Is this your business?
+                        <a href="{% url 'registerVendor' %}" class="t-underline">Claim it now.</a></p>
+                    </div><!-- .col -->
+
+                </div><!-- .row -->
+            </div>
+        </div>
+    </section><!-- .single-listing -->
+</div><!-- .page-content -->
+
+{% endblock %}

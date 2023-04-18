@@ -20,7 +20,7 @@ from django.urls import path, include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
-
+from marketplace import views as MarketplaceViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,6 +30,11 @@ urlpatterns = [
     path('marketplace/', include('marketplace.urls')),
     path('blog/', include('blog.urls')),
     path('__debug__/', include('debug_toolbar.urls')),
+    # Search
+    path('search/', MarketplaceViews.search, name='search'),
+    # LISTINGS
+    path('listings/', MarketplaceViews.listings, name='listings'),
+    
 
     
     

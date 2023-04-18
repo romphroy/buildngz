@@ -2,157 +2,229 @@
 {% load static %}
 
 {% block content %}
-<div class="d-xl-flex">
-    <div class="order-xl-0 listing-column listing-column--xl-30 listing-column--content">
-      <div class="listing-filter-container">
-        <span class="c-gray listing-filter-label">Filter</span>
-        <div class="d-xxl-flex">
-          <ul class="min-list d-flex listing-filter listing-filter--group align-self-lg-start">
-            <li>
-              <a href="#">$</a>
-            </li>
-  
-            <li>
-              <a href="#">$$</a>
-            </li>
-  
-            <li>
-              <a href="#">$$$</a>
-            </li>
-  
-            <li>
-              <a href="#">$$$$</a>
-            </li>
-          </ul><!-- .listing-filter -->
-  
-          <ul class="min-list inline-list listing-filter listing-filter--list">
-            <li>
-              <a href="#">
-                <i class="fa fa-clock-o"></i>
-                Open Now
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-star-o"></i>
-                Highest Rate
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-comment-o"></i>
-                Most Review
-              </a>
-            </li>
-          </ul><!-- .listing-filter -->
-        </div><!-- d-flex -->
-  
-        <span class="c-gray listing-filter-label">Radius (Mi)</span>
-        <input type="range" min="0" max="100" step="20" data-labels="0, 10, 20, 50, 100" class="js-range">
-  
-        <span class="c-gray listing-filter-label">Just show me</span>
-        <ul class="min-list d-flex flex-wrap listing-filter listing-filter--category">
-          <li>
-            <a href="#">
-              <div class="listing-filter__bg listing-filter__bg--coffee"></div>
-              <div class="d-flex justify-content-center align-items-center c-white listing-filter__content">
-                <span>Coffee</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <div class="listing-filter__bg listing-filter__bg--food"></div>
-              <div class="d-flex justify-content-center align-items-center c-white listing-filter__content">
-                <span>Food</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <div class="listing-filter__bg listing-filter__bg--cake"></div>
-              <div class="d-flex justify-content-center align-items-center c-white listing-filter__content">
-                <span>Cake</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <div class="listing-filter__bg listing-filter__bg--fruit"></div>
-              <div class="d-flex justify-content-center align-items-center c-white listing-filter__content">
-                <span>Fruit</span>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div><!-- .listing-filter-container -->    
-    </div><!-- .listing-column -->
- 
-    
-  <div class="order-xl-1 listing-column listing-column--xl-70 listing-column--content">
-    <div class="page-section__title">
-      Suggestions for Restaurants near London
-    </div>
 
+	
+	<main class="bg_color_white">
 
-    <div class="d-md-flex flex-md-wrap justify-content-between list-view">
-        {% for vendor in vendors %}
-            <div class="list-view__item col-lg-10">
-                <div class="listing hover-effect">
-                    <div class="d-sm-flex align-items-sm-center listing__wrapper">
-                        <div class="listing__thumbnail">
-                        <a href="{% url 'vendor_detail' vendor.vendor_slug %}">
-                            <img src="{{ vendor.user_profile.cover_photo.url }}" alt="April Boutique Coffee">
-                            <span class="label label--tertiary">Closed</span>
-                            <span class="favorite c-white">
-                            <i class="fa fa-heart-o"></i>
-                            </span>
-                        </a>
-                        </div><!-- .listing__thumbnail -->
-                        <div class="d-flex justify-content-between align-items-center listing__detail">
-                        <div class="listing__detail-left">
-                            <p class="listing__category t-small">
-                            <span class="c-dove-gray">Cocktail, Coffee</span>
-                            <span class="listing__price">
-                                <i class="fa fa-usd c-dove-gray"></i>
-                                <i class="fa fa-usd c-dusty-gray"></i>
-                                <i class="fa fa-usd c-dusty-gray"></i>
-                                <i class="fa fa-usd c-dusty-gray"></i>
-                            </span>
-                            </p>
-                            <h3 class="listing__title">
-                            <a href="{% url 'vendor_detail' vendor.vendor_slug %}">{{ vendor.vendor_name}}</a>
-                            </h3>
-                            <p class="listing__review c-dusty-gray">
-                            <span class="stars-outer" data-rating="5">
-                                <span class="stars-inner"></span>
-                            </span>
-                            <span>(5 Reviews)</span>
-                            </p>
-                            <p class="listing__location c-dusty-gray no-b-margin">
-                                <i class="fa fa-map-marker"></i>
-                                {{ vendor.user_profile.address }} <br>
-                                {{ vendor.user_profile.city }}, {{ vendor.user_profile.state }} {{ vendor.user_profile.zip_code }}
-                            </p>
-                        </div>
+		<div class="filters_full version_2">
+		    <div class="container clearfix">
+		        <div class="sort_select">
+		            <select name="sort" id="sort">
+		                <option value="popularity" selected="selected">Sort by Popularity</option>
+		                <option value="rating">Sort by Average rating</option>
+		                <option value="date">Sort by newness</option>
+		            </select>
+		        </div>
+		        <a href="#0" class="open_filters btn_filters"><i class="icon_adjust-vert"></i><span>Filters</span></a>
+		        <a class="btn_map mobile btn_filters" data-bs-toggle="collapse" href="#collapseMap"><i class="icon_pin_alt"></i></a>
+		        <div class="search_bar_list">
+				    <input type="text" class="form-control" placeholder="Search again...">
+				</div>
+				<a class="btn_search_mobile btn_filters" data-bs-toggle="collapse" href="#collapseSearch"><i class="icon_search"></i></a>
+		    </div>
+		  
+		<div class="collapse" id="collapseMap">
+			<div id="map" class="map"></div>
+		</div>
+		<!-- /Map -->
+		<div class="collapse" id="collapseSearch">
+		    <div class="search_bar_list">
+		        <input type="text" class="form-control" placeholder="Search again...">
+		    </div>
+		</div>
+		<!-- /collapseSearch -->
+		</div>
+		<!-- /filters_full -->
+		
+		<div class="container margin_30_40">
+			<div class="page_header">
+			    <h1>Doctors</h1><span>: 814 found</span>
+			</div>		
+			<div class="row">
+				<aside class="col-lg-3" id="sidebar_fixed">
+					<div class="filter_col">
+						<div class="inner_bt"><a href="#" class="open_filters"><i class="icon_close"></i></a></div>
+						<div class="filter_type">
+							<h4><a href="#filter_1" data-bs-toggle="collapse" class="opened">Categories</a></h4>
+							<div class="collapse show" id="filter_1">
+								<ul>
+								    <li>
+								        <label class="container_check">Psychologist<small>12</small>
+								            <input type="checkbox">
+								            <span class="checkmark"></span>
+								        </label>
+								    </li>
+								    <li>
+								        <label class="container_check">Dermatologist <small>24</small>
+								            <input type="checkbox">
+								            <span class="checkmark"></span>
+								        </label>
+								    </li>
+								    <li>
+								        <label class="container_check">Cardiologist <small>23</small>
+								            <input type="checkbox">
+								            <span class="checkmark"></span>
+								        </label>
+								    </li>
+								    <li>
+								        <label class="container_check">General Medicine <small>11</small>
+								            <input type="checkbox">
+								            <span class="checkmark"></span>
+								        </label>
+								    </li>
+								    <li>
+								        <label class="container_check">Gynecologist <small>18</small>
+								            <input type="checkbox">
+								            <span class="checkmark"></span>
+								        </label>
+								    </li>
+								    <li>
+								        <label class="container_check">Autoimmune Deseas <small>12</small>
+								            <input type="checkbox">
+								            <span class="checkmark"></span>
+								        </label>
+								    </li>
+								    <li>
+								        <label class="container_check">Pediatrician <small>15</small>
+								            <input type="checkbox">
+								            <span class="checkmark"></span>
+								        </label>
+								    </li>
+								</ul>
+							</div>
+							<!-- /filter_type -->
+						</div>
+						<!-- /filter_type -->
+						<div class="filter_type">
+							<h4><a href="#filter_2" data-bs-toggle="collapse" class="closed">Rating</a></h4>
+							<div class="collapse" id="filter_2">
+								<ul>
+								    <li>
+								        <label class="container_check">Superb 9+ <small>06</small>
+								            <input type="checkbox">
+								            <span class="checkmark"></span>
+								        </label>
+								    </li>
+								    <li>
+								        <label class="container_check">Very Good 8+ <small>12</small>
+								            <input type="checkbox">
+								            <span class="checkmark"></span>
+								        </label>
+								    </li>
+								    <li>
+								        <label class="container_check">Good 7+ <small>17</small>
+								            <input type="checkbox">
+								            <span class="checkmark"></span>
+								        </label>
+								    </li>
+								    <li>
+								        <label class="container_check">Pleasant 6+ <small>43</small>
+								            <input type="checkbox">
+								            <span class="checkmark"></span>
+								        </label>
+								    </li>
+								</ul>
+							</div>
+						</div>
+						<!-- /filter_type -->
+						<div class="filter_type">
+							<h4><a href="#filter_3" data-bs-toggle="collapse" class="closed">Distance</a></h4>
+							<div class="collapse" id="filter_3">
+                                <div class="range_input">Radius around destination <span></span> km</div>
+								<div class="add_bottom_15"><input type="range" min="10" max="100" step="10" value="30" data-orientation="horizontal"></div>
+							</div>
+						</div>
+						<!-- /filter_type -->
+						<div class="filter_type">
+							<h4><a href="#filter_4" data-bs-toggle="collapse" class="closed">Price</a></h4>
+							<div class="collapse" id="filter_4">
+								<ul>
+										<li>
+											<label class="container_check">$0 — $50<small>11</small>
+											  <input type="checkbox">
+											  <span class="checkmark"></span>
+											</label>
+										</li>
+										<li>
+											<label class="container_check">$50 — $100<small>08</small>
+											  <input type="checkbox">
+											  <span class="checkmark"></span>
+											</label>
+										</li>
+										<li>
+											<label class="container_check">$100 — $150<small>05</small>
+											  <input type="checkbox">
+											  <span class="checkmark"></span>
+											</label>
+										</li>
+										<li>
+											<label class="container_check">$150 — $200<small>18</small>
+											  <input type="checkbox">
+											  <span class="checkmark"></span>
+											</label>
+										</li>
+									</ul>
+							</div>
+						</div>
+						<!-- /filter_type -->
+						<div class="buttons">
+							<a href="#0" class="btn_1 full-width">Filter</a>
+						</div>
+					</div>
+				</aside>
 
-                        <div class="listing__detail-right">
-                            <span class="listing__score t-center">7.0</span>
-                        </div>
-                        </div><!-- .listing__detail -->
-                    </div><!-- .listing__wrapper -->
-                </div><!-- .listing -->
-            </div><!-- .list-view__item -->
-        {% endfor %}
-    </div><!-- .d-md-flex -->
+				<div class="col-lg-9">
+					<div class="row grid_sidebar">
+						{% for vendor in vendors %}
+							<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+								<div class="strip">
+									<figure>
+										<a href="#0" class="wish_bt"><i class="icon_heart"></i></a>
+										{% if vendor.user_profile.cover_photo %}
+											<img src="{{ vendor.user_profile.cover_photo.url }}" data-src="{{ vendor.user_profile.cover_photo.url }}" alt="" class="owl-lazy">
+										{% else %}
+											<img src="" data-src="{% static 'images/uploads/plumbing.jpg' %}" class="img-fluid lazy" alt="{% static 'images/uploads/plumbing.jpg' %}">
+										{% endif %} 
+										<a href="{% url 'vendor_detail' vendor.vendor_slug %}" class="strip_info">
+											<div class="item_title">
+												<h3>{{ vendor.vendor_name }}</h3>
+												<small>
+													{{ vendor.user_profile.address }} <br>
+													{{ vendor.user_profile.city }}, {{ vendor.user_profile.state }} {{ vendor.user_profile.zip_code }}
+												</small>
+											</div>
+										</a>
+									</figure>
+									<ul>
+										<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Available Appointment"><i class="icon-users"></i></a></li>
+										<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Available Chat"><i class="icon-chat"></i></a></li>
+										<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Available Video Call"><i class="icon-videocam"></i></a></li>
+										<li>
+											<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- /strip grid -->
+						{% endfor %}
+					</div>
+					<!-- /row -->
+					<div class="pagination_fg">
+					  <a href="#">&laquo;</a>
+					  <a href="#" class="active">1</a>
+					  <a href="#">2</a>
+					  <a href="#">3</a>
+					  <a href="#">4</a>
+					  <a href="#">5</a>
+					  <a href="#">&raquo;</a>
+					</div>
+				</div>
+				<!-- /col -->
+			</div>		
+		</div>
+		<!-- /container -->
+		
+	</main>
+	<!-- /main -->
 
-    <div class="t-left load-more">
-      <button class="button button--primary button--medium button--pill">Load More</button>
-    </div>
-  </div><!-- .listing-column -->
-
-    
-
-  
-</div><!-- d-flex -->
-{% endblock %}
+	{% endblock %}

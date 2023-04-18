@@ -795,18 +795,18 @@ body[data-sidebar="colored"].vertical-collpsed .vertical-menu #sidebar-menu ul l
       position: absolute; } }
 
 @media (min-width: 992px) {
-  body[data-layout="horizontal"][data-topbar="light"] .navbar-brand-box .logo-dark {
+  body[data-layout="horizontal"][data-topbar="dark"] .navbar-brand-box .logo-dark {
     display: block; }
-  body[data-layout="horizontal"][data-topbar="light"] .navbar-brand-box .logo-light {
+  body[data-layout="horizontal"][data-topbar="dark"] .navbar-brand-box .logo-light {
     display: none; }
-  body[data-layout="horizontal"][data-topbar="light"] .topnav {
-    background-color: #00aeef; }
-    body[data-layout="horizontal"][data-topbar="light"] .topnav .navbar-nav .nav-link {
-      color: rgba(255, 255, 255, 0.7); }
-      body[data-layout="horizontal"][data-topbar="light"] .topnav .navbar-nav .nav-link:focus, body[data-layout="horizontal"][data-topbar="light"] .topnav .navbar-nav .nav-link:hover {
-        color: rgba(255, 255, 255, 0.9); }
-    body[data-layout="horizontal"][data-topbar="light"] .topnav .navbar-nav > .dropdown.active > a {
-      color: rgba(255, 255, 255, 0.9) !important; } }
+  body[data-layout="horizontal"][data-topbar="dark"] .topnav {
+    background-color: #fcfcfc; }
+    body[data-layout="horizontal"][data-topbar="dark"] .topnav .navbar-nav .nav-link {
+      color: rgba(255, 255, 255, 0.0); }
+      body[data-layout="horizontal"][data-topbar="dark"] .topnav .navbar-nav .nav-link:focus, body[data-layout="horizontal"][data-topbar="dark"] .topnav .navbar-nav .nav-link:hover {
+        color: rgba(255, 255, 255, 0.0); }
+    body[data-layout="horizontal"][data-topbar="dark"] .topnav .navbar-nav > .dropdown.active > a {
+      color: rgba(255, 255, 255, 0.0) !important; } }
 
 body[data-layout="horizontal"][data-topbar="colored"] #page-topbar {
   background-color: #44a2d2;
@@ -845,7 +845,7 @@ body[data-layout="horizontal"][data-topbar="colored"] .noti-icon i {
   body[data-layout="horizontal"][data-topbar="colored"] .topnav {
     background-color: #00aeef; }
     body[data-layout="horizontal"][data-topbar="colored"] .topnav .navbar-nav .nav-link {
-      color: rgba(255, 255, 255, 0.5); }
+      color: rgba(255, 255, 255, 0.0); }
       body[data-layout="horizontal"][data-topbar="colored"] .topnav .navbar-nav .nav-link:focus, body[data-layout="horizontal"][data-topbar="colored"] .topnav .navbar-nav .nav-link:hover {
         color: rgba(255, 255, 255, 0.9); }
     body[data-layout="horizontal"][data-topbar="colored"] .topnav .navbar-nav > .dropdown.active > a {
