@@ -6,7 +6,7 @@ class VendorForm(forms.ModelForm):
     insurance_cert = forms.FileField(widget=forms.FileInput(attrs={'class': 'btn btn-default'}), validators=[allow_only_images_validator])
     class Meta:
         model = Vendor
-        fields = ['vendor_name', 'insurance_cert']
+        fields = ['vendor_name', 'insurance_cert', 'address', 'country', 'state', 'city', 'zip_code', 'latitude', 'longitude']
         
         
 class NewMessageForm(forms.ModelForm):

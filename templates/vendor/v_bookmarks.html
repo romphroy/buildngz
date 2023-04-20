@@ -1,0 +1,74 @@
+{% extends 'v_base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-flex align-items-center justify-content-between">
+                <h3 class="mb-0 font-size-23">Bookmarks</h4>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
+
+    <div class="row">
+        <div class="col-12">
+            <!-- Error Messages -->
+            <!-- LOAD MESSAGES -->
+            {% include 'includes/alerts.html' %}
+            <!-- END Error Messages -->
+
+            <div class="card ">
+                <div class="card-body list_general">    
+                    <ul>
+                        <li>
+                            <figure><img src="img/avatar.jpg" alt=""></figure>
+                            <h4>Luis Sepulveda <i class="pending">Pending</i></h4>
+                            <ul class="booking_list">
+                                <li><strong>Booking date</strong> 5 May 2020</li>
+                  <li><strong>Booking time</strong> 09.30am</li>
+                                <li><strong>Type</strong> Appointment</li>
+                            </ul>
+                            <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+                            <ul class="buttons">
+                                <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
+                                <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <figure><img src="img/avatar1.jpg" alt=""></figure>
+                <h4>Steven Snake <i class="cancel">Cancelled</i></h4>
+                <ul class="booking_list">
+                  <li><strong>Booking date</strong> 8 May 2020</li>
+                  <li><strong>Booking time</strong> 09.30am</li>
+                  <li><strong>Type</strong> Video Call</li>
+                </ul>
+                            <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+                            <ul class="buttons">
+                                <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
+                                <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <figure><img src="img/avatar.jpg" alt=""></figure>
+                <h4>Joseph Mark <i class="approved">Approved</i></h4>
+                <ul class="booking_list">
+                  <li><strong>Booking date</strong> 12 May 2020</li>
+                  <li><strong>Booking time</strong> 09.30am</li>
+                  <li><strong>Type</strong> Appointment</li>
+                </ul>
+                            <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+                            <ul class="buttons">
+                                <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
+                                <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row --> 
+                    
+{% endblock %}

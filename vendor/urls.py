@@ -9,6 +9,11 @@ urlpatterns = [
         path('vendorInbox/message/<int:pk>/', views.readMessage, name='readMessage'),
         path('vendorInbox/message/compose/', views.composeMessage, name='composeMessage'),
 
+        path('v_bookings/', views.v_bookings, name='v_bookings'),
+        path('v_rfps/', views.v_rfps, name='v_rfps'),
+        path('v_reviews/', views.v_reviews, name='v_reviews'),
+        path('v_bookmarks/', views.v_bookmarks, name='v_bookmarks'),
+
         path('vendorCalendar/', views.vendorCalendar, name='vendorCalendar'),
         path('vendorListings/', views.vendorListings, name='vendorListings'),
         path('menuBuilder/', views.menuBuilder, name='menuBuilder'),

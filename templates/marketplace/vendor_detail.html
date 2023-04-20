@@ -12,9 +12,13 @@
 	                    </div>
 	                    <div class="main_info_wrapper">
 	                        <div class="main_info clearfix">
+	                            <div class="user_thumb">
+	                                <figure><img src="{{ vendor.user_profile.profile_picture.url }}" alt=""></figure>
+	                                <em class="online"><span></span>On line</em>
+	                            </div>
 	                            <div class="user_desc">
 	                                <h3>{{ vendor.vendor_name }}</h3>
-	                                <p>{{ vendor.user_profile.address }}, {{ vendor.user_profile.city }}, {{ vendor.user_profile.state }} {{ vendor.user_profile.zip_code }} - <a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x47e66e1de36f4147:0xb6615b4092e0351f!2sAssistance+Publique+-+H%C3%B4pitaux+de+Paris+(AP-HP)+-+Si%C3%A8ge!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="blank">Get directions</a></p>
+	                                <p>{{ vendor.address }}, {{ vendor.city }}, {{ vendor.state }} {{ vendor.zip_code }} - <a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x47e66e1de36f4147:0xb6615b4092e0351f!2sAssistance+Publique+-+H%C3%B4pitaux+de+Paris+(AP-HP)+-+Si%C3%A8ge!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="blank">Get directions</a></p>
 	                                <ul class="tags no_margin">
 	                                    <li><a href="#0">Pediatrician</a></li>
 	                                    <li><a href="#0">Piscologist</a></li>
@@ -30,8 +34,8 @@
 	                        </div>
 	                        <!-- /main_info_wrapper -->
 	                        <hr>
-	                        <h4>About me</h4>
-	                        <p>Tincidunt intellegam mel ne, an eam menandri invenire euripidis. Ea quo utroque forensibus eloquentiam. Nam ad option iisque verterem, sed nemore menandri ex. Pri ei solet eripuit, et nam decore tacimates persequeris. Te nec duis corpora persequeris, vix ubique graece intellegat ea. In pro <strong>euismod molestie</strong>, eam sonet doming offendit ut.</p>
+	                        <h4>Overview</h4>
+	                        <p>{{vendor.description|safe}}</p>
 	                        <div class="content_more">
 	                            <p>Lorem ipsum dolor sit amet, an sea eius elitr persius. Voluptaria inciderint qui in. No tollit aliquid reformidans mei, nec illum sensibus id, at has esse admodum adipisci. Et has maiestatis scriptorem. Et aeque iudico oblique ius.</p>
 	                        </div>
@@ -68,7 +72,7 @@
 	                                            <p>Mussum ipsum cacilds, vidis litro abertis.</p>
 	                                        </div>
 	                                        <div class="wrapper_indent">
-	                                            <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Nullam mollis. Phasellus hendrerit.</p>
+	                                            <p>{{ vendor.specialties|safe}}</p>
 	                                            <h6>Most requested services</h6>
 	                                            <div class="services_list clearfix">
 	                                                <ul>

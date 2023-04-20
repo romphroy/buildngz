@@ -76,7 +76,7 @@
                           <a href="{% url 'vendor_detail' vendor.vendor_slug %}" class="strip_info">
                               <div class="item_title">
                                   <h3>{{ vendor.vendor_name }}</h3>
-                                  <small>{{ vendor.user_profile.city }}, {{ vendor.user_profile.state }} {{ vendor.user_profile.zip_code }}</small>
+                                  <small>{{ vendor.city }}, {{ vendor.state }} {{ vendor.zip_code }}</small>
                               </div>
                           </a>
                       </figure>
@@ -120,9 +120,9 @@
                       <div class="info">
                           <h3>{{ vendor.vendor_name }}</h3>
                           <small>
-                            {{ vendor.user_profile.address }}
+                            {{ vendor.address }}
                             <br>
-                            {{ vendor.user_profile.city }}, {{ vendor.user_profile.state }} {{ vendor.user_profile.zip_code }}
+                            {{ vendor.city }}, {{ vendor.state }} {{ vendor.zip_code }}
                           </small>
                       </div>
                   </figure>
@@ -205,82 +205,37 @@
       <!-- /carousel -->
       <div class="row">
           <div class="col-12">
-              <div class="main_title version_2">
+              <div class="main_title center version_2">
                   <span><em></em></span>
                   <h2>Weekly Rate Offer</h2>
                   <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
                   <a href="#0">View All</a>
               </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-7 mx-auto">
               <div class="list_home">
                   <ul>
+                    {% for vendor in vendors %}
                       <li>
-                          <a href="detail-page.html">
+                          <a href="{% url 'vendor_detail' vendor.vendor_slug %}">
                               <figure>
-                                  <img src="img/professional_list_placeholder.png" data-src="img/professional_list_1.jpg" alt="" class="lazy">
+                                {% if vendor.user_profile.cover_photo %}
+                                  <img src="{{ vendor.user_profile.cover_photo.url }}" data-src="{{ vendor.user_profile.cover_photo.url }}" alt="" class="lazy">
+                                {% else %}
+                                    <img src="{% static 'images/uploads/plumbing.jpg' %}" data-src="{% static 'images/uploads/plumbing.jpg' %}" alt="" class="lazy">
+                                {% endif %}
                               </figure>
                               <div class="score"><strong>9.5</strong></div>
-                              <em>Lawyer</em>
-                              <h3>Laura Marting</h3>
-                              <small>8 Patriot Square E2 9NF</small>
+                              <em>{{ vendor.business_categories}}</em>
+                              <h3>{{ vendor.vendor_name}}</h3>
+                              <small>{{ vendor.address }}, {{ vendor.city }}, {{ vendor.state }} {{ vendor.zip_code }}</small>
                               <ul>
                                   <li><span class="ribbon off">-30%</span></li>
                                   <li>Average price $35</li>
                               </ul>
                           </a>
                       </li>
-                      <li>
-                          <a href="detail-page.html">
-                              <figure>
-                                  <img src="img/professional_list_placeholder.png" data-src="img/professional_list_2.jpg" alt="" class="lazy">
-                              </figure>
-                              <div class="score"><strong>8.0</strong></div>
-                              <em>Teacher</em>
-                              <h3>Anna Smith</h3>
-                              <small>27 Old Gloucester St, 4563</small>
-                              <ul>
-                                  <li><span class="ribbon off">-40%</span></li>
-                                  <li>Average price $30</li>
-                              </ul>
-                          </a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-          <div class="col-md-6">
-              <div class="list_home">
-                  <ul>
-                      <li>
-                          <a href="detail-page.html">
-                              <figure>
-                                  <img src="img/professional_list_placeholder.png" data-src="img/professional_list_3.jpg" alt="" class="lazy">
-                              </figure>
-                              <div class="score"><strong>9.5</strong></div>
-                              <em>Pediatrician</em>
-                              <h3>Dr. Stefany Lens</h3>
-                              <small>27 Old Gloucester St, 4563</small>
-                              <ul>
-                                  <li><span class="ribbon off">-30%</span></li>
-                                  <li>Average price $20</li>
-                              </ul>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="detail-page.html">
-                              <figure>
-                                  <img src="{% static 'images/architects.jpg %'}"alt="">
-                              </figure>
-                              <div class="score"><strong>8.0</strong></div>
-                              <em>Yoga Trainer</em>
-                              <h3>Lucy Clarks</h3>
-                              <small>22 Hertsmere Rd E14 4ED</small>
-                              <ul>
-                                  <li><span class="ribbon off">-50%</span></li>
-                                  <li>Average price $35</li>
-                              </ul>
-                          </a>
-                      </li>
+                      {% endfor %}
                   </ul>
               </div>
           </div>
@@ -298,26 +253,27 @@
           <div class="row justify-content-md-center how_2">
               <div class="col-lg-5 text-center">
                   <figure>
-                      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/web_wireframe.svg" alt="" class="img-fluid lazy" width="360" height="380">
-                  </figure>
+                    <img src="{% static 'images/web_wireframe.svg' %}" data-src="{% static 'images/web_wireframe.svg' %}" alt="" class="img-fluid lazy loaded" width="360" height="380" data-was-processed="true">                  </figure>
               </div>
-              <div class="col-lg-5">
-                 <ul>
-              <li>
-                  <h3><span>#01.</span> Search for a Professional</h3>
-                  <p>Search over 12.000 verifyed professionals that match your criteria.</p>
-              </li>
-              <li>
-                  <h3><span>#02.</span> View Professional Profile</h3>
-                  <p>View professional introduction and read reviews from other customers.</p>
-              </li>
-              <li>
-                  <h3><span>#03.</span> Enjoy the Consultation</h3>
-                  <p>Connect with your professional booking an appointment, via chat or video call!</p>
-              </li>
-          </ul>
-                  <p class="add_top_30"><a href="grid-listing-1.html" class="btn_1">Start Searching</a></p>
-              </div>
+                
+                    <div class="col-lg-5">
+                        <ul>
+                            <li>
+                                <h3><span>#01.</span> Search for a Professional</h3>
+                                <p>Search over 12,000 verified professionals that match your criteria.</p>
+                            </li>
+                            <li>
+                                <h3><span>#02.</span> View Professional Profiles</h3>
+                                <p>View professional introductions and read reviews from other customers.</p>
+                            </li>
+                            <li>
+                                <h3><span>#03.</span> Enjoy the Consultation</h3>
+                                <p>Connect with your professional and book an appointment, via chat or video call!</p>
+                            </li>
+                        </ul>
+                        <p class="add_top_30"><a href="grid-listing-1.html" class="btn_1">Start Searching</a></p>
+                    </div>
+                
               <!-- /row -->
           </div>
       </div>
@@ -325,13 +281,13 @@
   </div>
   <!-- /bg_gray -->
   
-  <div class="call_section version_2 lazy" data-bg="url(img/bg_call_section.jpg)">
+  <div class="call_section version_2 lazy" data-bg="url({% static 'images/uploads/architects.jpg' %})">
       <div class="container clearfix">
           <div class="col-lg-5 col-md-6 float-end wow">
               <div class="box_1">
                   <div class="ribbon_promo"><span>Free</span></div>
                   <h3>Are you a Professional?</h3>
-                  <p>Join Us to increase your online visibility. You'll have access to even more customers who are looking to professional service or consultation.</p>
+                  <p>Join us to increase your online visibility. You'll have access to even more customers who are looking for professional services or consultation.</p>
                   <a href="submit-professional.html" class="btn_1">Read more</a>
               </div>
           </div>

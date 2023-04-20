@@ -123,6 +123,22 @@ def composeMessage(request):
     print(request.POST)
     return render(request, 'vendor/composeMessage.html', context)
 
+def v_bookings(request):
+    return render(request, 'vendor/v_bookings.html')
+
+
+def v_rfps(request):
+    return render(request, 'vendor/v_rfps.html')
+
+
+def v_reviews(request):
+    return render(request, 'vendor/v_reviews.html')
+
+
+def v_bookmarks(request):
+    return render(request, 'vendor/v_bookmarks.html')
+
+
 def vendorCalendar(request):
     return render(request, 'vendor/vendorCalendar.html')
 

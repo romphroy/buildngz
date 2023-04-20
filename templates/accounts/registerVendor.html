@@ -1,105 +1,131 @@
-{% extends 'base.html' %}
 {% load static %}
 {% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content%}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Buildngz - Find a Professional and Book a Consultation by Appointment, Chat or Video call">
+    <meta name="author" content="Ansonika">
+    <title>Buildngz - Find a Professional and Book a Consultation by Appointment, Chat or Video call</title>
 
-<div class="row d-flex align-items-center">
-  <div class="col-lg-12 col-xl-12">
-    <!-- LOAD MESSAGES -->
-    {% include 'includes/alerts.html' %}
-    <!-- END Error Messages -->
-  </div>
-</div>
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="{% static 'images/apple-touch-icon-57x57-precomposed.png' %}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{% static 'images/apple-touch-icon-72x72-precomposed.png' %}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{% static 'images/apple-touch-icon-114x114-precomposed.png' %}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{% static 'images/apple-touch-icon-144x144-precomposed.png' %}">
 
-    <div class="container h-200">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-lg-12 col-xl-11">
-          
-            <div class="card-body p-md-5">
-              <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Register as Pro</p>
-      
-                  <form action="{% url 'registerVendor' %}" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                                
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        {% render_field form.first_name class="form-control" placeholder=form.first_name.label %} <br>
-                        {% render_field form.last_name class="form-control" placeholder=form.last_name.label %}
-                      </div>
-                    </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        {% render_field v_form.vendor_name class="form-control" placeholder='Company Name' %}
-                        <label class="form-label" for="form3Example3c">Your Company Name</label>
-                      </div>
-                    </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        {% render_field v_form.insurance_cert class="form-control" placeholder=v_form.insurance_cert.label %}
-                        <small>Please upload a copy of your Certificate or Insurance</small>
-                      </div>
-                    </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        {% render_field form.username class="form-control" placeholder=form.username.label %}
-                        <label class="form-label" for="form3Example3c">Pick a Username</label>
-                      </div>
-                    </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        {% render_field form.email class="form-control" placeholder=form.email.label %}
-                        <label class="form-label" for="form3Example3c">Your Email</label>
-                      </div>
-                    </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        {% render_field form.password class="form-control" placeholder="Password" %}
-                        <label class="form-label" for="form3Example4c">Password</label>
-                      </div>
-                    </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        {% render_field form.confirm_password class="form-control" placeholder="Confirm Password" %}
-                        <label class="form-label" for="form3Example4cd">Repeat your password</label>
-                      </div>
-                    </div>
-  
-                <div class="form-check d-flex justify-content-center mb-5">
-                      <label class="form-check-label" for="form2Example3">
-                        I agree all statements in <a href="#!">Terms of service</a>
-                      </label>
-                    </div>
-  
-                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="submit" id="submit2" class="btn_1 add_bottom_15"><i class="fa fa-plus mr-10"></i> Create Free Pro Account</button>      
-                    </div>
-                  </form>      
-                </div>
-                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image">      
-                </div>
-              </div>
-            </div>
-          
-        </div>
+    <!-- BASE CSS -->
+    <link href="{% static 'styles/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'styles/style.css' %}" rel="stylesheet">
+
+    <!-- SPECIFIC CSS -->
+    <link href="{% static 'styles/home.css' %}" rel="stylesheet">
+    <link href="{% static 'styles/account.css' %}" rel="stylesheet">
+
+    <!-- YOUR CUSTOM CSS -->
+    <link href="{% static 'styles/custom.css' %}" rel="stylesheet">
+
+</head>
+
+<body id="login_bg">
+	
+	<!-- <div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	End Preload -->
+	
+	<div id="login">
+		<aside>
+			<figure>
+				<a href="{% url 'home' %}"><img src="{% static 'images/vendorwise-1.png' %}" height="40" alt="" class="logo_sticky"></a>
+			</figure>
+      <div class="px-30 py-10">
+          <h1 class="h3 font-w400 mt-30 mb-10">One simple solution for contractors and design pros</h1>
+          <h2 class="h6 font-w400 text-muted mb-30">Attract and win better clients, run profitable projects and deliver a standout customer experience - all in one place.</h5>
+          <!-- <hr> -->
       </div>
-    </div>
+			<div class="access_social">
+        <a href="#0" class="social_bt facebook">Register with Facebook</a>
+        <a href="#0" class="social_bt google">Register with Google</a>
+      </div>
+            <div class="divider"><span>Or</span></div>
+            <!-- END Header -->
 
+            <!-- Sign Up Form -->
+            <!-- jQuery Validation functionality is initialized with .js-validation-signup class in js/pages/op_auth_signup.min.js which was auto compiled from _es6/pages/op_auth_signup.js -->
+            <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+            <form action="{% url 'registerVendor' %}" method="post" class="js-validation-signup px-30" enctype="multipart/form-data">
+              {% csrf_token %}
 
-{% endblock %}
+              <div class="form-group">
+                {% render_field v_form.vendor_name class="form-control" placeholder='Company Name' %}
+                <i class="icon_shield_alt"></i>                            
+              </div>
+              <div class="form-group">
+                {% render_field form.first_name class="form-control" placeholder=form.first_name.label %}                                            
+                <i class="icon_profile"></i>
+              </div>
+              <div class="form-group">
+                {% render_field form.last_name class="form-control" placeholder=form.last_name.label %}
+                <i class="icon_profile"></i>
+              </div>
+              <div class="form-group">
+                {% render_field v_form.insurance_cert class="form-control" placeholder=v_form.insurance_cert.label %}
+                <i class="icon_document_alt"></i>
+                <small>Please upload a copy of your Certificate or Insurance</small>
+              </div>
+              <div class="form-group">
+                {% render_field form.username class="form-control" placeholder=form.username.label %}
+                <i class="icon_contacts_alt"></i>
+            </div>
+            <div class="form-group">
+              {% render_field form.email class="form-control" placeholder=form.email.label %}
+              <i class="icon_mail_alt"></i>
+            </div>
+            <div class="form-group">
+              {% render_field form.password class="form-control" placeholder="Password" %}
+              <small class="form-text text-muted">Use 8 or more characters, with a mix of letters, numbers and symbols</small>
+              <i class="icon_lock"></i>
+            </div>
+            <div class="form-group">
+              {% render_field form.confirm_password class="form-control" placeholder="Confirm Password" %}
+              <i class="icon_lock"></i>
+            </div>
+              <div class="form-group">
+                <input type="checkbox" class="custom-control-input" id="signup-terms" name="signup-terms">
+                <label class="custom-control-label" for="signup-terms">I agree to Terms &amp; Conditions</label>
+            </div>
+            <div class="form-group">
+              <button type="submit" id="submit2" class="btn_1 add_bottom_15"><i class="fa fa-plus mr-10"></i> Create Free Pro Account</button>
+
+                  <div class="mt-30">
+                      <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="#" data-toggle="modal" data-target="#modal-terms">
+                          <i class="fa fa-book text-muted mr-5"></i> Read Terms
+                      </a>
+                      <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="{% url 'login' %}">
+                          <i class="fa fa-user text-muted mr-5"></i> Sign In
+                      </a>
+                  </div>
+                </div>
+          </form>
+          <!-- END Sign Up Form -->
+            <div class="copy">© Buildngz</div>
+		</aside>
+	</div>
+	<!-- /login -->  	
+	
+	<!-- LOAD MESSAGES -->
+	{% include 'includes/alerts.html' %}
+	<!-- END Error Messages -->
+		
+	<!-- COMMON SCRIPTS -->
+    <script src="{% static 'scripts/common_scripts.min.js' %}"></script>
+    <script src="{% static 'scripts/common_func.js' %}"></script>
+    <script src="{% static 'scripts/validate.js' %}"></script>
+    
+</div>  
+</body>
+</html>

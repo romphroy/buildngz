@@ -1,16 +1,16 @@
 {% load static %}
 
 
-  <header class="header_in clearfix">
+  <header class="header_in clearfix element_to_stick">
 		<div class="container">
 		<div id="logo">
 			<a href="{% url 'home' %}">
-				<img src="{% static 'images/buildngz-logo-1.png' %}" height="40" alt="">
+				<img src="{% static 'images/vendorwise-1.png' %}" height="35" alt="">
 			</a>
 		</div>
 		<ul id="top_menu">
 			<li><a href="{% url 'login' %}" class="btn_access">Log In</a></li>
-			<li><a href="{% url 'registerVendor' %}" class="btn_access green" target="_blank">Register as Pro</a></li>
+			<li><a href="{% url 'registerVendor' %}" class="btn_access" >Register as Pro</a></li>
 		</ul>
 		<!-- /top_menu -->
 		<a href="#0" class="open_close">

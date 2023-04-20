@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h3 class="mb-0 font-size-23">{{vendor.vendor_name}} Menu Builder</h4>
+                <h3 class="mb-0 font-size-24">{{vendor.vendor_name}} Menu Builder</h4>
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@
 
                                 <tbody>
                                     {% for cat in categories %}
-                                        <tr>
+                                        <tr class="general_list">
                                             <td width="5%" class="font-size-14">{{ forloop.counter }}</td>
                                             <td width="15%" class="font-size-14">
                                                 <a href="{% url 'product_by_category' cat.id %}">

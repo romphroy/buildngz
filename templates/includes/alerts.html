@@ -6,12 +6,17 @@
         </button>
         <strong>{{message}}</strong>
       </div> -->
-      
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+
+      <div class="alert alert-warning alert-dismissible fade show" role="alert" style="position: absolute; top: 10px; right: 40px; width: 65%; margin: 0 auto; z-index: 999;">
         <strong>{{message}}</strong>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+              
+      <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{message}}</strong>
+        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
+        </button> -->
       </div>      
     {% endfor %}
 {% endif %}
