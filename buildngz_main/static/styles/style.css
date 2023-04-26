@@ -3451,7 +3451,7 @@ ul.bullets li:before {
   -moz-box-shadow: 0px 7px 25px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 7px 25px 0px rgba(0, 0, 0, 0.2);
   border: 0;
-  background: #121921;
+  background: #fefefe;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -3481,13 +3481,13 @@ ul.bullets li:before {
   display: inline-block;
   font-size: 13px;
   font-size: 0.8125rem;
-  color: #ccc !important;
+  color: #000 !important;
 }
 .dropdown.user .dropdown-menu ul li a i {
   margin-right: 8px;
 }
 .dropdown.user .dropdown-menu ul li a:hover {
-  color: #fff !important;
+  color: #ccc !important;
 }
 
 .sticky .dropdown.user > a, .header_in .dropdown.user > a {

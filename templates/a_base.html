@@ -1,0 +1,123 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+    <head>
+        
+        <meta charset="utf-8" />
+        <title>Dashboard | Buildngz Pro</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Buildngz Pro Admin & Dashboard" name="description" />
+        <meta content="Buildngz" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+
+        <!-- <link href="{% static 'styles/style.css' %}" rel="stylesheet" type="text/css" /> -->
+        <!-- <link href="{% static 'vendor/styles/MetroJs.Full/MetroJs.min.css' %}" rel="stylesheet" type="text/css" /> -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,600" rel="stylesheet">
+
+        <!-- Bootstrap Css -->
+        <link href="{% static 'vendor/styles/bootstrap.css' %}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="{% static 'vendor/styles/icons.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="{% static 'vendor/styles/app.css' %}" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="{% static 'vendor/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'vendor/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+
+        <!-- Google Maps API -->
+        <script src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_API_KEY}}&libraries=places&callback=initAutoComplete" defer></script>
+        <script src="{% static 'scripts/custom.js' %}"></script>
+    </head>
+
+    <!---
+        Available Menu locations:
+
+        HORIZONTAL TOP NAV MENU
+        - Change the body tag to this: <body data-topbar="light" data-layout="horizontal">
+
+        - Under #MENU, add this: include 'includes/v_sidebar.html'
+
+        SIDEBAR & SIDE MENU (DEFAULT)
+        - Change the body tag to this: <body data-topbar="light">
+        - Under #MENU, add this: include 'includes/v_topnavbar.html'
+    --->    
+
+    <body data-topbar="light"">
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+    
+            <!-- LOAD NAVBAR -->
+            {% include 'includes/a_header.html' %}
+
+            <!-- ========== Menu Navigate Start ========== -->
+
+            <!--- #MENU -->
+            {% include 'includes/a_sidebar.html' %}
+            <!-- MENU -->
+
+        <!-- Menu Navigate End -->
+       
+        <!-- LOAD CONTENT -->
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+                        {% block content %}
+                            <!-- CONTENT GOES HERE -->
+                        {% endblock %}                        
+                    </div> <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+            </div>
+
+            <!-- LOAD FOOTER -->
+            {% include 'includes/a_footer.html' %}
+        </div>
+
+        <!-- JAVASCRIPT -->
+        <script src="{% static 'vendor/libs/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/metismenu/metisMenu.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/simplebar/simplebar.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/node-waves/waves.min.js' %}"></script>
+
+        <!--Morris Chart-->
+        
+        <script src="{% static 'vendor/libs/morris.js/morris.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/raphael/raphael.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/jquery-knob/jquery.knob.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/metrojs/release/MetroJs.Full/MetroJs.min.js' %}"></script>
+
+        <script src="{% static 'vendor/scripts/pages/dashboard.init.js' %}"></script>
+
+        <script src="{% static 'vendor/scripts/app.js' %}"></script>
+
+        <!-- Required datatable js -->
+        <script src="{% static 'vendor/libs/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+        <!-- Buttons examples -->
+        <script src="{% static 'vendor/libs/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/jszip/jszip.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/pdfmake/build/pdfmake.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/pdfmake/build/vfs_fonts.js' %}"></script>
+        <script src="{% static 'vendor/libs/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+        <!-- Responsive examples -->
+        <script src="{% static 'vendor/libs/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+        <script src="{% static 'vendor/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+
+        <!-- Datatable init js -->
+        <script src="{% static 'vendor/scripts/pages/datatables.init.js' %}"></script>
+        <!-- Peity chart
+        <script src="{% static 'vendor/libs/peity/jquery.peity.min.js"></script>-->
+
+        <script src="{% static 'vendor/libs/dropify/js/dropify.min.js' %}"></script>
+    </body>
+</html>

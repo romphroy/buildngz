@@ -12,6 +12,7 @@ autocomplete = new google.maps.places.Autocomplete(
 autocomplete.addListener('place_changed', onPlaceChanged);
 }
 
+
 function onPlaceChanged (){
     var place = autocomplete.getPlace();
 
@@ -73,10 +74,15 @@ function onPlaceChanged (){
             // }
         }
     }
-
             // $('#id_city').val(city);
             // $('#id_state').val(state);
             // $('#id_zip').val(postal_code);
-            
-    
 }
+
+
+// $(document).ready(function(){
+//     $('.add_to_cart').on('click', function(e){
+//         e.preventDefault();
+//         alert('test123');
+//     })
+// });

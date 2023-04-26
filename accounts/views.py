@@ -30,6 +30,13 @@ def check_role_customer(user):
     else:
         raise PermissionDenied
 
+# Restrict the customer from accessing the adminb page (customer role = 2)
+def check_role_admin(user):
+    if user.role == None and user.is_admin:
+        return True
+    else:
+        raise PermissionDenied
+
 
 def registerUser(request):
     # Request is POST. 
@@ -192,6 +199,12 @@ def customerDashboard(request):
 @user_passes_test(check_role_vendor)
 def vendorDashboard(request):
     return render(request, 'accounts/vendorDashboard.html')
+
+
+@login_required(login_url='login')
+@user_passes_test(check_role_admin)
+def adminDashboard(request):
+    return render(request, 'accounts/adminDashboard.html')
 
 
 def forgot_password(request):

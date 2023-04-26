@@ -11,7 +11,7 @@ from .forms import VendorForm, NewVendorMessageForm
 from accounts.forms import UserProfileForm
 from accounts.models import UserProfile
 from accounts.views import check_role_vendor
-from menu.models import Category, Product
+from menu.models import Category, Product, Vw_product
 from menu.forms import CategoryForm, ProductForm
 
 # from django.contrib import messages
@@ -21,6 +21,7 @@ from menu.forms import CategoryForm, ProductForm
 def get_vendor(request):
     vendor = Vendor.objects.get(user=request.user)
     return vendor
+
 
 @login_required(login_url='login')
 @user_passes_test(check_role_vendor)
@@ -83,7 +84,6 @@ def readMessage(request, pk=None):
         'message_count': message_count,
      }
     return render(request, 'vendor/readMessage.html', context)
-
 
 
 def composeMessage(request):
@@ -177,9 +177,9 @@ def menuBuilder(request):
 @login_required(login_url='login')
 @user_passes_test(check_role_vendor)
 def product_by_category(request, pk=None):
-    vendor          = get_vendor(request)
-    category        = get_object_or_404(Category, pk=pk)
-    product         = Product.objects.filter(vendor=vendor, category=category).order_by('product_name')
+    vendor      = get_vendor(request)
+    category    = get_object_or_404(Category, pk=pk)
+    product     = Product.objects.filter(vendor=vendor, category__name='Vendor').order_by('product_name')
     context     = {
         'product': product,
         'category': category,

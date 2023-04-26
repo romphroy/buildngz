@@ -13,6 +13,8 @@ def detectUser(user):
         redirectUrl = 'vendorDashboard'
     elif user.role == 2:
         redirectUrl = 'customerDashboard'
+    elif user.role == None and user.is_admin:
+        redirectUrl = 'adminDashboard'
     elif user.role == None and user.is_superadmin:
         redirectUrl = '/admin'
     return redirectUrl

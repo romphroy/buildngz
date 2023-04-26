@@ -9,8 +9,29 @@
 			</a>
 		</div>
 		<ul id="top_menu">
-			<li><a href="{% url 'login' %}" class="btn_access">Log In</a></li>
-			<li><a href="{% url 'registerVendor' %}" class="btn_access" >Register as Pro</a></li>
+			{% if not user.is_authenticated %}
+				<li><a href="{% url 'login' %}" class="btn_access">Log In</a></li>
+				<li><a href="{% url 'registerVendor' %}" class="btn_access" >Register as Pro</a></li>
+			{% else %}
+				<li>
+					<div class="dropdown user clearfix">
+						<a href="#" data-bs-toggle="dropdown">
+							<figure><img src="{% if user.user_profile.profile_picture %}{{ user.user_profile.profile_picture.url }}{% else %}{% static 'images/default-avatar.png' %}{% endif %}" alt=""></figure>{{ user.first_name }} {{ user.last_name }}</a>
+						
+						<div class="dropdown-menu">
+							<div class="dropdown-menu-content">
+								<ul>
+									<li><a href="{% url 'customerDashboard' %}"><i class="icon_cog"></i>Desktop</a></li>
+									<li><a href="#0"><i class="icon_document"></i>My Account</a></li>
+									<li><a href="#0"><i class="icon_mail"></i>Messages</a></li>
+									<li><a href="{% url 'logout' %}"><i class="icon_key"></i>Log out</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /dropdown -->
+				</li>
+			{% endif %}
 		</ul>
 		<!-- /top_menu -->
 		<a href="#0" class="open_close">

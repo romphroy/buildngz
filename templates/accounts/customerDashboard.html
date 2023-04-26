@@ -1,238 +1,212 @@
 {% extends 'base.html' %}
 
 {% block content%}
-<div class="page-content">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3">
-        {% include 'includes/c_sidebar.html' %}
-      </div><!-- .col -->
-
-      <div class="col-lg-9">
-          {% include 'includes/alerts.html' %}
-
-          <!-- Counter START -->
-          <div class="row g-4 mb-5">
-            <!-- Counter item -->
-            <div class="col-md-3 col-xxl-3">
-              <div class="card card-body shadow p-4">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <!-- Number -->
-                  <div class="me-2">
-                    <span>New Booked Rooms</span>
-                    <h3 class="mb-0 mt-2">54</h3>
-                  </div>
-                  <!-- Icon -->
-                  <div class="icon-lg rounded-circle flex-shrink-0 bg-primary bg-opacity-10 text-primary mb-0">
-                    <i class="bi bi-door-open fa-fw"></i>
-                  </div>
-                </div>
-              </div>	
+	
+<main>
+  {% include 'includes/alerts.html' %}
+  <!-- <div class="hero_single inner_pages background-image" data-background="url(img/hero_general.jpg)">
+    <div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.7)">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-8 col-lg-10 col-md-8">
+            <h1>Help and support</h1>
+            <p>Search questions or useful articles</p>
+            <form>
+            <div class="search_bar">
+              <input type="text" class="form-control" placeholder="What are you looking for?">
+              <input type="submit" value="Search">
             </div>
-
-            <!-- Counter item -->
-            <div class="col-md-3 col-xxl-3">
-              <div class="card card-body shadow p-4">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <!-- Number -->
-                  <div class="me-2">
-                    <span>Cancelled Rooms</span>
-                    <h3 class="mb-0 mt-2">12</h3>
-                  </div>
-                  <!-- Icon -->
-                  <div class="icon-lg rounded-circle flex-shrink-0 bg-danger bg-opacity-10 text-danger mb-0">
-                    <i class="bi bi-x-circle fa-fw"></i>
-                  </div>
-                </div>
-              </div>	
-            </div>
-
-            <!-- Counter item -->
-            <div class="col-md-3 col-xxl-3">
-              <div class="card card-body shadow p-4">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <!-- Number -->
-                  <div class="me-2">
-                    <span>Check-in</span>
-                    <h3 class="mb-0 mt-2">20</h3>
-                  </div>
-                  <!-- Icon -->
-                  <div class="icon-lg rounded-circle flex-shrink-0 bg-success bg-opacity-10 text-success mb-0">
-                    <i class="bi bi-box-arrow-in-right fa-fw"></i>
-                  </div>
-                </div>
-              </div>	
-            </div>
-
-            <!-- Counter item -->
-            <div class="col-md-3 col-xxl-3">
-              <div class="card card-body shadow p-4">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <!-- Number -->
-                  <div class="me-2">
-                    <span>Check-out</span>
-                    <h3 class="mb-0 mt-2">28</h3>
-                  </div>
-                  <!-- Icon -->
-                  <div class="icon-lg rounded-circle flex-shrink-0 bg-orange bg-opacity-10 text-orange mb-0">
-                    <i class="bi bi-box-arrow-right fa-fw"></i>
-                  </div>
-                </div>
-              </div>	
-            </div>
+          </form>
           </div>
-          <!-- Counter END -->
-          <br><br>
-          <table class="listing-table">
-          <tr class="listing-row c-white bg-primary">
-            <th>
-              <i class="fa fa-clipboard"></i>
-              Listings
-            </th>
-            <th>
-              <i class="fa fa-calendar-alt"></i>
-              Expiration Date
-            </th>
-            <th></th>
-          </tr><!-- .listing-row -->
-          <tr class="listing-row">
-            <td class="listing listing-cell">
-              <div class="listing__wrapper">
-                <div class="listing__thumbnail">
-                  <a href="single-listing-1.html">
-                    <img src="assets/images/uploads/listing-1.jpg" alt="April Boutique Coffee">
-                  </a>
-                </div><!-- .listing__thumbnail -->
-                <div class="listing__detail">
-                  <h3 class="listing__title">
-                    <a href="single-listing-1.html">April Boutique Coffee</a>
-                  </h3>
-                  <p class="listing__review c-dusty-gray">
-                    <span class="stars-outer" data-rating="4.8">
-                      <span class="stars-inner"></span>
-                    </span>
-                    <span>(5 Reviews)</span>
-                  </p>
-                  <p class="listing__location c-dusty-gray">
-                    <i class="fa fa-map-marker"></i>
-                    18 Leinster Terr, Paddington
-                  </p>
-                </div><!-- .listing__detail -->
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- /hero_single -->
+
+  <div class="bg_gray">
+
+		<div class="filters_full element_to_stick">
+        <div class="container clearfix">
+            <div class="switch-field">
+            <input type="radio" id="all" name="listing_filter" value="all" checked data-filter="*" class="selected">
+            <label for="all">All</label>
+            <input type="radio" id="popular" name="listing_filter" value="popular" data-filter=".popular">
+            <label for="popular">Popular</label>
+            <input type="radio" id="latest" name="listing_filter" value="latest" data-filter=".latest">
+            <label for="latest">Latest</label>
+        </div>
+            <a href="#collapseFilters" data-bs-toggle="collapse" class="btn_filters"><i class="icon_adjust-vert"></i><span>Filters</span></a>
+            <div class="search_bar_list">
+            <input type="text" class="form-control" placeholder="Search Vendors">
+        </div>
+        <a class="btn_search_mobile btn_filters" data-bs-toggle="collapse" href="#collapseSearch"><i class="icon_search"></i></a>
+        </div>
+        <div class="collapse filters_2" id="collapseFilters">
+          <div class="container margin_detail">
+              <div class="row">
+                  <div class="col-md-4">
+                      <div class="filter_type">
+                          <h6>Rating</h6>
+                          <ul>
+                              <li>
+                                  <label class="container_check">Superb 9+ <small>06</small>
+                                      <input type="checkbox">
+                                      <span class="checkmark"></span>
+                                  </label>
+                              </li>
+                              <li>
+                                  <label class="container_check">Very Good 8+ <small>12</small>
+                                      <input type="checkbox">
+                                      <span class="checkmark"></span>
+                                  </label>
+                              </li>
+                              <li>
+                                  <label class="container_check">Good 7+ <small>17</small>
+                                      <input type="checkbox">
+                                      <span class="checkmark"></span>
+                                  </label>
+                              </li>
+                              <li>
+                                  <label class="container_check">Pleasant 6+ <small>43</small>
+                                      <input type="checkbox">
+                                      <span class="checkmark"></span>
+                                  </label>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="filter_type">
+                          <h6>Availability</h6>
+                          <ul>
+                              <li>
+                                  <label class="container_check">Apointment <small>12</small>
+                                      <input type="checkbox">
+                                      <span class="checkmark"></span>
+                                  </label>
+                              </li>
+                              <li>
+                                  <label class="container_check">Chat <small>24</small>
+                                      <input type="checkbox">
+                                      <span class="checkmark"></span>
+                                  </label>
+                              </li>
+                              <li>
+                                  <label class="container_check">Video Call <small>23</small>
+                                      <input type="checkbox">
+                                      <span class="checkmark"></span>
+                                  </label>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <div class="filter_type">
+                          <h6>Price</h6>
+                          <div class="range_input">Price range from 0 to <span></span>$</div>
+                          <div><input type="range" min="10" max="100" step="10" value="30" data-orientation="horizontal"></div>
+                      </div>
+                  </div>
               </div>
-            </td>
-            <td>December 18, 2018</td>
-            <td class="listing-action">
-              <ul class="min-list">
-                <li>
-                  <button class="action edit" type="button">
-                    <i class="fa fa-pencil"></i>
-                    Edit
-                  </button>
-                </li>
+              <!-- /row -->
+          </div>
+      </div>
+      <!-- /filters -->
+      <div class="collapse" id="collapseSearch">
+          <div class="search_bar_list">
+              <input type="text" class="form-control" placeholder="Search Vendors">
+          </div>
+      </div>
+      <!-- /collapseSearch -->
+    </div>
+    <!-- /filters_full -->
 
-                <li>
-                  <button class="action remove" type="button">
-                    <i class="fa fa-trash"></i>
-                    Remove
-                  </button>
-                </li>
+    <div class="container margin_60_40">
+      <div class="main_title center">
+          <span><em></em></span>
+          <h2>Select a topic</h2>
+          <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <a class="box_topic" href="{% url 'c_my_account' %}">
+            <span><i class="icon_wallet"></i></span>
+            <h3>My Account</h3>
+            <p>Id mea congue dictas, nec et summo mazim impedit. Vim te audiam impetus interpretaris.</p>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <a class="box_topic" href="{% url 'c_bookings' %}">
+            <i class="icon_cloud-upload_alt"></i>
+            <h3>Bookings</h3>
+            <p>Id mea congue dictas, nec et summo mazim impedit. Vim te audiam impetus interpretaris.</p>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <a class="box_topic" href="{% url 'c_bookmarks' %}">
+            <i class="icon_lifesaver"></i>
+            <h3>Bookmarked Vendors</h3>
+            <p>Id mea congue dictas, nec et summo mazim impedit. Vim te audiam impetus interpretaris.</p>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <a class="box_topic" href="{% url 'c_rfps' %}">
+            <i class="icon_globe-2"></i>
+            <h3>RFPs</h3>
+            <p>Id mea congue dictas, nec et summo mazim impedit. Vim te audiam impetus interpretaris.</p>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <a class="box_topic" href="{% url 'c_reviews' %}">
+            <i class="icon_document_alt"></i>
+            <h3>Reviews</h3>
+            <p>Id mea congue dictas, nec et summo mazim impedit. Vim te audiam impetus interpretaris.</p>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <a class="box_topic" href="{% url 'c_messages' %}">
+            <i class="icon_comment_alt"></i>
+            <h3>Messages</h3>
+            <p>Id mea congue dictas, nec et summo mazim impedit. Vim te audiam impetus interpretaris.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- /container -->
+
+    <div class="container">
+      <div class="main_title version_2 center">
+        <span><em></em></span>
+        <h2>Popular articles</h2>
+        <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+      </div>
+
+      <div class="card margin_30_40">
+          <div class="card-body">
+            <div class="list_articles clearfix">
+              <ul>
+                <li><a href="#0"><i class="icon_documents_alt"></i>Et dicit vidisse epicurei pri</a></li>
+                <li><a href="#0"><i class="icon_documents_alt"></i>Ad sit virtute rationibus efficiantur</a></li>
+                <li><a href="#0"><i class="icon_documents_alt"></i>Partem vocibus omittam pri ne</a></li>
+                <li><a href="#0"><i class="icon_documents_alt"></i>Case debet appareat duo cu</a></li>
+                <li><a href="#0"><i class="icon_documents_alt"></i>Impedit torquatos quo in</a></li>
+                <li><a href="#0"><i class="icon_documents_alt"></i>Nec omnis alienum no</a></li>
+                <li><a href="#0"><i class="icon_documents_alt"></i>Quo eu soleat facilisi menandri</a></li>
+                <li><a href="#0"><i class="icon_documents_alt"></i>Et dicit vidisse epicurei pri</a></li>
               </ul>
-            </td>
-          </tr><!-- .listing-row -->
-          <tr class="listing-row">
-            <td class="listing listing-cell">
-              <div class="listing__wrapper">
-                <div class="listing__thumbnail">
-                  <a href="single-listing-1.html">
-                    <img src="assets/images/uploads/listing-2.jpg" alt="April Boutique Coffee">
-                  </a>
-                </div><!-- .listing__thumbnail -->
-                <div class="listing__detail">
-                  <h3 class="listing__title">
-                    <a href="single-listing-1.html">April Boutique Coffee</a>
-                  </h3>
-                  <p class="listing__review c-dusty-gray">
-                    <span class="stars-outer" data-rating="4.5">
-                      <span class="stars-inner"></span>
-                    </span>
-                    <span>(5 Reviews)</span>
-                  </p>
-                  <p class="listing__location c-dusty-gray">
-                    <i class="fa fa-map-marker"></i>
-                    18 Leinster Terr, Paddington
-                  </p>
-                </div><!-- .listing__detail -->
-              </div>
-            </td>
-            <td>December 18, 2018</td>
-            <td class="listing-action">
-              <ul class="min-list">
-                <li>
-                  <button class="action edit" type="button">
-                    <i class="fa fa-pencil"></i>
-                    Edit
-                  </button>
-                </li>
+            </div>
+            <!-- /list_articles -->
+          </div>
+      </div>
+    </div>
+    <!-- /container -->
+    <br>
+  </div>
+  <!-- /bg_gray -->
+</main>
+<!-- /main -->
 
-                <li>
-                  <button class="action remove" type="button">
-                    <i class="fa fa-trash"></i>
-                    Remove
-                  </button>
-                </li>
-              </ul>
-            </td>
-          </tr><!-- .listing-row -->
-
-          <tr class="listing-row">
-            <td class="listing listing-cell">
-              <div class="listing__wrapper">
-                <div class="listing__thumbnail">
-                  <a href="single-listing-1.html">
-                    <img src="assets/images/uploads/listing-3.jpg" alt="April Boutique Coffee">
-                  </a>
-                </div><!-- .listing__thumbnail -->
-                <div class="listing__detail">
-                  <h3 class="listing__title">
-                    <a href="single-listing-1.html">April Boutique Coffee</a>
-                  </h3>
-                  <p class="listing__review c-dusty-gray">
-                    <span class="stars-outer" data-rating="4">
-                      <span class="stars-inner"></span>
-                    </span>
-                    <span>(5 Reviews)</span>
-                  </p>
-                  <p class="listing__location c-dusty-gray">
-                    <i class="fa fa-map-marker"></i>
-                    18 Leinster Terr, Paddington
-                  </p>
-                </div><!-- .listing__detail -->
-              </div>
-            </td>
-            <td>December 18, 2018</td>
-            <td class="listing-action">
-              <ul class="min-list">
-                <li>
-                  <button class="action edit" type="button">
-                    <i class="fa fa-pencil"></i>
-                    Edit
-                  </button>
-                </li>
-
-                <li>
-                  <button class="action remove" type="button">
-                    <i class="fa fa-trash"></i>
-                    Remove
-                  </button>
-                </li>
-              </ul>
-            </td>
-          </tr><!-- .listing-row -->
-         </table><!-- .listing-table -->
-
-      </div><!-- .col -->
-    </div><!-- .row -->
-  </div><!-- .container -->
-</div><!-- .page-content -->	
 {% endblock %}
  

@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'marketplace',
     'blog',
     'taggit',
+    # 'rfp',
+    'customer',
 ]
 
 MIDDLEWARE = [

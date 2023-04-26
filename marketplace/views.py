@@ -68,3 +68,7 @@ def listings(request):
         'vendors': vendors,
     }
     return render(request, 'marketplace/listings.html', context)
+
+
+def add_to_cart(request, product_id=None):
+    return HttpResponse('Testing')

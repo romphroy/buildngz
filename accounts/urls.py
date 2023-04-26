@@ -13,6 +13,7 @@ urlpatterns = [
     path('myAccount', views.myAccount, name='myAccount'),
     path('customerDashboard/', views.customerDashboard, name='customerDashboard'),
     path('vendorDashboard/', views.vendorDashboard, name='vendorDashboard'),
+    path('adminDashboard/', views.adminDashboard, name='adminDashboard'),
     
     path('activate/<uidb64>/<token>/', views.activate, name='activate'),
     path('forgot_password/', views.forgot_password, name='forgot_password'),    
@@ -21,4 +22,6 @@ urlpatterns = [
     path('customerProfile/', views.customerProfile, name='customerProfile'),  
     
     path('vendor/', include('vendor.urls')),
+    path('customer/', include('customer.urls')),
+
 ]
