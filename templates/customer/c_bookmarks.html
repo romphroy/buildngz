@@ -15,47 +15,30 @@
 
 	<div class="box_general">
 		<div class="header_box">
-			<h2 class="d-inline-block">Bookmarks</h2>
-			<div class="filter">
+			<h2 style="font-size: 28px">Bookmarked Vendors</h2>
+			<!-- <div class="filter">
 				<select name="orderby" class="selectbox">
 					<option value="Any time">Any time</option>
 					<option value="Latest">Latest</option>
 					<option value="Oldest">Oldest</option>
 				</select>
-			</div>
+			</div> -->
 		</div>
 		<div class="list_general">
 			<ul>
-				<li>
-					<figure><img src="img/item_1.jpg" alt=""></figure>
-					<small>Pediatrician</small>
-					<h4>Dr. Maria Cornfield</h4>
-					<p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per....</p>
-					<p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-eye"></i> View profile</a></p>
-					<ul class="buttons">
-						<li><a href="#0" class="btn_1 gray delete wishlist_close"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
-					</ul>
-				</li>
-				<li>
-					<figure><img src="img/item_2.jpg" alt=""></figure>
-					<small>Obstetrician</small>
-					<h4>Dr. Luke Lachinet</h4>
-					<p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per....</p>
-					<p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-eye"></i> View profile</a></p>
-					<ul class="buttons">
-						<li><a href="#0" class="btn_1 gray delete wishlist_close"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
-					</ul>
-				</li>
-				<li>
-					<figure><img src="img/item_3.jpg" alt=""></figure>
-					<small>Dermatologist</small>
-					<h4>Dr. Marta Rainwater</h4>
-					<p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per....</p>
-					<p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-eye"></i> View profile</a></p>
-					<ul class="buttons">
-						<li><a href="#0" class="btn_1 gray delete wishlist_close"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
-					</ul>
-				</li>
+				<!-- Display Bookmarked Vendors -->
+				{% for saved_vendor in saved_vendors %}
+					<li>
+						<h3>{{ saved_vendor.vendor.vendor_name }}</h3>
+						<p><strong>Saved:</strong> {{ saved_vendor.created_at}}</p>
+
+						<p>{{ saved_vendor.vendor.description }}</p>
+						<p><a href="{% url 'vendor_detail' saved_vendor.vendor.vendor_slug %}" class="btn_1 gray"><i class="fa fa-fw fa-eye"></i> View profile</a></p>
+						<ul class="buttons">
+							<li><a href="#0" class="btn_1 red delete wishlist_close"><i class="fa fa-fw fa-times-circle-o"></i> Delete</a></li>
+						</ul>
+					</li>
+				{% endfor %}
 			</ul>
 		</div>
 	</div>

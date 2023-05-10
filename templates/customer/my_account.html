@@ -15,7 +15,7 @@
         <h4 class="d-inline-block">My Account</h4>
     
         <div class="row gutters-sm">
-          <div class="col-md-4 mb-3">
+          <div class="col-md-5 mb-3">
             <div class="card">
               <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
@@ -37,46 +37,25 @@
               <ul class="list-group list-group-flush">
                 {% for product in products %}
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h5 class="mb-2"><strong>{{ product.product_name }}</strong></h5>
-                    <a href="#" class="add_to_cart">
-                      <button class="btn btn-sm btn-secondary">Get add-on</button>
-                    </a>
-                    <!-- <a href="{% url 'add_to_cart' product.id %}" class="btn btn-sm btn-secondary add_to_cart">Get add-on</a> -->
+                    <button type="button" class="mb-2 btn btn-secondary"><strong>{{ product.product_name }}</strong></button>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <a href="#" class="decrease_cart" data-id="{{ product.id }}" data-url="{% url 'decrease_cart' product.id %}" style="margin-right: 28px;"><i class="fa fa-circle-minus fa-xl"></i></a>
+                        
+                        <label id="qty-{{product.id}}"style="margin-right: 28px;">0</label>
+                        
+                        <a href="#" class="add_to_cart" data-id="{{ product.id }}" data-url="{% url 'add_to_cart' product.id %}"><i class="fa fa-circle-plus fa-xl"></i></a>
+                    </li>
+                  </ul>
                     <p>{{ product.description}}<br><br> 
 
                     ${{ product.price}} {{ product.price_description}}</p>
                   </li>
                 {% endfor %}
-                <!-- <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                  <h5 class="mb-0">Preferred Vendor List</h5>
-                  <button class="btn btn-sm btn-secondary">Get add-on</button>
-                  <p>
-                    Get more leads before they drift elsewhere.<br>
-                    Try free for 14 days<br>
-                    $39 per company/month after trial
-                  </p>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                  <h5 class="mb-0">Docu Sign</h5>
-                  <button class="btn btn-sm btn-secondary">Get add-on</button>
-                  <p>
-                    Get more leads before they drift elsewhere.<br>
-                    Try free for 14 days<br>
-                    $39 per company/month after trial
-                  </p>
-                </li> -->
-                <!-- <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                  <h6 class="mb-0">Instagram</h6>
-                  <span class="text-secondary">bootdey</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                  <h6 class="mb-0">Facebook</h6>
-                  <span class="text-secondary">bootdey</span>
-                </li> -->
               </ul>
             </div>
           </div>
-          <div class="col-md-8">
+          <div class="col-md-7">
             <div class="card mb-3">
               <div class="card-body">
                 <div class="row">
@@ -188,14 +167,15 @@
                 </div>
               </div>
             </div>
-
-
-
           </div>
         </div>
 
       </div>
-  </div>		
+  </div>
+
+  {% for item in cart_items %}
+    <span id="qty-{{ item.product.id }}" class="item_qty d-none" data-qty="{{ item.quantity }}">{{ item.quantity }}</span>
+  {% endfor %}
 
 {% endblock %}
  

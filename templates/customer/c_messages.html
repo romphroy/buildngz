@@ -11,49 +11,250 @@
 			</li>
 			<li class="breadcrumb-item active">Messages</li>
 		</ol>
-
-	<div class="box_general">
-		<h4>Messages</h4>
-		<div class="list_general">
-			<ul>
-				<li>
-					<span>2 hours ago</span>
-					<figure><img src="img/avatar1.jpg" alt=""></figure>
-					<h4>Enzo Ferrari <i class="unread">Unread</i></h4>
-					<p>In vim mucius menandri convenire, an brute zril vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
+	<h4>Messages</h4>
+	<div class="email-app mb-4 box_general">
+        
+		<nav>
+			<a href="page-inbox-compose.html" class="btn btn-success btn-block">New Email</a>
+			<ul class="nav">
+				<li class="nav-item">
+					<a class="nav-link" href="#"><i class="fa fa-inbox"></i> Inbox <span class="badge badge-danger">4</span></a>
 				</li>
-				<li>
-					<span>2 hours ago</span>
-					<figure><img src="img/avatar2.jpg" alt=""></figure>
-					<h4>Andrea Lomarco <i class="unread">Unread</i></h4>
-					<p>Ex omnis error aliquam quo, eu eos atqui accusam, ex nec sensibus erroribus principes. No pro albucius eloquentiam accommodare. Mei id illud posse persius. Nec eu dico lucilius delicata, qui propriae voluptaria eu.</p>
+				<li class="nav-item">
+					<a class="nav-link" href="#"><i class="fa fa-star"></i> Stared</a>
 				</li>
-				<li>
-					<span>2 hours ago</span>
-					<figure><img src="img/avatar3.jpg" alt=""></figure>
-					<h4>Marc Twain <i class="read">Read</i></h4>
-					<p>Ex omnis error aliquam quo, eu eos atqui accusam, ex nec sensibus erroribus principes. No pro albucius eloquentiam accommodare. Mei id illud posse persius. Nec eu dico lucilius delicata, qui propriae voluptaria eu.</p>
+				<li class="nav-item">
+					<a class="nav-link" href="#"><i class="fa fa-rocket"></i> Sent</a>
 				</li>
-				<li>
-					<span>2 hours ago</span>
-					<figure><img src="img/avatar4.jpg" alt=""></figure>
-					<h4>Lucas Swing <i class="read">Read</i></h4>
-					<p>Cum id mundi admodum menandri, eum errem aperiri at. Ut quas facilis qui, euismod admodum persequeris cum at. Summo aliquid eos ut, eum facilisi salutatus ne. Mazim option abhorreant ne his.</p>
+				<li class="nav-item">
+					<a class="nav-link" href="#"><i class="fa fa-trash-o"></i> Trash</a>
 				</li>
-				<li>
-					<span>2 hours ago</span>
-					<figure><img src="img/avatar5.jpg" alt=""></figure>
-					<h4>Steve Wornder <i class="read">Read</i></h4>
-					<p>In vim mucius menandri convenire, an brute zril vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
-				</li>
-				<li>
-					<span>2 hours ago</span>
-					<figure><img src="img/avatar6.jpg" alt=""></figure>
-					<h4>Mark Shoemaker <i class="unread">Unread</i></h4>
-					<p>In vim mucius menandri convenire, an brute zril vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
+				<li class="nav-item">
+					<a class="nav-link" href="#"><i class="fa fa-bookmark"></i> Important</a>
 				</li>
 			</ul>
-		</div>
+		</nav>
+		<main class="inbox">
+			<div class="toolbar">
+				<div class="btn-group">
+					<button type="button" class="btn btn-light">
+						<span class="fa fa-envelope"></span>
+					</button>
+					<button type="button" class="btn btn-light">
+						<span class="fa fa-star"></span>
+					</button>
+					<button type="button" class="btn btn-light">
+						<span class="fa fa-star-o"></span>
+					</button>
+					<button type="button" class="btn btn-light">
+						<span class="fa fa-bookmark-o"></span>
+					</button>
+				</div>
+				<div class="btn-group">
+					<button type="button" class="btn btn-light">
+						<span class="fa fa-mail-reply"></span>
+					</button>
+					<button type="button" class="btn btn-light">
+						<span class="fa fa-mail-reply-all"></span>
+					</button>
+					<button type="button" class="btn btn-light">
+						<span class="fa fa-mail-forward"></span>
+					</button>
+				</div>
+				<button type="button" class="btn btn-light">
+					<span class="fa fa-trash-o"></span>
+				</button>
+				<div class="btn-group">
+					<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+						<span class="fa fa-tags"></span>
+						<span class="caret"></span>
+					</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#">add label <span class="badge badge-danger"> Home</span></a>
+						<a class="dropdown-item" href="#">add label <span class="badge badge-info"> Job</span></a>
+						<a class="dropdown-item" href="#">add label <span class="badge badge-success"> Clients</span></a>
+						<a class="dropdown-item" href="#">add label <span class="badge badge-warning"> News</span></a>
+					</div>
+				</div>
+				<div class="btn-group float-right">
+					<button type="button" class="btn btn-light">
+						<span class="fa fa-chevron-left"></span>
+					</button>
+					<button type="button" class="btn btn-light">
+						<span class="fa fa-chevron-right"></span>
+					</button>
+				</div>
+			</div>
+	
+			<ul class="messages">
+				<li class="message">
+					<a href="#">
+						<div class="actions">
+							<span class="action"><i class="fa fa-square-o"></i></span>
+							<span class="action"><i class="fa fa-star-o"></i></span>
+						</div>
+						<div class="header">
+							<span class="from">Lukasz Holeczek</span>
+							<span class="date">
+							<span class="fa fa-paper-clip"></span> Today, 3:47 PM</span>
+						</div>
+						<div class="title">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						</div>
+						<div class="description">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						</div>
+					</a>
+				</li>
+				<li class="message">
+					<a href="#">
+						<div class="actions">
+							<span class="action"><i class="fa fa-square-o"></i></span>
+							<span class="action"><i class="fa fa-star-o"></i></span>
+						</div>
+						<div class="header">
+							<span class="from">Lukasz Holeczek</span>
+							<span class="date">
+							<span class="fa fa-paper-clip"></span> Today, 3:47 PM</span>
+						</div>
+						<div class="title">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						</div>
+						<div class="description">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						</div>
+					</a>
+				</li>
+				<li class="message">
+					<a href="#">
+						<div class="actions">
+							<span class="action"><i class="fa fa-square-o"></i></span>
+							<span class="action"><i class="fa fa-star-o"></i></span>
+						</div>
+						<div class="header">
+							<span class="from">Lukasz Holeczek</span>
+							<span class="date">Today, 3:47 PM</span>
+						</div>
+						<div class="title">
+							Lorem ipsum dolor sit amet.
+						</div>
+						<div class="description">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						</div>
+					</a>
+				</li>
+				<li class="message ">
+					<a href="#">
+						<div class="actions">
+							<span class="action"><i class="fa fa-square-o"></i></span>
+							<span class="action"><i class="fa fa-star-o"></i></span>
+						</div>
+						<div class="header">
+							<span class="from">Lukasz Holeczek</span>
+							<span class="date">Today, 3:47 PM</span>
+						</div>
+						<div class="title">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						</div>
+						<div class="description">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						</div>
+					</a>
+				</li>
+				<li class="message">
+					<a href="#">
+						<div class="actions">
+							<span class="action"><i class="fa fa-square-o"></i></span>
+							<span class="action"><i class="fa fa-star-o"></i></span>
+						</div>
+						<div class="header">
+							<span class="from">Lukasz Holeczek</span>
+							<span class="date">Today, 3:47 PM</span>
+						</div>
+						<div class="title">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						</div>
+						<div class="description">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						</div>
+	
+					</a>
+				</li>
+				<li class="message">
+					<a href="#">
+						<div class="actions">
+							<span class="action"><i class="fa fa-square-o"></i></span>
+							<span class="action"><i class="fa fa-star-o"></i></span>
+						</div>
+						<div class="header">
+							<span class="from">Lukasz Holeczek</span>
+							<span class="date">Today, 3:47 PM</span>
+						</div>
+						<div class="title">
+							Lorem ipsum dolor sit amet.
+						</div>
+						<div class="description">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						</div>
+					</a>
+				</li>
+				<li class="message ">
+					<a href="#">
+						<div class="actions">
+							<span class="action"><i class="fa fa-square-o"></i></span>
+							<span class="action"><i class="fa fa-star-o"></i></span>
+						</div>
+						<div class="header">
+							<span class="from">Lukasz Holeczek</span>
+							<span class="date">Today, 3:47 PM</span>
+						</div>
+						<div class="title">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						</div>
+						<div class="description">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						</div>
+					</a>
+				</li>
+				<li class="message">
+					<a href="#">
+						<div class="actions">
+							<span class="action"><i class="fa fa-square-o"></i></span>
+							<span class="action"><i class="fa fa-star-o"></i></span>
+						</div>
+						<div class="header">
+							<span class="from">Lukasz Holeczek</span>
+							<span class="date">Today, 3:47 PM</span>
+						</div>
+						<div class="title">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						</div>
+						<div class="description">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						</div>
+					</a>
+				</li>
+				<li class="message">
+					<a href="#">
+						<div class="actions">
+							<span class="action"><i class="fa fa-square-o"></i></span>
+							<span class="action"><i class="fa fa-star-o"></i></span>
+						</div>
+						<div class="header">
+							<span class="from">Lukasz Holeczek</span>
+							<span class="date">Today, 3:47 PM</span>
+						</div>
+						<div class="title">
+							Lorem ipsum dolor sit amet.
+						</div>
+						<div class="description">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						</div>
+					</a>
+				</li>
+			</ul>
+		</main>
+
 	</div>
 	<!-- /box_general-->
 	<nav aria-label="...">

@@ -3,8 +3,6 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db.models.fields.related import ForeignKey, OneToOneField
 
 
-# Create your models here.
-
 # UserManager will never contain fields. It will only contain methods.
 class UserManager(BaseUserManager):
     def create_user(self, first_name, last_name, username, email, password=None):
@@ -44,30 +42,32 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser):
     VENDOR = 1
     CUSTOMER = 2
+    BOTH = 3
     
     ROLE_CHOICE = (
         (VENDOR, 'Vendor'),
         (CUSTOMER, 'Customer'),
+        (BOTH, 'Both'),
     )
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    username = models.CharField(max_length=50, unique=True)
-    email = models.EmailField(max_length=100, unique=True)
-    phone_number = models.CharField(max_length=13, blank=True)
-    role = models.PositiveSmallIntegerField(choices=ROLE_CHOICE, blank=True, null=True)
+    first_name      = models.CharField(max_length=50)
+    last_name       = models.CharField(max_length=50)
+    username        = models.CharField(max_length=50, unique=True)
+    email           = models.EmailField(max_length=100, unique=True)
+    phone_number    = models.CharField(max_length=13, blank=True)
+    role            = models.PositiveSmallIntegerField(choices=ROLE_CHOICE, blank=True, null=True)
     
     # requred fields
-    date_joined = models.DateTimeField(auto_now_add=True)
-    last_login = models.DateTimeField(auto_now_add=True)
-    created_date = models.DateTimeField(auto_now_add=True)
-    modified_date = models.DateTimeField(auto_now=True)
-    is_admin = models.BooleanField(default=False)
-    is_staff = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=False)
-    is_superadmin = models.BooleanField(default=False)
+    date_joined     = models.DateTimeField(auto_now_add=True)
+    last_login      = models.DateTimeField(auto_now_add=True)
+    created_date    = models.DateTimeField(auto_now_add=True)
+    modified_date   = models.DateTimeField(auto_now=True)
+    is_admin        = models.BooleanField(default=False)
+    is_staff        = models.BooleanField(default=False)
+    is_active       = models.BooleanField(default=False)
+    is_superadmin   = models.BooleanField(default=False)
     
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = [ 'username', 'first_name', 'last_name']
+    REQUIRED_FIELDS = [ 'username', 'first_name', 'last_name', 'phone_number' ]
     
     objects = UserManager()
         
@@ -85,15 +85,17 @@ class User(AbstractBaseUser):
             user_role = 'Vendor'
         elif self.role == 2:
             user_role = 'Customer'
+        elif self.role == 3:
+            user_role = 'Both'
         return user_role
             
         
 class UserProfile(models.Model):
-    user = OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
+    user            = OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     profile_picture = models.ImageField(upload_to='users/profile_pictures', blank=True, null=True)
-    cover_photo = models.ImageField(upload_to='users/cover_photos', blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
-    modified_at = models.DateTimeField(auto_now=True, blank=True, null=True)
+    cover_photo     = models.ImageField(upload_to='users/cover_photos', blank=True, null=True)
+    created_at      = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    modified_at     = models.DateTimeField(auto_now=True, blank=True, null=True)
     
     # def full_address(self):
     #     return f'{self.address}'

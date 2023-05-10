@@ -1,6 +1,7 @@
 from django.db import models
 from vendor.models import Vendor
 from accounts.models import User, UserProfile
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -77,7 +78,7 @@ class Vw_product(models.Model):
     category            = models.CharField(choices=CATEGORY_CHOICES, max_length=20)
     product_name        = models.CharField(max_length=50)
     slug                = models.SlugField(max_length=100, unique=True)
-    description         = models.TextField(max_length=250, blank=True)
+    description         = RichTextField(max_length=250, blank=True)
     price               = models.DecimalField(max_digits=10, decimal_places=2)
     price_description   = models.CharField(max_length=50, blank=True)
     is_available        = models.BooleanField(default=True)

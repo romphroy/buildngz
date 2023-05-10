@@ -22,9 +22,9 @@ class ProductAdmin(admin.ModelAdmin):
     
 class Vw_productAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('product_name',)}
-    list_display        = ('product_name', 'category', 'price', 'is_available', 'updated_at')
+    list_display        = ('product_name', 'category', 'price', 'is_available', 'is_subscription', 'updated_at')
     search_fields       = ('product_name',)
-    list_filter         = ('is_available', 'category')
+    list_filter         = ('is_available', 'is_subscription', 'category')
     
     
 class SubscriptionAdmin(admin.ModelAdmin):

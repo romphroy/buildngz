@@ -82,7 +82,7 @@
 }
 
 .plan-tall .plan-title {
-  background-color: #FF3A65;
+  background-color: #4AC857;
   border-bottom: none;
   color: #fff;
 }
@@ -134,7 +134,7 @@ ul.plan-features {
   margin-right: -5px;
   position: relative;
   z-index: 100;
-  border: solid #FF3A65;
+  border: solid #4AC857;
   position: relative;
 }
 
@@ -143,7 +143,7 @@ ul.plan-features {
   width: 130px;
   line-height: 135px;
   font-size: 36px;
-  background: #FF3A65;
+  background: #4AC857;
   -webkit-border-radius: 130px;
   -moz-border-radius: 130px;
   -ms-border-radius: 130px;

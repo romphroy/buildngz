@@ -1660,7 +1660,7 @@ hr {
 
 /*General links color*/
 a {
-  color: #FF3A65;
+  color: #4AC857;
   text-decoration: none;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -3156,7 +3156,7 @@ ul#top_menu > li a.btn_access.green:hover {
 a.btn_1,
 .btn_1 {
   border: none;
-  background: #FF3A65;
+  background: #4AC857;
   outline: none;
   cursor: pointer;
   display: inline-block;
@@ -3222,8 +3222,8 @@ a.btn_1.outline,
 }
 a.btn_1.outline:hover,
 .btn_1.outline:hover {
-  border-color: #FF3A65;
-  color: #FF3A65 !important;
+  border-color: #4AC857;
+  color: #4AC857 !important;
 }
 a.btn_1.outline:focus,
 .btn_1.outline:focus {
@@ -3240,6 +3240,92 @@ a.btn_1.gray:hover,
   color: #111 !important;
 }
 
+a.btn_2,
+.btn_2 {
+  border: none;
+  background: #4AC857;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  font-size: 14px;
+  font-size: 0.875rem;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  line-height: normal;
+}
+a.btn_2:focus,
+.btn_2:focus {
+  outline: none;
+}
+a.btn_2:hover,
+.btn_2:hover {
+  background: #1f2f6a;
+}
+a.btn_2.full-width,
+.btn_2.full-width {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+a.btn_2.full-width.booking,
+.btn_2.full-width.booking {
+  padding: 15px;
+  background-color: #3cb46e;
+}
+a.btn_2.full-width.booking:hover,
+.btn_2.full-width.booking:hover {
+  background-color: #1f2f6a;
+}
+a.btn_2.small,
+.btn_2.small {
+  font-size: 12px;
+  font-size: 0.75rem;
+  padding: 7px 15px;
+}
+a.btn_2.medium,
+.btn_2.medium {
+  font-size: 16px;
+  font-size: 1rem;
+  padding: 18px 40px;
+}
+a.btn_2.outline,
+.btn_2.outline {
+  border: 1px solid #999;
+  color: #444 !important;
+  padding: 7px 15px;
+  background-color: transparent;
+}
+a.btn_2.outline:hover,
+.btn_2.outline:hover {
+  border-color: #4AC857;
+  color: #4AC857 !important;
+}
+a.btn_2.outline:focus,
+.btn_2.outline:focus {
+  outline: none;
+}
+a.btn_2.gray,
+.btn_2.gray {
+  background: #f0f0f0;
+  color: #111 !important;
+}
+a.btn_2.gray:hover,
+.btn_2.gray:hover {
+  background-color: #FFC107;
+  color: #111 !important;
+}
 /*-------- 3.3 Misc --------*/
 .box_general {
   background-color: #fff;

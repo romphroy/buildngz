@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+<div class="container">
+    <div class="main-body">
+        <!-- /box_general-->
+        <div class="row">
+            <div class="col-md-8">
+                <!-- Box 1 -->
+                <div class="box_general padding_bottom">
+                    <div class="header_box version_2">
+                        <h2><i class="fa fa-shopping-cart"></i>Cart</h2><br>
+                    </div>
+                    <div class="text-center mb-5" id="empty-cart" style="display: none;">
+                        <h3>Your Cart is Empty.</h3>
+                    </div>    
+
+                    {% if cart_items %}
+                        {% for item in cart_items %}
+                            <div class="d-flex align-items-center mb-5" id="cart-item-{{item.id}}">
+                                <div class="flex-grow-1 ms-3">
+                                    <div class="row">
+                                        <div class="d-flex align-items-center col-lg-8 ">
+                                            <h5 class="text-primary">{{ item.product}}</h5>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item align-items-center">
+                                                    <a href="#" class="decrease_cart" data-id="{{ item.product.id }}" id="{{item.id}}" data-url="{% url 'decrease_cart' item.product.id %}" style="margin-right: 10px;"><i class="fa fa-circle-minus fa-xl"></i></a>
+                                                    
+                                                    <label id="qty-{{item.product.id}}" style="margin-right: 12px;">0</label>
+                                                    
+                                                    <a href="#" class="add_to_cart" data-id="{{ item.product.id }}" data-url="{% url 'add_to_cart' item.product.id %}" style="margin-right: 10px;"><i class="fa fa-circle-plus fa-xl"></i></a>
+                                                    <a href="#" class="delete_cart" data-id="{{ item.id }}" data-url="{% url 'delete_cart' item.id %}" title="Delete this item"><i class="fa fa-trash fa-xl text-danger"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <p class="fw-bold mb-0 me-5 pe-3">{{item.product.price}} {{item.product.price_description}}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="d-flex align-items-center mb-5">
+                            <div class="flex-grow-1 ms-3">
+                                <h3 class="text-center">Your Cart is Empty.</h3>
+                            </div>
+                        </div>    
+                    {% endif %}
+
+                    <div class="list_general">
+                        <ul>
+                            <li>
+                                <h6>YOUR PLAN</h6>
+                                <ul class="buttons">
+                                    <li><a href="#0" class="btn btn-outline-dark btn-sm"><i class="fa fa-fw fa-times-circle-o"></i> Manage Subscription</a></li>
+                                </ul>
+                                <br>
+                                Advanced
+                                    <h3 class="pull-right">$29</h3><br><span class="pull-right">per company/month</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <!-- Box 1 -->
+                <div class="box_general padding_bottom">
+                    <div class="header_box version_2">
+                        <h2><i class="fa fa-envelope"></i>Next Estimated Invoice</h2>
+                    </div>
+                    <div class="form-group">
+                        <label>Old email</label>
+                        <input class="form-control" name="old_email" id="old_email" type="email">
+                    </div>
+                    <div class="form-group">
+                        <label>New email</label>
+                        <input class="form-control" name="new_email" id="new_email" type="email">
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm new email</label>
+                        <input class="form-control" name="confirm_new_email" id="confirm_new_email" type="email">
+                    </div>  
+                </div>
+
+                <!-- Box 2 -->
+                <div class="box_general padding_bottom">
+                    <div class="header_box version_2">
+                        <h2><i class="fa fa-envelope"></i>Payment Method</h2>
+                    </div>
+                    <div class="form-group">
+                        <label>Old email</label>
+                        <input class="form-control" name="old_email" id="old_email" type="email">
+                    </div>
+                    <div class="form-group">
+                        <label>New email</label>
+                        <input class="form-control" name="new_email" id="new_email" type="email">
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm new email</label>
+                        <input class="form-control" name="confirm_new_email" id="confirm_new_email" type="email">
+                    </div>  
+                </div>
+
+                <!-- Box 2 -->
+                <div class="box_general padding_bottom">
+                    <div class="header_box version_2">
+                        <h2><i class="fa fa-envelope"></i>Billing Contact</h2>
+                    </div>
+                    <div class="form-group">
+                        <label>Old email</label>
+                        <input class="form-control" name="old_email" id="old_email" type="email">
+                    </div>
+                    <div class="form-group">
+                        <label>New email</label>
+                        <input class="form-control" name="new_email" id="new_email" type="email">
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm new email</label>
+                        <input class="form-control" name="confirm_new_email" id="confirm_new_email" type="email">
+                    </div>  
+                </div>
+
+            </div>
+        </div>
+        <!-- /row-->
+        <p><a href="#0" class="btn_1 medium">Save</a></p>
+        <!-- /box_general-->
+    </div>
+</div>
+{% endblock %}
+ 

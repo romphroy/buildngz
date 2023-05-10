@@ -213,3 +213,4 @@ var lazyLoadInstance = new LazyLoad({
     }, 1500);
 
 })(window.jQuery); 
+

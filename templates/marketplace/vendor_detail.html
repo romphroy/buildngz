@@ -2,8 +2,11 @@
 {% load static %}
 
 {% block content %}
-	<main class="bg_color">
-	    <div class="container margin_detail">
+
+
+<main class="bg_color">
+	{% include 'includes/alerts.html' %}
+	<div class="container margin_detail">
 	        <div class="row">
 	            <div class="col-xl-8 col-lg-7">
 	                <div class="box_general">
@@ -29,7 +32,7 @@
 	                                <div class="rating">
 	                                    <div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
 	                                </div>
-	                                <a href="#0" class="wish_bt"><i class="icon_heart_alt"></i></a>
+	                                <a href="{% url 'save_vendor' vendor.vendor_slug %}" class="wish_bt"><i class="icon_heart_alt"></i></a>
 	                            </div>
 	                        </div>
 	                        <!-- /main_info_wrapper -->

@@ -31,8 +31,14 @@
 					</div>
 					<!-- /dropdown -->
 				</li>
+				<li>
+					<a href="{% url 'cart' %}">
+						<i class="fa fa-shopping-cart fa-lg text-success"></i>
+						<span class="badge badge-dark" id="cart_counter" style="border-radius: 50px; position: relative; bottom: 15px; left: -4px; background-color: #fa0000">{{ cart_count }}</span>
+					</a>
+				</li>
 			{% endif %}
-		</ul>
+	</ul>
 		<!-- /top_menu -->
 		<a href="#0" class="open_close">
 			<i class="icon_menu"></i><span>Menu</span>
@@ -42,7 +48,7 @@
 				<a href="#0" class="open_close">
 					<i class="icon_close"></i><span>Menu</span>
 				</a>
-				<a href="{% url 'home' %}"><img src="img/logo.svg" width="155" height="45" alt=""></a>
+				<!-- <a href="{% url 'home' %}"><img src="img/logo.svg" width="155" height="45" alt=""></a> -->
 			</div>
 			<ul>
 				<li class="submenu">
@@ -77,7 +83,7 @@
 						<li><a href="modal-login.html">Modal Login</a></li>
 						<li><a href="modal-popup.html">Modal Advertise</a></li>
 						<li><a href="modal-newsletter.html">Modal Newsletter</a></li>
-						<li><a href="pricing-tables-1.html">Pricing Tables 1</a></li>
+						<li><a href="{% url 'pricing' %}">Pricing Tables 1</a></li>
 						<li><a href="pricing-tables-2.html">Pricing Tables 2</a></li>
 						<li><a href="blog.html">Blog</a></li>
 						<li><a href="contacts.html">Contacts</a></li>

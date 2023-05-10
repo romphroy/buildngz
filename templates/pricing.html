@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- main -->
+<main class="bg_color">
+
+    <div class="container margin_60_30">			
+        <div class="main_title center">
+            <span><em></em></span>
+            <h2>Pricing Plans</h2>
+            <p>Buyers search for vetted vendors for free, always.</p>
+        </div>
+        <div class="row plans">
+            {% for product in products %}
+                
+                <div class="plan {% if product.price > 10 and product.price < 20 %}plan-tall{% endif %} col-md-4">
+                
+                    <div class="plan-title">
+                        <h3>{{ product.product_name }}</h3>
+                        <p>{{ product.price_description}}</p>
+                    </div>
+                    <p class="plan-price">${{ product.price }}</p>
+                    <ul class="plan-features">
+                        <li><strong>Check and go</strong> included</li>
+                        <li><strong>When paid annually</strong></li>
+                        <li><strong>Unsubscribe</strong> anytime</li>
+                    </ul>
+                    <a href="#" class="add_to_cart btn_2 {% if product.price < 10 or product.price > 20 %}gray{% endif %} btn_scroll" data-id="{{ product.id }}" data-url="{% url 'add_to_cart' product.id %}">Sign-up</a>
+                </div> <!-- End col-md-4 -->
+            {% endfor %}
+        </div><!-- End row plans-->
+    </div>
+    <!-- /container -->
+    
+</main>
+<!-- /main -->
+{% endblock %}

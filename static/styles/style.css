@@ -3165,7 +3165,7 @@ ul#top_menu > li a.btn_access.green:hover {
 a.btn_1,
 .btn_1 {
   border: none;
-  background: #FF3A65;
+  background: #4AC857;
   outline: none;
   cursor: pointer;
   display: inline-block;
@@ -3231,8 +3231,8 @@ a.btn_1.outline,
 }
 a.btn_1.outline:hover,
 .btn_1.outline:hover {
-  border-color: #FF3A65;
-  color: #FF3A65 !important;
+  border-color: #4AC857;
+  color: #4AC857 !important;
 }
 a.btn_1.outline:focus,
 .btn_1.outline:focus {

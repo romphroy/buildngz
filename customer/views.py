@@ -12,6 +12,8 @@ from accounts.models import User, UserProfile
 from accounts.utils import detectUser, send_verification_email
 from accounts.views import check_role_customer
 from menu.models import Vw_product
+from marketplace.models import Cart
+from .models import SavedVendor
 
 
 # Helper Function
@@ -64,11 +66,17 @@ def c_my_account(request):
     profile = get_object_or_404(UserProfile, user=request.user)
     customer = get_object_or_404(User, id=request.user.id)
     products = Vw_product.objects.filter(category='Buyer').order_by('product_name')
+    
+    if request.user.is_authenticated:
+        cart_items = Cart.objects.filter(user=request.user)
+    else:
+        cart_items = 0
 
     context = {
         'profile': profile,
         'customer': customer,
-        'products': products
+        'products': products,
+        'cart_items': cart_items,
     }
     return render(request, 'customer/my_account.html', context)
 
@@ -85,12 +93,20 @@ def c_reviews(request):
     return render(request, 'customer/c_reviews.html')
 
 
+@login_required(login_url='login')
+@user_passes_test(check_role_customer)
 def c_bookmarks(request):
-    return render(request, 'customer/c_bookmarks.html')
+    saved_vendors = SavedVendor.objects.filter(user=request.user).select_related('vendor')
+    print(saved_vendors)
+    context = {
+        'saved_vendors': saved_vendors,
+    }
+    return render(request, 'customer/c_bookmarks.html', context)
 
 
 def c_messages(request):
-    return render(request, 'customer/c_messages.html')
+    # return render(request, 'customer/c_messages.html')
+    return render(request, 'marketplace/cart-2.html')
 
 
 @login_required(login_url='login')
