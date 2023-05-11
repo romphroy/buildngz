@@ -47,7 +47,7 @@
                         <a href="#" class="add_to_cart" data-id="{{ product.id }}" data-url="{% url 'add_to_cart' product.id %}"><i class="fa fa-circle-plus fa-xl"></i></a>
                     </li>
                   </ul>
-                    <p>{{ product.description}}<br><br> 
+                    <p>{{ product.description|striptags}}<br><br> 
 
                     ${{ product.price}} {{ product.price_description}}</p>
                   </li>

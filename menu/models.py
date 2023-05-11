@@ -81,6 +81,7 @@ class Vw_product(models.Model):
     description         = RichTextField(max_length=250, blank=True)
     price               = models.DecimalField(max_digits=10, decimal_places=2)
     price_description   = models.CharField(max_length=50, blank=True)
+    discount            = models.DecimalField(max_digits=5, decimal_places=2, default=0)
     is_available        = models.BooleanField(default=True)
     created_at          = models.DateTimeField(auto_now_add=True)
     updated_at          = models.DateTimeField(auto_now=True)

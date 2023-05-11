@@ -2341,10 +2341,22 @@ ul#top_menu > li a.btn_access.green:hover {
   -ms-border-radius: 5px;
   border-radius: 5px;
   margin-top: 10px;
-  width: 950px;
+  width: 90%;
   -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
+}
+.custom-search-input select {
+  padding-right: 30px;
+}
+
+.custom-search-input::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 @media (max-width: 991px) {
   .custom-search-input {
@@ -2365,7 +2377,7 @@ ul#top_menu > li a.btn_access.green:hover {
 .custom-search-input input {
   border: 0;
   height: 50px;
-  padding: 10px 10px 10px 20px;
+  padding: 10px 5px 10px 10px;
   font-weight: 600;
   font-size: 16px;
   font-size: 1rem;
@@ -3708,12 +3720,26 @@ ul.bullets li:before {
   -ms-border-radius: 3px;
   border-radius: 3px;
   border: 1px solid #d2d8dd;
+  position: relative; /* Add this line to make the ::after pseudo-element position relative to the select element */
 }
+
+/* Add the ::after pseudo-element to the .form-control class */
+.form-control::after {
+  content: "\25BC"; /* The caret symbol */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Add styles for the focused state of the select element */
 .form-control:focus {
   border-color: #ccc;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.05);
 }
+
 
 .form-group {
   margin-bottom: 1rem;

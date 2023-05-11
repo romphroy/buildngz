@@ -15,3 +15,18 @@ def get_cart_counter(request):
         except:
             cart_count = 0
     return dict(cart_count=cart_count)
+
+
+def get_cart_amounts(request):
+    total = 0
+    discount = 0
+    if request.user.is_authenticated:
+        cart_items = Cart.objects.filter(user=request.user)
+        for item in cart_items:
+            product = Vw_product.objects.get(pk=item.product.id)
+            discount += (product.price * item.quantity) * product.discount
+            total += (product.price * item.quantity) - discount
+            
+    print(total)
+    print(discount)            
+    return dict(total=total, discount=discount)    

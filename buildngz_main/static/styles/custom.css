@@ -1,3 +1,21 @@
+.select-caret::after {
+  content: "\25BC";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  padding: 10px;
+  height: 40px;
+  font-size: 14px;
+  font-size: 0.875rem;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #d2d8dd;
+}
+
 #page-container.main-content-boxed > #page-header .content-header,
 #page-container.main-content-boxed > #page-header .content,
 #page-container.main-content-boxed > #main-container .content,

@@ -103,6 +103,12 @@ $(document).ready(function(){
                     console.log(response.cart_counter['cart_count'])
                     $('#cart_counter').html(response.cart_counter['cart_count']);
                     $('#qty-'+product_id).html(response.qty);
+
+                    // Discount and total amounts
+                    applyCartAmounts(
+                        response.cart_amount['discount'], 
+                        response.cart_amount['total']
+                    )
                 }
             }
         })       
@@ -138,6 +144,12 @@ $(document).ready(function(){
                     console.log(response.cart_counter['cart_count'])
                     $('#cart_counter').html(response.cart_counter['cart_count']);
                     $('#qty-'+product_id).html(response.qty);
+                   
+                    // Discount and total amounts
+                    applyCartAmounts(
+                        response.cart_amount['discount'], 
+                        response.cart_amount['total']
+                    )
 
                     if(window.location.pathname == '/cart/'){
                         removeCartItem(response.qty, cart_id);
@@ -167,6 +179,13 @@ $(document).ready(function(){
                     console.log(response.cart_counter['cart_count'])
                     $('#cart_counter').html(response.cart_counter['cart_count']);
                     swal(response.status, response.message, 'success')
+                    
+                    // Discount and total amounts
+                    applyCartAmounts(
+                        response.cart_amount['discount'], 
+                        response.cart_amount['total']
+                    )
+
                     removeCartItem(0, cart_id);
                     checkEmptyCart();
                 }
@@ -182,11 +201,21 @@ $(document).ready(function(){
         }
     }
 
+
     // Empty cart check
     function checkEmptyCart(){
         var cart_counter = document.getElementById('cart_counter').innerHTML
         if(cart_counter == 0){
             document.getElementById("empty-cart").style.display = "block";
+        }
+    }
+
+
+    // Apply cart amounts
+    function applyCartAmounts(discount, total){
+        if(window.location.pathname == '/cart/'){
+            $('#discount').html(discount)
+            $('#total').html(total)
         }
     }
 });
